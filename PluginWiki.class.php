@@ -16,7 +16,13 @@ class PluginWiki extends Plugin
 {
 
     protected $aInherits = array(
-        
+        'entity' => [
+            'ModuleCategory_EntityCategory' => '_ModuleWiki_EntityWiki'
+        ],
+        'template' => [
+            'component.topic.topic-add-type-wikipage' => '_components/topic/topic-add-type-wikipage.tpl',
+            'component.topic.topic-type-wikipage' => '_components/topic/topic-type-wikipage.tpl',
+        ]
     );
 
     public function Init()
