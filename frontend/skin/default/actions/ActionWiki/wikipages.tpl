@@ -5,7 +5,7 @@
  
 {extends 'layouts/layout.base.tpl'}
 
-{block 'layout_options' append} 
+{block 'layout_options' append}
     {*$layoutNav = [[
         hook       => 'panel',
         activeItem => $sMenuItemSelect,
@@ -20,14 +20,15 @@
     <h2 class="page-header">
         {$oWiki->getTitle()}
     </h2>
+    <h3>
+        {$oCategory->getTitle()}
+    </h3>
 {/block}
 
 {block 'layout_content'}
-    <ul>
-        {foreach $aCategories as $oCategory}
-            <li>
-                <a href="{router page="wiki/{$oCategory->getUrlFull()}"}">{$oCategory->getTitle()}</a>
-            </li>
+    <article class="ls-topic topic js-topic">
+        {foreach $aWikipages as $oWikipage}
+            {component 'topic.type' topic=$oWikipage}
         {/foreach}
-    </ul>
+    </article>
 {/block}

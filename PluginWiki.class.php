@@ -17,7 +17,8 @@ class PluginWiki extends Plugin
 
     protected $aInherits = array(
         'entity' => [
-            'ModuleCategory_EntityCategory' => '_ModuleWiki_EntityWiki'
+            'ModuleCategory_EntityWiki' => '_ModuleWiki_EntityWiki',
+            'ModuleTopic_EntityTopic' => '_ModuleWiki_EntityWikipage'
         ],
         'template' => [
             'component.topic.topic-add-type-wikipage' => '_components/topic/topic-add-type-wikipage.tpl',
