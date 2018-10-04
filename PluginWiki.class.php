@@ -23,12 +23,15 @@ class PluginWiki extends Plugin
         'template' => [
             'component.topic.topic-add-type-wikipage' => '_components/topic/topic-add-type-wikipage.tpl',
             'component.topic.topic-type-wikipage' => '_components/topic/topic-type-wikipage.tpl',
+            'component.editor.editor' => '_components/editor/editor.tpl',
         ]
     );
 
     public function Init()
     {
-       
+        $this->Lang_AddLangJs([
+            'plugin.wiki.markitup.punkt'
+        ]);
         
     }
 

@@ -5,8 +5,8 @@ class PluginWiki_HookTopic extends Hook{
     public function RegisterHook()
     {
         
-       $this->AddHook('topic_add_after', 'AddTopic');
-        
+        $this->AddHook('topic_add_after', 'AddTopic');
+        $this->AddHook('topic_edit_before', 'EditTopic');
         
     }
 
@@ -18,6 +18,8 @@ class PluginWiki_HookTopic extends Hook{
         if($aParams['oTopic']->getType() !== 'wikipage'){
             return false;
         }
+        
+        $this->EditTopic($aParams);
 
         $aCategoryIds = getRequest('categories');
         if(!is_array($aCategoryIds) or !count($aCategoryIds)){
@@ -28,4 +30,8 @@ class PluginWiki_HookTopic extends Hook{
 
     }
 
+    public function EditTopic($aParams) {
+        $this->Text_LoadJevixConfig('wiki',  true);
+        $aParams['oTopic']->setText($this->Text_Parser($aParams['oTopic']->getTextSource()));
+    }
 }

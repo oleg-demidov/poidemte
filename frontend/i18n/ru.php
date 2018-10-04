@@ -9,5 +9,8 @@ return [
     ],
     'block_wiki' => [
         'title' => 'Категории'
+    ],
+    'markitup' => [
+        'punkt' => 'Вставить пункт'
     ]
 ];

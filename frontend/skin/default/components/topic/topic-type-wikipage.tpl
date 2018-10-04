@@ -15,7 +15,7 @@
 
 {block 'topic_body'}
     <p>
-       {component 'text' text="<b>{$topic->getTitle()}.</b> {$topic->getText()}"}
+       {component 'text' text="<b>{$topic->getTitle()}.</b> {$topic->getText()}" attributes=[ id => "p{$topic->getTitle()}"]}
     </p>
 {/block}
 
