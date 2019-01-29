@@ -21,7 +21,7 @@
  * Ничего не изменяйте в этом файле!
  * Все изменения нужно вносить в файл config/config.local.php
  */
-define('LS_VERSION','2.0.0');
+define('LS_VERSION','2.0.1');
 
 /**
  * Основные настройки путей
@@ -41,7 +41,7 @@ $config['sys']['debug']['action_error'] = false;
  */
 $config['view']['skin']        = 'bootstrap';		// Название текущего шаблона
 $config['view']['theme'] = 'default';			// тема оформления шаблона (шаблон должен поддерживать темы)
-$config['view']['name']        = 'Fend';                   // название сайта
+$config['view']['name']        = 'Pdd';                   // название сайта
 $config['view']['description'] = 'Description your site'; // seo description
 $config['view']['keywords']    = 'site, google, internet';      // seo keywords
 $config['view']['wysiwyg']         = false;  // использовать или нет визуальный редактор TinyMCE
@@ -199,6 +199,8 @@ $config['db']['table']['session'] = $config['db']['table']['user_session'];
 $config['db']['table']['user_reminder'] = '___db.table.prefix___reminder';
 $config['db']['table']['media'] = '___db.table.prefix___media';
 $config['db']['table']['media_target'] = '___db.table.prefix___media_target';
+$config['db']['table']['category'] = '___db.table.prefix___category';
+$config['db']['table']['category_target'] = '___db.table.prefix___category_target';
 $config['db']['table']['rating_vote'] = '___db.table.prefix___rating_vote';
 $config['db']['table']['talk_message'] = '___db.table.prefix___talk_message';
 $config['db']['table']['talk_proposal'] = '___db.table.prefix___talk_message';
