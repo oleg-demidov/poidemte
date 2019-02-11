@@ -318,6 +318,15 @@ class ModuleMedia extends ModuleORM
 
     public function Upload($aFile, $sTargetType, $sTargetId, $sTargetTmp = null)
     {
+        $oMedia = $this->Media_GetMediaByFilter([
+            'target_type'   => $sTargetType,
+            'user_id'     => $sTargetId,
+            'file_name'     => substr($aFile['name'], 0, strrpos($aFile['name'], "."))
+        ]);
+        if($oMedia){
+            return $this->Lang_Get('media.uploader.notices.errorDublicate');
+        }
+        
         if (is_string($aFile)) {
             return $this->UploadUrl($aFile, $sTargetType, $sTargetId, $sTargetTmp);
         } else {

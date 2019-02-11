@@ -149,7 +149,6 @@ ls.ajax = (function ($) {
                     if ( $.isFunction( more.onError ) ) more.onError.apply( this, arguments );
                 } else {
                     if ( more.showNotices && ( response.sMsgTitle || response.sMsg ) ) ls.msg.notice( response.sMsgTitle, response.sMsg );
-                    if ( $.isFunction( callback ) ) callback.apply( this, arguments );
 
                 }
                 if ( $.isFunction( callback ) ) callback.apply( this, arguments );
@@ -166,9 +165,9 @@ ls.ajax = (function ($) {
             complete: function() {
                 NProgress.done();
                 button.prop('disabled', false).removeClass(ls.options.classes.states.loading);
-
-                if ( $.isFunction( more.onComplete ) ) more.onComplete.apply( this, arguments );
                 if ( lock ) ls.utils.formUnlock( form );
+                
+                if ( $.isFunction( more.onComplete ) ) more.onComplete.apply( this, arguments );                
             }.bind(this)
         };
 

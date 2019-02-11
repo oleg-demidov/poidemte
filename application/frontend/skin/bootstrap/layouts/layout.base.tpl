@@ -124,8 +124,6 @@
                                 {foreach $layoutNav as $layoutNavItem}
                                     {if is_array($layoutNavItem)}
                                         {component 'bs-nav' 
-                                            itemsClasses="m-1" 
-                                            bmods='pills' 
                                             params=$layoutNavItem 
                                             assign=_layoutNavItemContent}
                                         {$_layoutNavContent = "$_layoutNavContent $_layoutNavItemContent"}
