@@ -10,7 +10,7 @@
  
 
 
-{component_define_params params=[ 'text', 'url', 'active', 'disabled' , 'bmods', 'bg', 'classes', 'attributes', 
+{component_define_params params=[ 'text', 'url', 'active','icon', 'disabled' , 'bmods', 'bg', 'classes', 'attributes', 
     'type', 'value', 'tag', 'com', 'popover', 'badge' ]}
 
 {* Название компонента *}
@@ -29,6 +29,13 @@
             <{$tag} type="{$type|default:"button"}" class="{$component} {cmods name=$component mods=$bmods delimiter="-"} {$classes}" 
                 {if $popover}{component "bs-popover" params=$popover}{/if} 
                 {cattr list=$attributes}>
+                {if $icon}
+                    {if is_array($icon)}
+                        {component "bs-icon" params=$icon}
+                    {else}
+                        {component "bs-icon" icon=$icon display='s' classes="mr-1"}
+                    {/if}                    
+                {/if}
                 {$text}
                 {if $badge}
                     {if is_array($badge)}
