@@ -162,6 +162,8 @@
 
                     {hook run='layout_content_begin' action=$sAction}
 
+                    {show_blocks group='content'}
+                    
                     {block 'layout_content'}{/block}
 
                     {hook run='layout_content_end' action=$sAction}
