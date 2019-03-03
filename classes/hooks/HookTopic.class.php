@@ -5,8 +5,8 @@ class PluginWiki_HookTopic extends Hook{
     public function RegisterHook()
     {
         
-        $this->AddHook('topic_add_after', 'AddTopic');
-        $this->AddHook('topic_edit_before', 'EditTopic');
+//        $this->AddHook('topic_add_after', 'AddTopic');
+//        $this->AddHook('topic_edit_before', 'EditTopic');
         
     }
 

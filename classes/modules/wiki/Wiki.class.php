@@ -22,9 +22,9 @@ class PluginWiki_ModuleWiki extends ModuleORM
     {
         $sText = '';
         if (isset($aParams['punkt'])) {
-            if($oTopic = $this->PluginWiki_Wiki_GetTopicByFilter(['topic_title' => $aParams['punkt']])){
-                $oTopic->setType('wikipage');
-                $sText .= "<a href=\"{$oTopic->getUrl()}#p{$aParams['punkt']}\" class=\"wikipage-url-ajax\">{$oTopic->getTopicTitle()}</a> ";
+            if($oPunkt = $this->PluginWiki_Wiki_GetPunktByFilter(['id' => $aParams['punkt']])){
+                $oPunkt->setType('wikipage');
+                $sText .= "<a href=\"{$oPunkt->getUrl()}#p{$aParams['punkt']}\" class=\"wikipage-url-ajax\">{$oPunkt->getTopicTitle()}</a> ";
             }
         }
         return $sText;

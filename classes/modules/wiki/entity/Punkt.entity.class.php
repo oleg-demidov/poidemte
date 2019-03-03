@@ -1,7 +1,8 @@
 <?php
 
-class PluginWiki_ModuleWiki_EntityTopic extends EntityORM
+class PluginWiki_ModuleWiki_EntityPunkt extends EntityORM
 {
+    
     protected $aBehaviors = array(
         /**
          * Дополнительные поля
@@ -24,6 +25,5 @@ class PluginWiki_ModuleWiki_EntityTopic extends EntityORM
     public function _getPrimaryKeyValue() {
         return $this->_getDataOne('topic_id');
     }
-   
    
 }

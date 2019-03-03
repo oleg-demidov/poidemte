@@ -3,7 +3,7 @@
  * Таблица БД
  */
 $config['$root$']['db']['table']['category_wiki'] = '___db.table.prefix___category';
-$config['$root$']['db']['table']['wiki_wiki_topic'] = '___db.table.prefix___topic';
+$config['$root$']['db']['table']['wiki_wiki'] = '___db.table.prefix___wiki';
 
 /**
  * Роутинг
