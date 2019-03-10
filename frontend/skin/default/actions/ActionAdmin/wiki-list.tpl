@@ -12,32 +12,34 @@
         </div>
     </div>
     
-    <div>
-        <div class="ls-grid-row"> 
-            <div class="ls-grid-col ls-grid-col-4"> 
-                Название
-            </div>
-            <div class="ls-grid-col ls-grid-col-4"> 
-                Страниц
-            </div>
-            <div class="ls-grid-col ls-grid-col-4"> 
+    <table class="ls-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Название</th>
+                <th>Страниц</th>
+                <th class="ls-table-cell-actions">Действие</th>
+            </tr>
+        </thead>
+        <tbody>
+            {foreach $aWiki as $oWiki}
                 
-            </div>
-        </div>
-        {foreach $aWiki as $oWiki}
-            <div class="ls-grid-row"> 
-                <div class="ls-grid-col ls-grid-col-4"> 
-                    {$oWiki->getMenuTitle()}
-                </div>
-                <div class="ls-grid-col ls-grid-col-4"> 
-                    Страниц
-                </div>
-                <div class="ls-grid-col ls-grid-col-4"> 
+                <tr data-id="{$oWiki->getId()}">
+                    <td>{$oWiki->getId()}</td>
+                    <td>
+                        {$oWiki->getMenuTitle()}
+                    </td>
+                    <td>{$oWiki->getCountAns()}</td>
                     
-                </div>
-            </div>
-        {/foreach}
-    </div>
+                    <td class="ls-table-cell-actions">
+                        <a href="{router page="admin/plugin/wiki/edit/{$oWiki->getId()}"}?security_ls_key={$LIVESTREET_SECURITY_KEY}" class="fa fa-edit" title="{$aLang.plugin.admin.edit}"></a>
+                        <a href="{router page="admin/plugin/wiki/remove/{$oWiki->getId()}"}?security_ls_key={$LIVESTREET_SECURITY_KEY}" class="fa fa-trash-o js-confirm-remove" title="{$aLang.plugin.admin.delete}"></a>
+                    </td>
+                </tr>
+            {/foreach}
+        </tbody>
+    </table>
+     
     
 {/block}
 

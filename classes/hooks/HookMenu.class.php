@@ -4,10 +4,7 @@
 class PluginWiki_HookMenu extends Hook{
     public function RegisterHook()
     {
-        
-       //$this->AddHook('template_nav_main', 'NavMain');
-        
-        
+        $this->AddHook('engine_init_complete', 'NavMain');        
     }
 
     /**
@@ -15,21 +12,29 @@ class PluginWiki_HookMenu extends Hook{
      */
     public function NavMain($aParams)
     {
-        $aCategories = $this->Category_GetCategoriesTreeByTargetType('wiki');
+        $aWiki = $this->PluginWiki_Wiki_GetWikiItemsAll();
+        
+        $oMenu = $this->Menu_Get('main');
         
         $aItems = [];
-        foreach ($aCategories as $aCategory) {
-            $oCategory = $aCategory['entity'];
-            $aItems[] = [
-                'text' => $oCategory->getTitle(),
-                'name' => 'wiki_'.$oCategory->getCode(),
-                'url'  => Router::GetPath('wiki/'.$oCategory->getUrlFull())
-            ];
+        foreach ($aWiki as $oWiki) {
+            
+            if(!$oWiki->getState()){
+                continue;
+            }
+            
+            if(!$oWiki->getMenuEnable()){
+                continue;
+            }
+           
+            $oMenu->appendChild(Engine::GetEntity("ModuleMenu_EntityItem", [
+                'name' => $oWiki->getCode(),
+                'title' => $oWiki->getMenuTitle(),
+                'url' => 'wiki/'.$oWiki->getCode()
+            ]));
+            
         }
         
-        $aResult = array_merge( $aItems, $aParams['items']);
-        return    $aResult;
-
     }
 
 }
