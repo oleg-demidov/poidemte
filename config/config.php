@@ -2,8 +2,8 @@
 /**
  * Таблица БД
  */
-$config['$root$']['db']['table']['category_wiki'] = '___db.table.prefix___category';
 $config['$root$']['db']['table']['wiki_wiki'] = '___db.table.prefix___wiki';
+$config['$root$']['db']['table']['wiki_wiki_page'] = '___db.table.prefix___wiki_page';
 
 /**
  * Роутинг

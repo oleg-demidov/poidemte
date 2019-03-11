@@ -8,7 +8,7 @@ class PluginWiki_ActionAdmin extends PluginAdmin_ActionPlugin
 
     public function Init()
     {
-        $this->SetDefaultEvent('list');
+        $this->SetDefaultEvent('list');        
     }
 
     /**
@@ -23,6 +23,13 @@ class PluginWiki_ActionAdmin extends PluginAdmin_ActionPlugin
         $this->RegisterEventExternal('Wiki', 'PluginWiki_ActionAdmin_EventWiki');        
         $this->AddEventPreg('/^list$/i', 'Wiki::EventList');
         $this->AddEventPreg( '/^(add|edit)$/i', '/^([0-9]{1,50})?$/i', 'Wiki::EventAddWiki');
+        $this->AddEventPreg('/^remove_wiki$/i', '/^([0-9]{1,50})?$/i', 'Wiki::EventRemove');
+        
+        $this->RegisterEventExternal('Page', 'PluginWiki_ActionAdmin_EventPage');  
+        $this->AddEventPreg('/^[a-z_0-9]{1,50}$/i', '/^pages$/i', 'Page::EventList');
+        $this->AddEventPreg('/^[a-z_0-9]{1,50}$/i', '/^page_(add|edit)$/i', '/^([0-9]{1,50})?$/i', 'Page::EventAdd');
+        
+        
 //        $this->RegisterEventExternal('Bilet', 'PluginTest_ActionAdmin_EventBilet');        
 //        $this->AddEventPreg( '/^bilet$/i', '/^(add|edit)$/i', '/^([0-9]{1,50})?$/i',  'Bilet::EventAddEdit');
 //        $this->AddEventPreg( '/^bilet$/i', '/^remove$/i', '/^([0-9]{1,50})?$/i',  'Bilet::EventRemove');

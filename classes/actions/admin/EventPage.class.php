@@ -1,66 +1,74 @@
 <?php
 
-class PluginWiki_ActionAdmin_EventWiki extends Event
+class PluginWiki_ActionAdmin_EventPage extends Event
 {
     protected $oUserCurrent = null;
+    
+    protected $oWiki = null;
 
     public function Init()
     { 
         $this->oUserCurrent = $this->User_GetUserCurrent();
+        
+        if(!$this->oWiki = $this->PluginWiki_Wiki_GetWikiByCode( $this->sCurrentEvent )){
+            $this->Message_AddError('Нет такой документации');
+            Router::LocationAction("admin/plugin/wiki/list");
+        }
     }
 
    
     public function EventList()
     {
-        $this->SetTemplateAction('wiki-list');
+        $this->SetTemplateAction('page-list');
         
-        $aWiki = $this->PluginWiki_Wiki_GetWikiItemsAll();
+        $aPages = $this->PluginWiki_Wiki_GetPageItemsByWikiId( $this->oWiki->getId() );
         
-        $this->Viewer_Assign('aWiki', $aWiki);  
+        $this->Viewer_Assign('aPages', $aPages);  
+        $this->Viewer_Assign('oWiki', $this->oWiki);  
     }
     
-    public function EventAddWiki() {
+    public function EventAdd() {
         
-        $this->SetTemplateAction('wiki-add');
+        $this->SetTemplateAction('page-add');
         
-        $oWiki = $this->PluginWiki_Wiki_GetWikiById( $this->GetParam(0) );
-        
-        if(isPost()){ 
-            if(!$oWiki){
-                $oWiki = Engine::GetEntity('PluginWiki_Wiki_Wiki' );
-            }
-            
-            $oWiki->_setData(getRequest('wiki'));
-            
-            if(!isset($_POST['wiki']['state'])){
-                $oWiki->setState(0);
-            }
-            if(!isset($_POST['wiki']['menu_enable'])){
-                $oWiki->setMenuEnable(0);
-            }
-            
-                       
-            if($oWiki->_Validate()){ 
-                if($oWiki->Save()){
-                    
-                    $this->Message_AddNoticeSingle($this->Lang_Get('common.success.save'),'',true);
-                    Router::LocationAction("admin/plugin/wiki/list");
-                    
-                }else{
-                    $this->Message_AddErrorSingle($this->Lang_Get('common.error.system.base'));
-                }
-            }else{
-                foreach($oWiki->_getValidateErrors() as $aError){
-                    $this->Message_AddError($aError[0], $this->Lang_Get('common.error.error'));
-                }
-            }  
-                      
-        }
-        
-        if($oWiki){
-            $_REQUEST['wiki'] = $oWiki->_getData();
-        }
-        $this->Viewer_Assign('oWiki', $oWiki);  
+//        $oWiki = $this->PluginWiki_Wiki_GetWikiById( $this->GetParam(0) );
+//        
+//        if(isPost()){ 
+//            if(!$oWiki){
+//                $oWiki = Engine::GetEntity('PluginWiki_Wiki_Wiki' );
+//            }
+//            
+//            $oWiki->_setData(getRequest('wiki'));
+//            
+//            if(!isset($_POST['wiki']['state'])){
+//                $oWiki->setState(0);
+//            }
+//            if(!isset($_POST['wiki']['menu_enable'])){
+//                $oWiki->setMenuEnable(0);
+//            }
+//            
+//                       
+//            if($oWiki->_Validate()){ 
+//                if($oWiki->Save()){
+//                    
+//                    $this->Message_AddNoticeSingle($this->Lang_Get('common.success.save'),'',true);
+//                    Router::LocationAction("admin/plugin/wiki/list");
+//                    
+//                }else{
+//                    $this->Message_AddErrorSingle($this->Lang_Get('common.error.system.base'));
+//                }
+//            }else{
+//                foreach($oWiki->_getValidateErrors() as $aError){
+//                    $this->Message_AddError($aError[0], $this->Lang_Get('common.error.error'));
+//                }
+//            }  
+//                      
+//        }
+//        
+//        if($oWiki){
+//            $_REQUEST['wiki'] = $oWiki->_getData();
+//        }
+        $this->Viewer_Assign('oWiki', $this->oWiki);  
     }
     
     public function EventRemove() {
