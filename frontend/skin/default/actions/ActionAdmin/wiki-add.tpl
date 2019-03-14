@@ -1,4 +1,4 @@
-
+<h3>Добавить/редактировать документацию</h3>
 
 {component 'admin:p-form' isEdit=$oWiki 
     isEdit=$oWiki 

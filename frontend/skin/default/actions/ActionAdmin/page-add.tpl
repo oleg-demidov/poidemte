@@ -1,4 +1,4 @@
-
+<h3>Добавить/редактировать страницу</h3>
 
 {component 'admin:p-form'
     isEdit=$oPage 

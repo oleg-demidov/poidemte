@@ -2,7 +2,10 @@
  * Список тестов
  *
  *}
-<h3>Список страниц документации "{$oWiki->getMenuTitle()}"</h3>
+<h3>
+    <a href="{router page="admin/plugin/wiki/list"}">Список документаций</a> > 
+    {$oWiki->getMenuTitle()}    
+</h3>
 
 {block 'wiki_content'}
     

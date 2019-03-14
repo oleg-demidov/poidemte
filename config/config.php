@@ -11,6 +11,11 @@ $config['$root$']['db']['table']['wiki_wiki_punkt'] = '___db.table.prefix___wiki
  */
 $config['$root$']['router']['page']['wiki'] = 'PluginWiki_ActionWiki';
 
+$config['admin']['assets'] = [
+    'js' => [
+        //'assets/js/admin.js'
+    ]
+];
 
 
 $config['$root$']['block']['wiki_panel'] = array(

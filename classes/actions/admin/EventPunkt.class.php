@@ -5,6 +5,8 @@ class PluginWiki_ActionAdmin_EventPunkt extends Event
     protected $oUserCurrent = null;
     
     protected $oPage = null;
+    
+    protected $oWiki = null;
 
     public function Init()
     { 
@@ -14,6 +16,13 @@ class PluginWiki_ActionAdmin_EventPunkt extends Event
             $this->Message_AddError('Нет такой страницы');
             Router::LocationAction("admin/plugin/wiki/list");
         }
+        
+        if(!$this->oWiki = $this->oPage->getWiki()){
+            $this->Message_AddError('Нет такой документации');
+            Router::LocationAction("admin/plugin/wiki/list");
+        }
+        
+        $this->Component_Add('wiki:editor');
     }
 
    
@@ -24,45 +33,48 @@ class PluginWiki_ActionAdmin_EventPunkt extends Event
         $aPunkts = $this->PluginWiki_Wiki_GetPunktItemsByPageId( $this->oPage->getId() );
         
         $this->Viewer_Assign('aPunkts', $aPunkts);  
-        $this->Viewer_Assign('oPage', $this->oPage);  
+        $this->Viewer_Assign('oPage', $this->oPage); 
+        $this->Viewer_Assign('oWiki', $this->oWiki);  
     }
     
     public function EventAdd() {
         
-        $this->SetTemplateAction('page-add'); 
+        $this->SetTemplateAction('punkt-add'); 
         
-        $oPage = $this->PluginWiki_Wiki_GetPageById( $this->GetParam(1) );
+        $oPunkt = $this->PluginWiki_Wiki_GetPunktById( $this->GetParam(2) );
         
         if(isPost()){ 
-            if(!$oPage){
-                $oPage = Engine::GetEntity('PluginWiki_Wiki_Page' );
+            if(!$oPunkt){
+                $oPunkt = Engine::GetEntity('PluginWiki_Wiki_Punkt' );
             }
             
-            $oPage->_setData(getRequest('page'));
-            $oPage->setCategories(getRequest('categories'));
+            $oPunkt->_setData(getRequest('punkt'));
                                    
-            if($oPage->_Validate()){ 
-                if($oPage->Save()){
+            if($oPunkt->_Validate()){ 
+                $oPunkt->setText($this->Text_Parser($oPunkt->getTextSource()));
+                
+                if($oPunkt->Save()){
                     
                     $this->Message_AddNoticeSingle($this->Lang_Get('common.success.save'),'',true);
-                    Router::LocationAction("admin/plugin/wiki/". $this->oWiki->getCode() . '/pages');
+                    //Router::LocationAction("admin/plugin/wiki/page/". $this->oPage->getCode() . '/list');
                     
                 }else{
                     $this->Message_AddErrorSingle($this->Lang_Get('common.error.system.base'));
                 }
             }else{
-                foreach($oPage->_getValidateErrors() as $aError){
+                foreach($oPunkt->_getValidateErrors() as $aError){
                     $this->Message_AddError($aError[0], $this->Lang_Get('common.error.error'));
                 }
             }  
                       
         }
         
-        if($oPage){
-            $_REQUEST['page'] = $oPage->_getData();
+        if($oPunkt){
+            $_REQUEST['punkt'] = $oPunkt->_getData();
         }
         $this->Viewer_Assign('oWiki', $this->oWiki); 
-        $this->Viewer_Assign('oPage', $oPage);
+        $this->Viewer_Assign('oPage', $this->oPage);
+        $this->Viewer_Assign('oPunkt', $oPunkt);
     }
     
     public function EventRemove() {

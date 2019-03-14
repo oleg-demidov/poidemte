@@ -22,6 +22,7 @@ class PluginWiki extends Plugin
             'plugin.wiki.markitup.punkt'
         ]);
         
+        $this->Component_Add('wiki:editor');
     }
 
     public function Activate()

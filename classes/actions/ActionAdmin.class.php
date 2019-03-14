@@ -32,7 +32,7 @@ class PluginWiki_ActionAdmin extends PluginAdmin_ActionPlugin
         
         $this->RegisterEventExternal('Punkt', 'PluginWiki_ActionAdmin_EventPunkt');  
         $this->AddEventPreg('/^page$/i', '/^[a-z_0-9]{1,50}$/i', '/^(list)?$/i', 'Punkt::EventList');
-//        $this->AddEventPreg('/^[a-z_0-9]{1,50}$/i', '/^page_(add|edit)$/i', '/^([0-9]{1,50})?$/i', 'Page::EventAdd');
+        $this->AddEventPreg('/^page$/i', '/^[a-z_0-9]{1,50}$/i', '/^punkt_(add|edit)$/i', '/^([0-9]{1,50})?$/i', 'Punkt::EventAdd');
 //        $this->AddEventPreg('/^[a-z_0-9]{1,50}$/i', '/^remove_page$/i', '/^([0-9]{1,50})?$/i', 'Page::EventRemove');
         
 
