@@ -1,17 +1,17 @@
 <?php
 
-class PluginWiki_ActionAdmin_EventPage extends Event
+class PluginWiki_ActionAdmin_EventPunkt extends Event
 {
     protected $oUserCurrent = null;
     
-    protected $oWiki = null;
+    protected $oPage = null;
 
     public function Init()
     { 
         $this->oUserCurrent = $this->User_GetUserCurrent();
         
-        if(!$this->oWiki = $this->PluginWiki_Wiki_GetWikiByCode( $this->sCurrentEvent )){
-            $this->Message_AddError('Нет такой документации');
+        if(!$this->oPage = $this->PluginWiki_Wiki_GetPageByCode( $this->GetParam(0) )){
+            $this->Message_AddError('Нет такой страницы');
             Router::LocationAction("admin/plugin/wiki/list");
         }
     }
@@ -19,12 +19,12 @@ class PluginWiki_ActionAdmin_EventPage extends Event
    
     public function EventList()
     {
-        $this->SetTemplateAction('page-list');
+        $this->SetTemplateAction('punkt-list');
         
-        $aPages = $this->PluginWiki_Wiki_GetPageItemsByWikiId( $this->oWiki->getId() );
+        $aPunkts = $this->PluginWiki_Wiki_GetPunktItemsByPageId( $this->oPage->getId() );
         
-        $this->Viewer_Assign('aPages', $aPages);  
-        $this->Viewer_Assign('oWiki', $this->oWiki);  
+        $this->Viewer_Assign('aPunkts', $aPunkts);  
+        $this->Viewer_Assign('oPage', $this->oPage);  
     }
     
     public function EventAdd() {

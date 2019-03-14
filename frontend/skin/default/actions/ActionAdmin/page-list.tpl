@@ -17,6 +17,7 @@
             <tr>
                 <th>ID</th>
                 <th>Название</th>
+                <th>Категория</th>
                 <th>Пунктов</th>
                 <th class="ls-table-cell-actions">Действие</th>
             </tr>
@@ -35,11 +36,14 @@
                     <td>
                         {$oPage->getTitle()}
                     </td>
-                    <td><a href="{router page="admin/plugin/wiki/{$oPage->getCode()}/pages"}">{$oPage->getCountPunkts()}</a></td>
+                    <td>
+                        {($oPage->category->getCategory())?$oPage->category->getCategory()->getTitle():'-'}
+                    </td>
+                    <td><a href="{router page="admin/plugin/wiki/page/{$oPage->getCode()}/list"}">{$oPage->getCountPunkts()}</a></td>
                     
                     <td class="ls-table-cell-actions">
-                        <a href="{router page="admin/plugin/wiki/edit_page/{$oPage->getId()}"}?security_ls_key={$LIVESTREET_SECURITY_KEY}" class="fa fa-edit" title="{$aLang.plugin.admin.edit}"></a>
-                        <a href="{router page="admin/plugin/wiki/remove_page/{$oPage->getId()}"}?security_ls_key={$LIVESTREET_SECURITY_KEY}" class="fa fa-trash-o js-confirm-remove" title="{$aLang.plugin.admin.delete}"></a>
+                        <a href="{router page="admin/plugin/wiki/{$oWiki->getCode()}/page_edit/{$oPage->getId()}"}" class="fa fa-edit" title="{$aLang.plugin.admin.edit}"></a>
+                        <a href="{router page="admin/plugin/wiki/{$oWiki->getCode()}/remove_page/{$oPage->getId()}"}?security_ls_key={$LIVESTREET_SECURITY_KEY}" class="fa fa-trash-o js-confirm-remove" title="{$aLang.plugin.admin.delete}"></a>
                     </td>
                 </tr>
             {/foreach}

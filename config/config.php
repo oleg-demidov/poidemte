@@ -4,6 +4,7 @@
  */
 $config['$root$']['db']['table']['wiki_wiki'] = '___db.table.prefix___wiki';
 $config['$root$']['db']['table']['wiki_wiki_page'] = '___db.table.prefix___wiki_page';
+$config['$root$']['db']['table']['wiki_wiki_punkt'] = '___db.table.prefix___wiki_punkt';
 
 /**
  * Роутинг

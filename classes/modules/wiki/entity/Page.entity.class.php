@@ -1,6 +1,6 @@
 <?php
 
-class PluginWiki_ModuleWiki_EntityPage extends ModuleCategory_EntityCategory
+class PluginWiki_ModuleWiki_EntityPage extends EntityORM
 {
     
     protected $aRelations = array(
@@ -16,6 +16,14 @@ class PluginWiki_ModuleWiki_EntityPage extends ModuleCategory_EntityCategory
             'target_type' => 'wiki'
         ]
     );
+    
+    public function __construct($aParam) {
+        if(array_key_exists('test', Engine::getInstance()->GetPlugins())){
+            $this->aBehaviors['category']['target_type'] =  'test';
+        }
+        parent::__construct($aParam);
+        
+    }
     
     public function getCountPunkts() {
         return count($this->getPunkts());
