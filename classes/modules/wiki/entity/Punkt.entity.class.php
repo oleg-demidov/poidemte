@@ -2,6 +2,9 @@
 
 class PluginWiki_ModuleWiki_EntityPunkt extends EntityORM
 {
+    protected $aRelations = array(
+        'page' => array( self::RELATION_TYPE_BELONGS_TO, 'PluginWiki_ModuleWiki_EntityPage', 'page_id' )
+    );
     
     protected $aBehaviors = array(
         /**

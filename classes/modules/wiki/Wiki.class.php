@@ -20,11 +20,10 @@ class PluginWiki_ModuleWiki extends ModuleORM
      */
     public function CallbackParserTagWiki($sTag, $aParams)
     {
-        $sText = '';
+        $sText = '';        $this->Logger_Notice($sTag . print_r($aParams,true));
         if (isset($aParams['punkt'])) {
-            if($oPunkt = $this->PluginWiki_Wiki_GetPunktByFilter(['id' => $aParams['punkt']])){
-                $oPunkt->setType('wikipage');
-                $sText .= "<a href=\"{$oPunkt->getUrl()}#p{$aParams['punkt']}\" class=\"wikipage-url-ajax\">{$oPunkt->getTopicTitle()}</a> ";
+            if($oPunkt = $this->PluginWiki_Wiki_GetPunktByFilter(['name' => $aParams['punkt']])){
+                $sText .= "<a href=\"{$oPunkt->getPage()->getUrl()}#p{$aParams['punkt']}\" class=\"wikipage-url-ajax\">{$oPunkt->getName()}</a> ";
             }
         }
         return $sText;

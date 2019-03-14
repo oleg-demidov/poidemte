@@ -80,14 +80,14 @@ class PluginWiki_ActionAdmin_EventPunkt extends Event
     public function EventRemove() {
         $this->SetTemplate(false);
         
-        $oPage = $this->PluginWiki_Wiki_GetPageById( $this->GetParam(1) );
+        $oPunkt = $this->PluginWiki_Wiki_GetPunktById( $this->GetParam(2) );
         
-        if($oPage){
+        if($oPunkt){
             $this->Security_ValidateSendForm();
             /**
              * Удаляем
              */
-            if ($oPage->Delete()) {
+            if ($oPunkt->Delete()) {
                 $this->Message_AddNotice('Удаление прошло успешно', null, true);
             } else {
                 $this->Message_AddError('Возникла ошибка при удалении', null, true);
@@ -96,7 +96,7 @@ class PluginWiki_ActionAdmin_EventPunkt extends Event
             
         }
         
-        Router::LocationAction("admin/plugin/wiki/". $this->oWiki->getCode() . '/pages');
+        Router::LocationAction("admin/plugin/wiki/page/". $this->oPage->getCode() . '/list');
         
          
     }

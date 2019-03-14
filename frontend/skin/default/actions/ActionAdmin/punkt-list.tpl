@@ -36,11 +36,11 @@
                 <tr data-id="{$oPunkt->getId()}">
                     <td>{$oPunkt->getId()}</td>
                     <td>
-                        {$oPunkt->getTitle()}
+                        {$oPunkt->getName()}
                     </td>
                     <td class="ls-table-cell-actions">
                         <a href="{router page="admin/plugin/wiki/page/{$oPage->getCode()}/punkt_edit/{$oPunkt->getId()}"}" class="fa fa-edit" title="{$aLang.plugin.admin.edit}"></a>
-                        <a href="{router page="admin/plugin/wiki/remove_page/"}?security_ls_key={$LIVESTREET_SECURITY_KEY}" class="fa fa-trash-o js-confirm-remove" title="{$aLang.plugin.admin.delete}"></a>
+                        <a href="{router page="admin/plugin/wiki/page/{$oPage->getCode()}/remove_punkt/{$oPunkt->getId()}"}?security_ls_key={$LIVESTREET_SECURITY_KEY}" class="fa fa-trash-o js-confirm-remove" title="{$aLang.plugin.admin.delete}"></a>
                     </td>
                 </tr>
             {/foreach}

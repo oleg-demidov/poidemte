@@ -43,7 +43,6 @@ $.widget( "livestreet.lsEditorMarkup", {
                     { name: ls.lang.get('editor.markup.toolbar.clear_tags'), className: 'editor-clean', replaceWith: function( markitup ) { return markitup.selection.replace(/<(.*?)>/g, ""); }},
                     { name: ls.lang.get('editor.markup.toolbar.cut'), className: 'editor-cut', replaceWith: function( markitup ) { if ( markitup.selection ) return '<cut name="' + markitup.selection + '">'; else return '<cut>' }},
                     { separator: '---------------' },
-                    { separator: '---------------' },
                     { name: ls.lang.get('plugin.wiki.markitup.punkt'), className: 'editor-code', openWith: '<wiki punkt="', closeWith: '"/>' },
                 ]
             },

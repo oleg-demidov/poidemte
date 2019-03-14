@@ -7,5 +7,5 @@
     form=[
         [ field => 'hidden',     name => 'punkt[page_id]',  value => $oPage->getId() ],
         [ field => 'text',     name => 'punkt[name]',  label => 'Номер' ],
-        {component 'test:editor'  inputClasses="js-editor-default" value={($oPunkt)?$oPunkt->getTextSource():''}  name = 'punkt[text_source]'  label = 'Текст'}
+        {component 'wiki:editor'  inputClasses="js-editor-default" value={($oPunkt)?$oPunkt->getTextSource():''}  name = 'punkt[text_source]'  label = 'Текст'}
 ]}
