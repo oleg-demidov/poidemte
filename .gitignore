@@ -1,3 +1,4 @@
+
 /application/config/config.local.php
 /application/config/config.test.php
 /application/config/config.production.php
@@ -8,3 +9,5 @@
 /.idea/
 /nbproject
 vendor
+/nbproject/private/
+
