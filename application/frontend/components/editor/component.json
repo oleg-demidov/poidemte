@@ -4,7 +4,8 @@
     "dependencies": {
         "ls-vendor": "*",
         "ls-core": "*",
-        "ls-component": "*"
+        "ls-component": "*",
+        "css-reset": "*"
     },
     "templates": {
         "markup-help": "editor.markup.help.tpl"
