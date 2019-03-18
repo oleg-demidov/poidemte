@@ -158,11 +158,13 @@
                                 {/foreach}
                             {/if}
                         {/if}
+                        
+                        {show_blocks group='header'}
+                        
                     {/block}
 
                     {hook run='layout_content_begin' action=$sAction}
 
-                    {show_blocks group='content'}
                     
                     {block 'layout_content'}{/block}
 
