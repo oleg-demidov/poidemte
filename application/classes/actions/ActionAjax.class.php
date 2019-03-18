@@ -60,6 +60,10 @@ class ActionAjax extends Action
         $this->AddEventPreg('/^media$/i', '/^upload$/', '/^$/', 'Media::EventMediaUpload');
         $this->AddEventPreg('/^media$/i', '/^load-gallery$/', '/^$/', 'Media::EventMediaLoadGallery');
         $this->AddEventPreg('/^media$/i', '/^remove-file$/', '/^$/', 'Media::EventMediaRemoveFile');
+        $this->AddEventPreg('/^media$/i', '/^generate-target-tmp$/', '/^$/', 'Media::EventMediaGenerateTargetTmp');
+        $this->AddEventPreg('/^media$/i', '/^load-gallery-old$/', '/^$/', 'Media::EventMediaLoadGalleryOld');
+        $this->AddEventPreg('/^media$/i', '/^submit-insert$/', '/^$/', 'Media::EventMediaSubmitInsert');
+        
         
         $this->RegisterEventExternal('Talk', 'ActionAjax_EventTalk');
         $this->AddEventPreg('/^talk$/i', '/^edit-response$/', '/^$/', 'Talk::EventAjaxResponseEdit');
@@ -170,5 +174,36 @@ class ActionAjax extends Action
         }else{
             $this->Message_AddError($sResult);
         }
+    }
+    
+    protected function EventMediaSubmitInsert()
+    {
+        $aIds = array(0);
+        foreach ((array)getRequest('ids') as $iId) {
+            $aIds[] = (int)$iId;
+        }
+
+        if (!($aMediaItems = $this->Media_GetAllowMediaItemsById($aIds))) {
+            $this->Message_AddError($this->Lang_Get('media.error.need_choose_items'));
+            return false;
+        }
+
+        $aParams = array(
+            'align'        => getRequestStr('align'),
+            'size'         => getRequestStr('size'),
+            'relative_web' => true
+        );
+        /**
+         * Если изображений несколько, то генерируем идентификатор группы для лайтбокса
+         */
+        if (count($aMediaItems) > 1) {
+            $aParams['lbx_group'] = rand(1, 100);
+        }
+
+        $sTextResult = '';
+        foreach ($aMediaItems as $oMedia) {
+            $sTextResult .= $this->Media_BuildCodeForEditor($oMedia, $aParams) . "\r\n";
+        }
+        $this->Viewer_AssignAjax('sTextResult', $sTextResult);
     }
 }
