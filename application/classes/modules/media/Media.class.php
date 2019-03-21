@@ -756,7 +756,7 @@ class ModuleMedia extends ModuleORM
      */
     public function BuildImageCodeForEditor($aParams)
     {
-        $sCode = '<img src="' . htmlspecialchars($aParams['image_url']) . '" ';
+        $sCode = '<img class="mw-100 rounded" src="' . htmlspecialchars($aParams['image_url']) . '" ';
         if (!isset($aParams['skip_title']) and isset($aParams['title']) and $aParams['title']) {
             $sCode .= ' title="' . htmlspecialchars($aParams['title']) . '" ';
             $sCode .= ' alt="' . htmlspecialchars($aParams['title']) . '" ';
