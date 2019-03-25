@@ -26,6 +26,7 @@
 
             // Селекторы
             selectors: {
+                editor: '@.js-editor-default',
                 uploader: '[data-type="uploader"]',
                 library: '[data-type="library"]',
                 fields: '@[data-type="media-field"]',
@@ -54,10 +55,8 @@
             this._super();
             
             this.elements.fields.bsMediaField();
-            
-            this.elements.fields.mousedown( function(e){
-                this.option('field', e.currentTarget);
-            }.bind(this));
+                        
+            this.attachFields(this.elements.fields);
 
             this.elements.library.bsLibrary();
             
@@ -93,8 +92,24 @@
             if(file === null){
                 return;
             }
+            if(this.option('field') !== null){
+                $(this.option('field')).bsMediaField('add', file, size);
+                this.option('field', null);
+            }
+            console.log(file);
+            this.insertEditor(file);
+            
             this._trigger('onSelectFile', file);
-            $(this.option('field')).bsMediaField('add', file, size);
+        },
+        
+        insertEditor:function(file){
+            let img = '<a  href="' + file.data('src') + '">' + file.data('img') + '</a>';
+            this.elements.editor.length && this.elements.editor.lsEditor( 'insert', img);
+        },
+        
+        show:function(){
+            this.elements.modal.modal('show');
         }
+        
     });
 })(jQuery);
