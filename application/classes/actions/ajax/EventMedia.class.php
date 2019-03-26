@@ -186,5 +186,36 @@ class ActionAjax_EventMedia extends Event {
         $this->Viewer_AssignAjax('count_loaded', count($aMediaItems));
         $this->Viewer_AssignAjax('page', count($aMediaItems) > 0 ? $iPage + 1 : $iPage);
     }
+    
+    public function EventMediaSubmitInsert()
+    {
+        $aIds = array(0);
+        foreach ((array)getRequest('ids') as $iId) {
+            $aIds[] = (int)$iId;
+        }
+
+        if (!($aMediaItems = $this->Media_GetAllowMediaItemsById($aIds))) {
+            $this->Message_AddError($this->Lang_Get('media.error.need_choose_items'));
+            return false;
+        }
+
+        $aParams = array(
+            'align'        => getRequestStr('align'),
+            'size'         => getRequestStr('size', '500x'),
+            'relative_web' => true
+        );
+        /**
+         * Если изображений несколько, то генерируем идентификатор группы для лайтбокса
+         */
+        if (count($aMediaItems) > 1) {
+            $aParams['lbx_group'] = rand(1, 100);
+        }
+
+        $sTextResult = '';
+        foreach ($aMediaItems as $oMedia) {
+            $sTextResult .= $this->Media_BuildCodeForEditor($oMedia, $aParams) . "\r\n";
+        }
+        $this->Viewer_AssignAjax('sTextResult', $sTextResult);
+    }
 
 }

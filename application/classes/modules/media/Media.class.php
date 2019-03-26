@@ -710,7 +710,9 @@ class ModuleMedia extends ModuleORM
              */
             foreach ($aSizes as $aSizeAllow) {
                 $sSizeKey = $aSizeAllow['w'] . 'x' . $aSizeAllow['h'] . ($aSizeAllow['crop'] ? 'crop' : '');
+                $this->Logger_Notice($sSizeKey. ' ' .$sSizeParam);
                 if ($sSizeKey == $sSizeParam) {
+                    
                     $sSize = $sSizeKey;
                     /**
                      * Необходимость лайтбокса

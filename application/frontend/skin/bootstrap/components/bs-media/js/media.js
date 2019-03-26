@@ -21,7 +21,7 @@
             
             // Ссылки
             urls: {
-                
+                insert:aRouter.ajax + "media/submit-insert"
             },
 
             // Селекторы
@@ -103,13 +103,20 @@
         },
         
         insertEditor:function(file){
-            let img = '<a  href="' + file.data('src') + '">' + file.data('img') + '</a>';
-            this.elements.editor.length && this.elements.editor.lsEditor( 'insert', img);
+            this._load( 'insert' , { ids: [file.data('id')] }, function( response ) {
+                this.elements.editor.length && this.elements.editor.lsEditor( 'insert', response.sTextResult );
+                this.hide();
+            }.bind(this));
         },
         
         show:function(){
             this.elements.modal.modal('show');
+        },
+        
+        hide:function(){
+            this.elements.modal.modal('hide');
         }
+        
         
     });
 })(jQuery);

@@ -176,34 +176,5 @@ class ActionAjax extends Action
         }
     }
     
-    protected function EventMediaSubmitInsert()
-    {
-        $aIds = array(0);
-        foreach ((array)getRequest('ids') as $iId) {
-            $aIds[] = (int)$iId;
-        }
-
-        if (!($aMediaItems = $this->Media_GetAllowMediaItemsById($aIds))) {
-            $this->Message_AddError($this->Lang_Get('media.error.need_choose_items'));
-            return false;
-        }
-
-        $aParams = array(
-            'align'        => getRequestStr('align'),
-            'size'         => getRequestStr('size'),
-            'relative_web' => true
-        );
-        /**
-         * Если изображений несколько, то генерируем идентификатор группы для лайтбокса
-         */
-        if (count($aMediaItems) > 1) {
-            $aParams['lbx_group'] = rand(1, 100);
-        }
-
-        $sTextResult = '';
-        foreach ($aMediaItems as $oMedia) {
-            $sTextResult .= $this->Media_BuildCodeForEditor($oMedia, $aParams) . "\r\n";
-        }
-        $this->Viewer_AssignAjax('sTextResult', $sTextResult);
-    }
+    
 }
