@@ -46,7 +46,7 @@
         {lang_load prepare=true name="editor.markup.toolbar.b, editor.markup.toolbar.i, editor.markup.toolbar.u, editor.markup.toolbar.s, editor.markup.toolbar.url, editor.markup.toolbar.url_promt, editor.markup.toolbar.image_promt, editor.markup.toolbar.code, editor.markup.toolbar.video, editor.markup.toolbar.video_promt, editor.markup.toolbar.image, editor.markup.toolbar.cut, editor.markup.toolbar.quote, editor.markup.toolbar.list, editor.markup.toolbar.list_ul, editor.markup.toolbar.list_ol, editor.markup.toolbar.list_li, editor.markup.toolbar.title, editor.markup.toolbar.title_h4, editor.markup.toolbar.title_h5, editor.markup.toolbar.title_h6, editor.markup.toolbar.clear_tags, editor.markup.toolbar.user, editor.markup.toolbar.user_promt"}
 
         {asset type='js' defer=true file="Component@editor.vendor/markitup/jquery.markitup"}
-        {asset type='js' defer=true file="Component@editor.markup"}
+        {asset type='js' defer=true file="Component@wiki:editor.markup"}
 
         {asset type='css' file="Component@editor.vendor/markitup/skins/livestreet/style"}
         {asset type='css' file="Component@editor.vendor/markitup/sets/livestreet/style"}

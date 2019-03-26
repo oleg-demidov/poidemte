@@ -72,7 +72,7 @@
                     ]
                 },
                 default: {
-                    toolbar: 'styleselect ls-pre ls-code | bold italic strikethrough underline blockquote table | bullist numlist | link media ls-media ls-user | lsuser removeformat pagebreak code fullscreen'
+                    toolbar: 'styleselect ls-pre ls-code | bold italic strikethrough underline blockquote | link ls-media ls-user |  removeformat  fullscreen'
                 },
                 light: {
                     toolbar: 'styleselect ls-pre ls-code | bold italic strikethrough underline blockquote | bullist numlist | removeformat code'
@@ -148,7 +148,7 @@
          * 
          */
         showMedia: function ( text ) {
-            this.option( 'media' ).lsMedia( 'show' );
+            this.option( 'media' ).bsMedia( 'show' );
         }
     });
 })(jQuery);
