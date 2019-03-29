@@ -466,6 +466,9 @@ return array(
         'category'    => array(
             'label' => 'Категория'
         ),
+        'select' => [
+            'no_select' => 'Не выбрано'
+        ]
     ),
     /**
      * Авторизация
@@ -834,6 +837,19 @@ return array(
     'crop' => [
         'title' => 'Обрезать фото'
     ],
+    /**
+     * Категории
+     */
+    'category'      => array(
+        'notices' => array(
+            'validate_require'   => 'Необходимо выбрать категорию',
+            'validate_count'     => 'Количество категорий должно быть от %%min%% до %%max%%',
+            'validate_children'  => 'Для выбора доступны только конечные категории',
+            'validate_recursion' => 'Попытка вложить категорию в саму себя',
+            'validate_parent'    => 'Неверная родительская категория',
+            'validate_wrong'     => 'Неверная категория',
+        ),
+    ),
     /**
      * Админка
      */

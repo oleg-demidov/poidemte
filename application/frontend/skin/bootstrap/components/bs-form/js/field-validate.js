@@ -68,6 +68,10 @@
         
         validate:function(){
             let url;
+
+            if(this.element.prop("tagName") == "TEXTAREA" && this.element.lsEditor('isInitialized')){
+                this.element.prop('value', this.element.lsEditor('getText'));
+            }
             
             if(this.element.data('remote') && this.is_change()){ 
                 

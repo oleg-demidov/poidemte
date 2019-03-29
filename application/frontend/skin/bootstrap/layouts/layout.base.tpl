@@ -97,14 +97,14 @@
             * Показываем сайдбар
             *}
             {if $layoutShowSidebar}
-                <div class="col-12 col-{$breakpoint}-3 col-xl-2 layout-sidebar pr-{$breakpoint}-0">
+                <div class="col-12 col-{$breakpoint}-4 col-xl-3 layout-sidebar pr-{$breakpoint}-0">
                     <div class="mx-2">
                         {$layoutSidebarBlocks}
                     </div>
                 </div>
             {/if}
             
-            <div class="{if $layoutShowSidebar}col-12 col-{$breakpoint}-9 col-xl-8 mt-2 px-2 mt-{$breakpoint}-0
+            <div class="{if $layoutShowSidebar}col-12 col-{$breakpoint}-8 col-xl-7 mt-2 px-2 mt-{$breakpoint}-0
                  {else}col-12 col-xl-10{/if} ">
                 <div class="px-2">
                     {hook run='layout_content_header_begin' action=$sAction}

@@ -10,6 +10,7 @@
         "range":"field.range.tpl",
         "checkbox":"field.checkbox.tpl",
         "select":"field.select.tpl",
+        "categories":"field.categories.tpl",
         "file":"field.file.tpl",
         "textarea":"field.textarea.tpl",
         "recaptcha":"field.recaptcha.tpl"

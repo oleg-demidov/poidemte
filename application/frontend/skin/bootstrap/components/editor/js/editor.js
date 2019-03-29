@@ -39,6 +39,10 @@ $.widget( "livestreet.lsEditor", {
         // Иниц-ия редактора определенного типа
         this.element[ this.strategy ]( this.options );
     },
+    
+    isInitialized: function(){
+        return this.element[ this.strategy ]( 'isInitialized' );
+    },
 
     /**
      * Метод необходимо вызывать при отображении редактора который до этого был скрыт.

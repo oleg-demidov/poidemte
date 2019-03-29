@@ -66,7 +66,7 @@
     {$attributes.triggers = "change keyup"}
 {/if}
 
-
+{block name="field_options"}{/block}
 
 {if $placeholder}
     {$attributes.placeholder = $placeholder}
@@ -85,7 +85,7 @@
     {$attributes.value = $value}
 {/if}
 
-{block name="field_options"}{/block}  
+  
 
 {capture name="content"}
     {block name="field_content"}

@@ -27,13 +27,19 @@
     {else}
         {if $tag != "input"}
             <{$tag} type="{$type|default:"button"}" class="{$component} {cmods name=$component mods=$bmods delimiter="-"} {$classes}" 
-                {if $popover}{component "bs-popover" params=$popover}{/if} 
+                {if $popover}
+                    {if is_array($popover)}
+                        {component "bs-popover" params=$popover}
+                    {else}
+                        {component "bs-popover" content=$popover}
+                    {/if}
+                {/if} 
                 {cattr list=$attributes}>
                 {if $icon}
                     {if is_array($icon)}
                         {component "bs-icon" params=$icon}
                     {else}
-                        {component "bs-icon" icon=$icon display='s' classes="mr-1"}
+                        {component "bs-icon" icon=$icon display='s' classes="{if $text}mr-1{/if}"}
                     {/if}                    
                 {/if}
                 {$text}

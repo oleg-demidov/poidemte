@@ -57,16 +57,17 @@ class BlockFieldCategory extends Block
                  * Загружаем параметры
                  */
                 $aParams = $oBehavior->getParams();
-                $this->Viewer_Assign('params', $aParams, true);
+                $this->Viewer_Assign('params', array_merge($aParams, $this->GetParam('params')), true);
                 /**
                  * Загружаем список доступных категорий
                  */
+                $aCategories = $this->Category_GetCategoriesTreeByTargetType($oBehavior->getCategoryTargetType());                
                 $this->Viewer_Assign('categories',
-                    $this->Category_GetCategoriesTreeByTargetType($oBehavior->getCategoryTargetType()), true);
+                   $aCategories , true);
                 break;
             }
         }
 
-        $this->SetTemplate('component@field.category');
+        $this->SetTemplate('component@bs-form.categories');
     }
 }

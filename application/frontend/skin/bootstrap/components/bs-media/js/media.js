@@ -96,7 +96,6 @@
                 $(this.option('field')).bsMediaField('add', file, size);
                 this.option('field', null);
             }
-            console.log(file);
             this.insertEditor(file);
             
             this._trigger('onSelectFile', file);
