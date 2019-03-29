@@ -8,6 +8,6 @@
  *}
 
 {$component = 'fa'}
-{component_define_params params=[ 'icon', 'mods', 'classes', 'attributes', 'display' ]}
+{component_define_params params=[ 'icon', 'mods', 'classes', 'attributes', 'display', 'style' ]}
 
-<i class="{$component}{$display|default:"r"} fa-{$icon} {cmods name=$component mods=$mods delimiter='-'} {$classes}" {cattr list=$attributes}></i>
+<i class="{$component}{$display|default:{$style|default:"r"}} fa-{$icon} {cmods name=$component mods=$mods delimiter='-'} {$classes}" {cattr list=$attributes}></i>
