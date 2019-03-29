@@ -13,6 +13,6 @@
 
 {block 'tabs_content'}{strip}
     {component 'bs-tabs.list' items=$items id=$id params=$params }
-    {component 'bs-tabs.panes' items=$items id=$id}    
+    {component 'bs-tabs.panes' items=$items id=$id activeItem=$activeItem}    
 {/strip}{/block}
 
