@@ -45,9 +45,9 @@
                 {$text}
                 {if $badge}
                     {if is_array($badge)}
-                        {component "bs-badge" prrams=$badge}
+                        {component "bs-badge" params=$badge}
                     {else}
-                        {component "bs-badge" text=$badge bmods="primary"}
+                        {component "bs-badge" text=$badge bmods=$bmods}
                     {/if}                    
                 {/if}
             </{$tag}>

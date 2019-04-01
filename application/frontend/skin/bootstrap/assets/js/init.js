@@ -32,7 +32,7 @@ jQuery(document).ready(function($){
      */
     $('[data-toggle="popover"]').popover();
     $('[data-toggle="tooltip"]').tooltip();
-    
+    $('[data-btn-ajax]').bsButton();
      
     /*
      * Modals
