@@ -8,9 +8,13 @@
          */
         options: {
             selectors:{
-                badge:".badge"
+                badge:".badge",
+                icon:".fa, .far"
             },
-            html:null
+            icon_classes:null,
+            classes:{
+                iconLoader:"fa fa-circle-o-notch fa-spin mr-1"
+            }
         },
         
         /**
@@ -21,7 +25,7 @@
          */
         _create: function() {
             this._super();
-            this.option('html', this.element.html());
+            this.option('icon_classes', this.elements.icon.attr('class'));
         },
         
         setCount:function(count){
@@ -37,10 +41,10 @@
         },
         
         loading:function(){
-            this.element.html(this.element.data('loadingText'));
+            this.elements.icon.attr('class', this.option('classes.iconLoader') )
         },
         loaded:function(){
-            this.element.html(this.option('html'));
+            this.elements.icon.attr('class', this.option('icon_classes') )
         }
     });
 })(jQuery);
