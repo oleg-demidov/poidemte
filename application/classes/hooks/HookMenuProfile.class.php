@@ -6,7 +6,7 @@ class HookMenuProfile extends Hook {
      * Регистрируем хуки
      */
     public function RegisterHook() {
-        $this->AddHook('menu_before_prepare', 'Menu');
+        $this->AddHook('menu_before_prepare', 'Menu', null, 100);
     }
 
     public function Menu($aParams) { 

@@ -17,6 +17,7 @@ class ActionProfile_EventSettings extends Event {
     
     public function EventProfile() {
         
+        $this->Menu_Get('settings')->setActiveItem('profile');
         $this->Viewer_Assign('sActiveItemSettings', 'profile');
         $this->SetTemplateAction('settings/profile');
     }

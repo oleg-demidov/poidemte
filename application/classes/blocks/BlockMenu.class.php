@@ -41,7 +41,7 @@ class BlockMenu extends Block {
         $ItemsTree = $this->prepareItems($oMenu->getItems());
                         
         $this->Hook_Run('menu_after_prepare', ['items' => &$ItemsTree['items'] , 'activeItem' => &$activeItem]);
-        
+
         $this->Viewer_Assign('activeItem', $this->GetParam('activeItem', $activeItem), true);  
         $this->Viewer_Assign('mods', $this->GetParam('mods', null), true);  
         $this->Viewer_Assign('classes', $this->GetParam('classes', null), true); 
@@ -62,6 +62,7 @@ class BlockMenu extends Block {
             $aItemsNav[] = [
                 'url'           => Router::GetPath( $ItemTree->getUrl() ),
                 'name'          => $ItemTree->getName(),
+                'icon'          => $ItemTree->getIcon(),
                 'text'          => $this->Lang_Get($ItemTree->getTitle()),
                 'count'         => $ItemTree->getCount(),
                 'is_enabled'    => $ItemTree->getEnable(),

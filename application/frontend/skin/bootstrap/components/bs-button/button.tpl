@@ -42,7 +42,7 @@
                         {component "bs-icon" icon=$icon display='s' classes="{if $text}mr-1{/if}"}
                     {/if}                    
                 {/if}
-                {$text}
+                <span btn-text>{$text}</span>
                 {if $badge}
                     {if is_array($badge)}
                         {component "bs-badge" params=$badge}

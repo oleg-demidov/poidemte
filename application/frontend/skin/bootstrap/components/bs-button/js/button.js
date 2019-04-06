@@ -9,7 +9,8 @@
         options: {
             selectors:{
                 badge:".badge",
-                icon:".fa, .far"
+                icon:".fa, .far",
+                text:"[btn-text]"
             },
             icon_classes:null,
             classes:{
@@ -37,6 +38,13 @@
                     badge.removeClass('d-none');
                 }
                 badge.html(count);
+            }
+        },
+        
+        setText:function(text){
+            let textEl = this.element.find(this.option('selectors.text'))
+            if(textEl.length){
+                textEl.text(text);
             }
         },
         

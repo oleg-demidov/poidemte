@@ -6,6 +6,7 @@
     "templates": {
         "menu": "menu.tpl",
         "main":"main.tpl",
+        "settings":"settings.tpl",
         "user":"user.tpl"
     },
     "scripts": {

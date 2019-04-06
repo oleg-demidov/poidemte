@@ -93,7 +93,7 @@ $config['block']['settingsProfile'] = array(
     ),
     'blocks' => array(
         'left' => array(
-            'component@user.block-settings-nav'     => array('priority' => 100)
+            'menuSettings'     => array('priority' => 100)
             
         )
     )
