@@ -51,6 +51,10 @@ class ModuleMenu extends ModuleORM {
     }
     
     public function Get($sName) {
+        if($sName == '' or $sName == null){
+            return null;
+        }
+        
         if( !isset($this->aMenus[$sName]) ){
             $this->aMenus[$sName] = $this->GetMenuByName($sName);
         }
