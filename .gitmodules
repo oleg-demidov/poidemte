@@ -9,3 +9,15 @@
 [submodule "application/plugins/test"]
 	path = application/plugins/test
 	url = git@github.com:olezhikz/livestreet-test.git
+[submodule "application/plugins/subscribe"]
+	path = application/plugins/subscribe
+	url = https://github.com/olezhikz/ls-plugin-subscribe
+[submodule "application/plugins/wiki"]
+	path = application/plugins/wiki
+	url = https://github.com/olezhikz/ls-plugin-wiki
+[submodule "application/plugins/like"]
+	path = application/plugins/like
+	url = https://github.com/olezhikz/ls-plugin-like
+[submodule "application/plugins/questions"]
+	path = application/plugins/questions
+	url = https://github.com/olezhikz/ls-plugin-questions
