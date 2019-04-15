@@ -21,3 +21,6 @@
 [submodule "application/plugins/questions"]
 	path = application/plugins/questions
 	url = https://github.com/olezhikz/ls-plugin-questions
+[submodule "application/plugins/moderation"]
+	path = application/plugins/moderation
+	url = git@github.com:olezhikz/ls-plugin-moderation.git
