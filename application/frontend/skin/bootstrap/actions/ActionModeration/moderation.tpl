@@ -5,7 +5,7 @@
 
 
 {block 'layout_page_title'}
-    <h2 class="page-header">{$aLang.moderation.responses.title}</h2>
+    <h2 class="page-header">{lang "plugin.moderation.moderation.list.title" entity=sEntityName}</h2>
 {/block}
                     
 {block 'layout_content'}

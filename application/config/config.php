@@ -214,7 +214,6 @@ $config['router']['page']['index']          = 'ActionIndex';
 $config['router']['page']['ajax']           = 'ActionAjax';
 $config['router']['page']['auth']           = 'ActionAuth';
 $config['router']['page']['profile']        = 'ActionProfile';
-$config['router']['page']['moderation']     = 'ActionModeration';
 $config['router']['page']['companies']      = 'ActionCompanies';
 $config['router']['page']['people']         = 'ActionPeople';
 // Глобальные настройки роутинга
