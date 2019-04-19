@@ -37,6 +37,10 @@ $.widget( "livestreet.bsAjaxButton", $.livestreet.lsComponent, {
         
         this._super(); 
         
+        if(this.element.bsButton('instance') === undefined){
+            this.element.bsButton();
+        }
+        
         if(this.element.data('url')){
             this.option('urls.load', this.element.data('url'));
         }
@@ -53,15 +57,23 @@ $.widget( "livestreet.bsAjaxButton", $.livestreet.lsComponent, {
         
     },
     
-    load: function(){
-        this._load('load', {}, 'afterLoad');
-        return false;
+    load: function(event){
+        this.element.bsButton('loading');
+        this._load('load', {}, 'afterLoad', {
+            onComplete: function(){
+                this.element.bsButton('loaded');
+            }.bind(this)
+        });
+        event.preventDefault();
     },
     
-    afterLoad: function(response){
+    afterLoad: function(response){ 
         if(response.remove){
-            this.element.closest(this.element.data('itemSelector'))
-                    .hide(200, function(e){$(this).remove()});
+            let item = this.element.closest(this.element.data('itemSelector'));
+            if(item.find('modal').length){
+                item.find('modal').modal('hide');
+            }
+            item.hide(200, function(e){$(this).remove()});
         }
 
         if(this.element.data('counterSelector')){
