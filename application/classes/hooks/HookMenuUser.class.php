@@ -35,14 +35,7 @@ class HookMenuUser extends Hook {
             'url' => $oUser->getLogin().'/settings'
         ]));
         
-        if($oUser->isAdministrator() or $this->Rbac_IsAllow('moderation')){
         
-            $oMenu->appendChild(Engine::GetEntity("ModuleMenu_EntityItem", [
-                'name' => 'moderation',
-                'title' => 'user.userbar.nav.moderation',
-                'url' => 'moderation'
-            ]));
-        }
     }
     
 }
