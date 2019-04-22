@@ -50,10 +50,15 @@ $.widget( "livestreet.bsAjaxButton", $.livestreet.lsComponent, {
                 message:    this.element.data('confirmMessage'),
                 onconfirm:  this.load.bind(this)
             });
-        }else{
-            this._on(this.element, {click:'load'});
-        }        
+            return;
+        }
         
+        if(this.element.data('prompt')){
+            prompt(this.element.data('promptMessage'));
+            //this.load();
+            return;
+        }        
+        //this._on(this.element, {click:'load'});
         
     },
     
