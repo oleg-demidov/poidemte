@@ -24,6 +24,9 @@ $.widget( "livestreet.bsAjaxButton", $.livestreet.lsComponent, {
         },
         classes: {
            
+        },
+        i18n: {
+            defaultPromptMessage:''
         }
     },
 
@@ -52,24 +55,30 @@ $.widget( "livestreet.bsAjaxButton", $.livestreet.lsComponent, {
             });
             return;
         }
-        
-        if(this.element.data('prompt')){
-            prompt(this.element.data('promptMessage'));
-            //this.load();
+
+        if(this.element.data('prompt') !== undefined){
+            this.element.on('click', function(){ 
+                let promptMessage = prompt(this.element.data('promptLabel'), this.element.data('promptDefaultMessage'));
+                this.option('params.promptMessage', promptMessage);
+                this.load();
+            }.bind(this));            
             return;
         }        
-        //this._on(this.element, {click:'load'});
+        
+        this.element.on('click', function(event){
+            this.load();
+            event.preventDefault();
+        }.bind(this));
         
     },
     
-    load: function(event){
+    load: function(){
         this.element.bsButton('loading');
         this._load('load', {}, 'afterLoad', {
             onComplete: function(){
                 this.element.bsButton('loaded');
             }.bind(this)
-        });
-        event.preventDefault();
+        });        
     },
     
     afterLoad: function(response){ 
