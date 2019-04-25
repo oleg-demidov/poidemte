@@ -73,7 +73,7 @@
                                     {component "bs-badge" 
                                         text        = $item.count 
                                         attributes  = ["data-count-{$item.name}" => true] 
-                                        bmods       = "light"}
+                                        bmods       = "primary"}
                                 {/if}                    
                             {/if}
                         </a>

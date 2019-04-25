@@ -6,7 +6,7 @@ class HookMenuProfile extends Hook {
      * Регистрируем хуки
      */
     public function RegisterHook() {
-        $this->AddHook('menu_before_prepare', 'Menu', null, 100);
+        //$this->AddHook('menu_before_prepare', 'Menu', null, 100);
     }
 
     public function Menu($aParams) { 
@@ -30,46 +30,7 @@ class HookMenuProfile extends Hook {
         
         $aParams['activeItem'] = Router::GetParam(0)?Router::GetParam(0):'profile';
         
-        $aParams['menu']->prependChild(Engine::GetEntity("ModuleMenu_EntityItem", [
-            'name' => 'profile',
-            'title' => 'user.userbar.nav.profile',
-            'url' => $oUser->getLogin()
-        ]))->appendChild(Engine::GetEntity("ModuleMenu_EntityItem", [
-            'name' => 'responses',
-            'title' => 'user.userbar.nav.responses',
-            'url' => $oUser->getLogin().'/responses',
-            'count' => $this->Talk_GetCountFromResponseByFilter([
-                'state in' => ['publish', 'arbitrage'], 
-                'target_id' => $oUser->getId()])
-        ]))->appendChild(Engine::GetEntity("ModuleMenu_EntityItem", [
-            'name' => 'proposals',
-            'title' => 'user.userbar.nav.proposals',
-            'url' => $oUser->getLogin().'/proposals',
-            'count' => $this->Talk_GetCountFromProposalByFilter([
-                'target_id' => $oUser->getId()])
-        ]))->appendChild(Engine::GetEntity("ModuleMenu_EntityItem", [
-            'name' => 'my-responses',
-            'title' => 'user.userbar.nav.responsed',
-            'url' => $oUser->getLogin().'/my-responses',
-            'count' => $this->Talk_GetCountFromMessageByFilter([
-                'type' => 'response', 
-                'user_id' => $oUserCurrent->getId()])
-        ]))->appendChild(Engine::GetEntity("ModuleMenu_EntityItem", [
-            'name' => 'my-proposals',
-            'title' => 'user.userbar.nav.proposed',
-            'url' => $oUser->getLogin().'/my-proposals',
-            'count' => $this->Talk_GetCountFromMessageByFilter([
-                'type' => 'proposal', 
-                'user_id' => $oUserCurrent->getId()])
-        ]))->appendChild(Engine::GetEntity("ModuleMenu_EntityItem", [
-            'name' => 'arbitrage',
-            'title' => 'user.userbar.nav.arbitrage',
-            'url' => $oUser->getLogin().'/arbitrage',
-            'count' => $this->Talk_GetCountFromMessageByFilter([
-                'state in' => ['arbitrage', 'chat'],
-                'type' => 'response', 
-                'target_id' => $oUser->getId()])
-        ]));
+        //$aParams['menu']
         
         
     }

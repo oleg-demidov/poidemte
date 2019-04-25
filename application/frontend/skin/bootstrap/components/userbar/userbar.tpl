@@ -9,7 +9,7 @@
 
 
 {if $oUserCurrent}
-    {insert name='block' block='menu' params=[ 'name' => "user", "activeItem" => $sMenuUserItemSelect ]}
+    {insert name='block' block='menuUser' params=[  ]}
 
 {else}
     {if !in_array(Router::GetActionEvent(), ["login", "register"])}
