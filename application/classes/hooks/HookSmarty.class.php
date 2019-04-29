@@ -19,7 +19,7 @@ class HookSmarty extends Hook {
 	 */
 	public function SmartyConfig() {
             /**
-             * Добавляем директорию плаинов для Smarty
+             * Добавляем директорию плагинов для Smarty
              */
             $this->Viewer_GetSmartyObject()->addPluginsDir(Config::Get('path.application.server').'/classes/modules/viewer/plugs');
 	

@@ -241,7 +241,7 @@ class ModuleUser_EntityUser extends EntityORM
     }
 
     public function getProfileUrl() { 
-        return Router::GetPathRootWeb(). '/' .($this->getLogin()?$this->getLogin():$this->getId());
+        return Router::GetPath($this->getLogin()?$this->getLogin():'profile/'.$this->getId());
     }
     
     public function afterSave() {

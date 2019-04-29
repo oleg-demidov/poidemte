@@ -64,20 +64,11 @@ class ActionAjax extends Action
         $this->AddEventPreg('/^media$/i', '/^load-gallery-old$/', '/^$/', 'Media::EventMediaLoadGalleryOld');
         $this->AddEventPreg('/^media$/i', '/^submit-insert$/', '/^$/', 'Media::EventMediaSubmitInsert');
         
-        
-        $this->RegisterEventExternal('Talk', 'ActionAjax_EventTalk');
-        $this->AddEventPreg('/^talk$/i', '/^edit-response$/', '/^$/', 'Talk::EventAjaxResponseEdit');
-        $this->AddEventPreg('/^talk$/i', '/^create-proposal$/', '/^$/', 'Talk::EventAjaxProposalCreate');
-        $this->AddEventPreg('/^talk$/i', '/^create-answer$/', '/^$/', 'Talk::EventAjaxAnswerCreate');
-        $this->AddEventPreg('/^talk$/i', '/^create-arbitrage$/', '/^$/', 'Talk::EventAjaxArbitrageCreate');
-        $this->AddEventPreg('/^talk$/i', '/^message-delete$/', '/^$/', 'Talk::EventAjaxMessageDelete');
-        $this->AddEventPreg('/^talk$/i', '/^create-arbitrage-chat$/', '/^$/', 'Talk::EventAjaxArbitrageChat');
-        
+                
         $this->RegisterEventExternal('Autocomplete', 'ActionAjax_EventAutocomplete');
         $this->AddEventPreg('/^autocomplete$/i', '/^user$/', '/^$/', 'Autocomplete::EventUser');
         
         $this->RegisterEventExternal('Profile', 'ActionAjax_EventProfile');
-        $this->AddEventPreg('/^confirm-company$/i', '/^$/', 'Profile::EventConfirmCompany');
         $this->AddEventPreg('/^search-users$/i', '/^$/', 'Profile::EventSearchUsers');
         
         $this->RegisterEventExternal('Validate', 'ActionAjax_EventValidate');

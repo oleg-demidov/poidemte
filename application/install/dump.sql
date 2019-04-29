@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Время создания: Янв 03 2019 г., 08:08
+-- Время создания: Янв 24 2019 г., 06:45
 -- Версия сервера: 5.7.24-0ubuntu0.16.04.1
 -- Версия PHP: 7.0.32-4+ubuntu16.04.1+deb.sury.org+1
 
@@ -133,12 +133,6 @@ CREATE TABLE `prefix_media` (
   `data` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Дамп данных таблицы `prefix_media`
---
-
-
-
 -- --------------------------------------------------------
 
 --
@@ -155,12 +149,6 @@ CREATE TABLE `prefix_media_target` (
   `is_preview` tinyint(1) NOT NULL DEFAULT '0',
   `data` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Дамп данных таблицы `prefix_media_target`
---
-
-
 
 -- --------------------------------------------------------
 
@@ -207,8 +195,6 @@ CREATE TABLE `prefix_menu_item` (
 --
 
 INSERT INTO `prefix_menu_item` (`id`, `name`, `url`, `menu_id`, `pid`, `title`, `state`, `priority`) VALUES
-(1, 'humans', 'humans', 1, 0, 'menu.humans.text', 1, 100),
-(5, 'companies', 'companies', 1, 0, 'menu.companies.text', 1, 99),
 (11, 'settings', 'settings', 2, 0, 'user.profile.nav.settings', 1, 20);
 
 -- --------------------------------------------------------
@@ -381,14 +367,13 @@ CREATE TABLE `prefix_rating_stat` (
 CREATE TABLE `prefix_rating_vote` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `user_id` int(10) UNSIGNED NOT NULL,
+  `from_id` int(11) NOT NULL,
   `vote` smallint(6) NOT NULL,
   `target_type` varchar(20) COLLATE utf8_bin NOT NULL,
   `target_id` int(10) UNSIGNED NOT NULL,
   `date_update` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `date_create` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
-
 
 -- --------------------------------------------------------
 
@@ -537,7 +522,12 @@ CREATE TABLE `prefix_session` (
   `extra` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Дамп данных таблицы `prefix_session`
+--
 
+INSERT INTO `prefix_session` (`key`, `user_id`, `ip_create`, `ip_last`, `date_create`, `date_last`, `date_close`, `extra`) VALUES
+('807576f86e135bcd92fda05206c944a1', 1, '127.0.0.1', '127.0.0.1', '2019-01-24 03:45:25', '2019-01-24 03:45:25', NULL, '{"user_agent":"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Ubuntu Chromium\\/70.0.3538.77 Chrome\\/70.0.3538.77 Safari\\/537.36"}');
 
 -- --------------------------------------------------------
 
@@ -552,28 +542,7 @@ CREATE TABLE `prefix_storage` (
   `instance` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-
-
 -- --------------------------------------------------------
-
---
--- Структура таблицы `prefix_talk_message`
---
-
-CREATE TABLE `prefix_talk_message` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `type` varchar(50) COLLATE utf8_bin NOT NULL,
-  `user_id` int(10) UNSIGNED NOT NULL,
-  `user_name` varchar(200) COLLATE utf8_bin NOT NULL,
-  `target_type` varchar(20) COLLATE utf8_bin NOT NULL,
-  `target_id` bigint(20) UNSIGNED NOT NULL,
-  `text` text COLLATE utf8_bin NOT NULL,
-  `state` varchar(20) COLLATE utf8_bin NOT NULL,
-  `rating` float NOT NULL,
-  `date_create` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `date_update` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
 
 
 -- --------------------------------------------------------
@@ -587,7 +556,11 @@ CREATE TABLE `prefix_user` (
   `login` varchar(100) NOT NULL,
   `mail` varchar(50) NOT NULL,
   `name` varchar(200) DEFAULT NULL,
+  `role` varchar(20) NOT NULL,
   `about` text,
+  `site` varchar(500) NOT NULL,
+  `phone` varchar(20) NOT NULL,
+  `address` varchar(500) NOT NULL,
   `photo` varchar(200) DEFAULT NULL,
   `password` varchar(32) NOT NULL,
   `date_create` datetime NOT NULL,
@@ -601,7 +574,12 @@ CREATE TABLE `prefix_user` (
   `activate_key` varchar(32) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Дамп данных таблицы `prefix_user`
+--
 
+INSERT INTO `prefix_user` (`id`, `login`, `mail`, `name`, `role`, `about`, `site`, `phone`, `address`, `photo`, `password`, `date_create`, `date_activate`, `ip_create`, `active`, `rating`, `is_admin`, `activate`, `confirmed`, `activate_key`) VALUES
+(1, 'administrator', 'support@site.ru', 'Администратор', 'user', 'Администратор', '', '', '', NULL, 'ac66e5100a5c96121ed922126522705d', '2019-01-01 00:00:00', '2019-01-01 00:00:00', '', 1, 0, 1, 1, 0, NULL);
 
 --
 -- Индексы сохранённых таблиц
@@ -816,7 +794,8 @@ ALTER TABLE `prefix_rating_vote`
   ADD KEY `vote` (`vote`),
   ADD KEY `date_update` (`date_update`),
   ADD KEY `date_create` (`date_create`),
-  ADD KEY `target_type` (`target_type`) USING BTREE;
+  ADD KEY `target_type` (`target_type`) USING BTREE,
+  ADD KEY `from_id` (`from_id`);
 
 --
 -- Индексы таблицы `prefix_rbac_group`
@@ -888,19 +867,6 @@ ALTER TABLE `prefix_storage`
   ADD UNIQUE KEY `key_instance` (`key`,`instance`),
   ADD KEY `instance` (`instance`);
 
---
--- Индексы таблицы `prefix_talk_message`
---
-ALTER TABLE `prefix_talk_message`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `type` (`type`),
-  ADD KEY `user_id` (`user_id`),
-  ADD KEY `target_id` (`target_id`),
-  ADD KEY `date_create` (`date_create`),
-  ADD KEY `date_update` (`date_update`),
-  ADD KEY `state` (`state`),
-  ADD KEY `rating` (`rating`),
-  ADD KEY `target_type` (`target_type`);
 
 --
 -- Индексы таблицы `prefix_user`
@@ -913,7 +879,8 @@ ALTER TABLE `prefix_user`
   ADD KEY `activate_key` (`activate_key`),
   ADD KEY `active` (`active`),
   ADD KEY `activate` (`activate`),
-  ADD KEY `rating` (`rating`);
+  ADD KEY `rating` (`rating`),
+  ADD KEY `role` (`role`);
 
 --
 -- AUTO_INCREMENT для сохранённых таблиц
@@ -948,22 +915,22 @@ ALTER TABLE `prefix_cron_task`
 -- AUTO_INCREMENT для таблицы `prefix_media`
 --
 ALTER TABLE `prefix_media`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT для таблицы `prefix_media_target`
 --
 ALTER TABLE `prefix_media_target`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT для таблицы `prefix_menu`
 --
 ALTER TABLE `prefix_menu`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT для таблицы `prefix_menu_item`
 --
 ALTER TABLE `prefix_menu_item`
-  MODIFY `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+  MODIFY `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT для таблицы `prefix_notify_task`
 --
@@ -1018,7 +985,7 @@ ALTER TABLE `prefix_rating_stat`
 -- AUTO_INCREMENT для таблицы `prefix_rating_vote`
 --
 ALTER TABLE `prefix_rating_vote`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT для таблицы `prefix_rbac_permission`
 --
@@ -1030,45 +997,27 @@ ALTER TABLE `prefix_rbac_permission`
 ALTER TABLE `prefix_rbac_role`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
+-- AUTO_INCREMENT для таблицы `prefix_rbac_role_permission`
+--
+ALTER TABLE `prefix_rbac_role_permission`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT для таблицы `prefix_rbac_role_user`
+--
+ALTER TABLE `prefix_rbac_role_user`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT для таблицы `prefix_storage`
 --
 ALTER TABLE `prefix_storage`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
---
--- AUTO_INCREMENT для таблицы `prefix_talk_message`
---
-ALTER TABLE `prefix_talk_message`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT для таблицы `prefix_user`
 --
-ALTER TABLE `prefix_user` 
-ADD `site` VARCHAR(500) NOT NULL AFTER `about`, 
-ADD `phone` VARCHAR(20) NOT NULL AFTER `site`, 
-ADD `address` VARCHAR(500) NOT NULL AFTER `phone`;
-
-ALTER TABLE `prefix_user` ADD `role` VARCHAR(20) NOT NULL AFTER `name`, ADD INDEX (`role`);
-
-
-INSERT INTO `prefix_user` (`id`, `login`, `mail`, `name`, `role`, `about`, `site`, `phone`, `address`, `photo`, `password`, `date_create`, `date_activate`, `ip_create`, `active`, `rating`, `is_admin`, `activate`, `confirmed`, `activate_key`) 
-VALUES ('1', 'administrator', 'support@fend.ru', 'Администратор', 'user', 'Администратор', '', '', '', NULL, 'ac66e5100a5c96121ed922126522705d', '2019-01-01 00:00:00', '2019-01-01 00:00:00', '', '1', '0', '1', '1', '0', NULL);
-
 ALTER TABLE `prefix_user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
-ALTER TABLE `prefix_talk_message` ADD FULLTEXT(`text`);
-
-
-UPDATE `prefix_menu_item` SET `name` = 'people', `url` = 'people' WHERE `prefix_menu_item`.`url` = 'humans';
-
-ALTER TABLE `prefix_rating_vote` ADD `from_id` INT NOT NULL AFTER `user_id`, ADD INDEX (`from_id`);
-
-
-
-
-ALTER TABLE `prefix_rbac_role_user` CHANGE `id` `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT;
-
-ALTER TABLE `prefix_rbac_role_permission` CHANGE `id` `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+

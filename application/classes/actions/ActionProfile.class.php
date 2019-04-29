@@ -32,22 +32,6 @@ class ActionProfile extends Action
         }
         $this->SetDefaultEvent('index');
         
-        $this->iCountResponses = $this->Talk_GetCountFromResponseByFilter([
-            'state in' => ['publish', 'arbitrage', 'chat'],
-            'target_type' => 'user',
-            'target_id'     => $this->oUserProfile->getId()
-        ]);
-        
-        $this->iCountProposals = $this->Talk_GetCountFromProposalByFilter([
-            'state' => 'publish',
-            'target_type' => 'user',
-            'target_id'     => $this->oUserProfile->getId()
-        ]);
-        
-        $this->iCountAnswers = $this->Talk_GetCountFromAnswerByFilter([
-            'state' => 'publish',
-            'user_id'     => $this->oUserProfile->getId()
-        ]);
         
         $this->Viewer_SetHtmlCanonical($this->oUserProfile->getProfileUrl());
         
@@ -70,17 +54,7 @@ class ActionProfile extends Action
         $this->AddEventPreg('/^.+$/i', '/^settings$/i', '/^profile-ajax$/i', 'Settigns::EventProfileAjax' );
         
         $this->RegisterEventExternal('Profile', 'ActionProfile_EventProfile');
-        $this->AddEventPreg('/^.+$/i', '/^confirm-company$/i', ['Profile::EventConfirmCompany' , 'confirm_company']);
-        $this->AddEventPreg('/^.+$/i', '/^response-success$/i', ['Profile::EventResponseSuccess' , 'response_success']);
-        $this->AddEventPreg('/^.+$/i', '/^proposal-success$/i', ['Profile::EventProposalSuccess' , 'proposal_success']);
-        $this->AddEventPreg('/^.+$/i', '/^confirm-company$/i', ['Profile::EventConfirmCompany' , 'confirm_company']);
         $this->AddEventPreg('/^.+$/i', '/^(all)?$/i', '/^(page(\d))?$/i', ['Profile::EventIndex' , 'profile']);
-        $this->AddEventPreg('/^.+$/i', '/^responses$/i', '/^(page(\d))?$/i', ['Profile::EventResponses' , 'profile']);
-        $this->AddEventPreg('/^.+$/i', '/^proposals$/i', '/^(page(\d))?$/i', ['Profile::EventProposals' , 'profile']);
-        $this->AddEventPreg('/^.+$/i', '/^arbitrage$/i', '/^(page(\d))?$/i', ['Profile::EventArbitrage' , 'profile']);
-        $this->AddEventPreg('/^.+$/i', '/^arbitrage$/i', '/^\d+$/i', ['Profile::EventArbitrageChat' , 'profile']);
-        $this->AddEventPreg('/^.+$/i', '/^my-responses$/i', '/^(page(\d))?$/i', ['Profile::EventMyResponses' , 'profile']);
-        $this->AddEventPreg('/^.+$/i', '/^my-proposals$/i', '/^(page(\d))?$/i', ['Profile::EventMyProposals' , 'profile']);
         
        
     }

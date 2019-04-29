@@ -98,11 +98,6 @@ $config['module']['notify']['prefix']        = 'email';  // Префикс ша�
 
 // Модуль Security
 $config['module']['security']['hash']  = "livestreet_security_key"; // "примесь" к строке, хешируемой в качестве security-кода
-/**
- * Модуль Talk
- */
-$config['module']['talk']['pagination']['pages']['count'] = 5;
-$config['module']['talk']['page_count'] = 10;
 
 /*
  * SEO
