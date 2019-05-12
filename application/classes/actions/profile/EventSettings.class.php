@@ -52,48 +52,6 @@ class ActionProfile_EventSettings extends Event {
             $iCanvasWidth = getRequest('canvasWidth')[$iPhoto];
         }
         
-        $mTarget = $this->Media_GetTargetByFilter([
-            'target_type' => 'user_photo', 
-            'target_id' => $this->oUserProfile->getId()
-        ]);
-        
-        if($mTarget){
-            $mTarget->Delete();
-        }
-        
-        $sPath = '';
-        if($oMedia = $this->Media_GetMediaById($iPhoto)){
-            
-            if(isset($aSize) and isset($iCanvasWidth)){
-                if(($sResult = $this->Media_NewSizeFromCrop($oMedia, $aSize, $iCanvasWidth, 
-                        'photo', [Config::Get('module.user.photo.width')]) ) !== true){
-                    $this->Message_AddError($sResult);
-                }
-                
-                if(($sResult = $this->Media_NewSizeFromCrop($oMedia, $aSize, $iCanvasWidth, 
-                        'avatar', [Config::Get('module.user.avatar.width')]) ) !== true){
-                    $this->Message_AddError($sResult);
-                }
-                
-                if(($sResult = $this->Media_NewSizeFromCrop($oMedia, $aSize, $iCanvasWidth, 
-                        'avatar_small', [Config::Get('module.user.avatar_small.width')]) ) !== true){
-                    $this->Message_AddError($sResult);
-                }
-            }
-            
-            $mTarget = $this->Media_GetTargetByFilter([
-                    'target_type' => 'user_photo', 
-                    'target_id' => $this->oUserProfile->getId(), 
-                    'media_id' => $iPhoto]);
-            
-            if(!$mTarget){
-                $this->Media_AttachMediaToTarget($oMedia, 'user_photo', $this->oUserProfile->getId(), null,  ['size'=>'photo']);
-            }
-            
-            $sPath = $this->Fs_GetPathRelative($oMedia->getFileServerPath('photo'), true);
-            $this->oUserProfile->setPhoto($sPath);
-        }
-        
         
         $this->oUserProfile->setName(getRequest('name'));
         $this->oUserProfile->setAbout(getRequest('about'));

@@ -56,14 +56,6 @@ class ActionAjax extends Action
 
         $this->AddEventPreg('/^vote$/i', '/^user$/', 'EventVoteUser');
         
-        $this->RegisterEventExternal('Media', 'ActionAjax_EventMedia');
-        $this->AddEventPreg('/^media$/i', '/^upload$/', '/^$/', 'Media::EventMediaUpload');
-        $this->AddEventPreg('/^media$/i', '/^load-gallery$/', '/^$/', 'Media::EventMediaLoadGallery');
-        $this->AddEventPreg('/^media$/i', '/^remove-file$/', '/^$/', 'Media::EventMediaRemoveFile');
-        $this->AddEventPreg('/^media$/i', '/^generate-target-tmp$/', '/^$/', 'Media::EventMediaGenerateTargetTmp');
-        $this->AddEventPreg('/^media$/i', '/^load-gallery-old$/', '/^$/', 'Media::EventMediaLoadGalleryOld');
-        $this->AddEventPreg('/^media$/i', '/^submit-insert$/', '/^$/', 'Media::EventMediaSubmitInsert');
-        
                 
         $this->RegisterEventExternal('Autocomplete', 'ActionAjax_EventAutocomplete');
         $this->AddEventPreg('/^autocomplete$/i', '/^user$/', '/^$/', 'Autocomplete::EventUser');

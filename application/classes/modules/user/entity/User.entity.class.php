@@ -251,23 +251,12 @@ class ModuleUser_EntityUser extends EntityORM
         }
     }
     
-    public function getMedia($sTargetType = '') {
-        return $this->Media_GetMediaByTarget($sTargetType, $this->getId());
-    }
     
     public function getProfilePhoto() {
-        $aMedia = $this->getMedia('user_photo');
-        if(sizeof($aMedia)){
-            return array_shift($aMedia)->getFileWebPath('photo');
-        }
         return $this->User_GetDefaultPhoto();
     }
     
     public function getProfileAvatar() {
-        $aMedia = $this->getMedia('user_photo');
-        if(sizeof($aMedia)){
-            return array_shift($aMedia)->getFileWebPath('avatar');
-        }
         return $this->User_GetDefaultAvatar();
     }
     
@@ -282,6 +271,11 @@ class ModuleUser_EntityUser extends EntityORM
             }
         }
         return false;
+    }
+    
+    
+    public function isAllow($sPermissionCode, $aParamsOrPlugin = array(), $sPluginOrParams = null) {
+        return $this->Rbac_IsAllowUser($this, $sPermissionCode, $aParamsOrPlugin , $sPluginOrParams );
     }
     
     public function getRating() {

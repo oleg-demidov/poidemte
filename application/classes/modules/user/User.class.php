@@ -475,50 +475,5 @@ class ModuleUser extends ModuleORM
         return Config::Get('path.skin.assets.web'). '/images/avatars/avatar_male_50x50crop.png';
     }
     
-    public function SetProfilePhotoByUrl($oUser, $sUrl) {
-        if( is_string($mResult = $this->Media_Upload($sUrl, 'user' , $oUser->getId())) ){
-            return $mResult;
-        }
-        
-        if(!$oImage = $this->Image_Open($mResult->getPathServer() )){
-            return $this->Image_GetLastError();
-        }
-        
-        $aSizesData = $mResult->getDataOne('image_sizes');
-        
-        $oImage->cropProportion(1);
-        
-        $oImage->resize(Config::Get('module.user.photo.width'));
-        $oImage->save($this->Media_GetImagePathBySize($mResult->getPathServer(), 'photo'));
-        $aSizesData[] = ['w' => Config::Get('module.user.photo.width'), 'h' => null, 'crop' => true];
-        
-        $oImage->resize(Config::Get('module.user.avatar.width'));
-        $oImage->save($this->Media_GetImagePathBySize($mResult->getPathServer(), 'avatar'));
-        $aSizesData[] = ['w' => Config::Get('module.user.avatar.width'), 'h' => null, 'crop' => true];
-        
-        $oImage->resize(Config::Get('module.user.avatar_small.width'));
-        $oImage->save($this->Media_GetImagePathBySize($mResult->getPathServer(), 'avatar_small'));
-        $aSizesData[] = ['w' => Config::Get('module.user.avatar_small.width'), 'h' => null, 'crop' => true];
-        
-        $mResult->setDataOne('image_sizes', $aSizesData);
-        $mResult->Update();
-         
-        /**
-         * Сохраняем
-         */
-        $mTarget = $this->Media_GetTargetByFilter([
-            'target_type' => 'user_photo', 
-            'target_id' => $oUser->getId(), 
-            'media_id' => $mResult->getId()]);
-            
-        if($mTarget){
-            $mTarget->Delete();
-        }
-        $this->Media_AttachMediaToTarget($mResult, 'user_photo', $oUser->getId(), null,  ['size'=>'photo']);
-        
-        return $mResult;
-        
-        
-       
-    }
+    
 }
