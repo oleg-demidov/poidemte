@@ -113,35 +113,6 @@ $config['seo'] = [
  */
 $config['moderation']['talk']['page_count'] = 10;
 $config['moderation']['profiles']['page_count'] = 10;
-/**
- * Модуль Media
- */
-$config['module']['media']['max_size'] = 3*1024; // Максимальный размер файла в kB
-$config['module']['media']['max_count_files'] = 30; // Максимальное количество файлов медиа у одного объекта
-$config['module']['media']['image']['max_size'] = 1*5000; // Максимальный размер файла изображения в kB
-$config['module']['media']['image']['autoresize'] = true; // Разрешает автоматическое создание изображений нужного размера при их запросе
-$config['module']['media']['image']['original'] = '1500x'; // Размер для хранения оригинала. Если true, то будет сохраняться исходный оригинал без ресайза. Если false, то оригинал сохраняться не будет
-$config['module']['media']['image']['sizes'] = array(  // список размеров, которые необходимо делать при загрузке изображения
-    
-    array(
-        'w'    => 500,
-        'h'    => null,
-        'crop' => false,
-    ),
-    
-);
-$config['module']['media']['image']['preview']['sizes'] = array(  // список размеров, которые необходимо делать при создании превью
-    array(
-        'w'    => 900,
-        'h'    => 300,
-        'crop' => true,
-    ),
-    array(
-        'w'    => 250,
-        'h'    => 150,
-        'crop' => true,
-    ),
-);
 
 
 // Настройки Google рекаптчи - https://www.google.com/recaptcha/admin#createsite
