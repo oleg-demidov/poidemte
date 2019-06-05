@@ -29,7 +29,7 @@ class ModuleProperty_EntityValueTypeImageset extends ModuleProperty_EntityValueT
 {
     public function getValueForDisplay($aFilter = [])
     {
-        $aMedia = $this->Media_GetMediaItemsByFilter(array_merge([
+        $aMedia = //$this->Media_GetMediaItemsByFilter(array_merge([
             '#join' => [
                 "JOIN ".Config::Get('db.table.media_target')." as mt ON mt.media_id = t.id "
                 . "AND mt.target_type = 'imageset' AND mt.target_id = ?d" => 
@@ -54,7 +54,7 @@ class ModuleProperty_EntityValueTypeImageset extends ModuleProperty_EntityValueT
         
         $aMediaTargets = $this->getMediaTargetsImageset($mValue, 'media_id');        
         
-        $this->Media_DeleteTargetItemsByFilter( $this->getMediaTargetsFilter($mValue) );
+        //$this->Media_DeleteTargetItemsByFilter( $this->getMediaTargetsFilter($mValue) );
         
         $aMediaTargetIds = [];
         foreach($aMediaTargets as $oMediaTarget){
@@ -64,7 +64,7 @@ class ModuleProperty_EntityValueTypeImageset extends ModuleProperty_EntityValueT
         
         $this->oValue->setData( $aMediaTargetIds );
                 
-        $this->Media_ReplaceTargetTmpById('imageset', $this->oValue->getId());
+        //$this->Media_ReplaceTargetTmpById('imageset', $this->oValue->getId());
         
         return true;
     }
@@ -85,7 +85,7 @@ class ModuleProperty_EntityValueTypeImageset extends ModuleProperty_EntityValueT
 
         $aFilter['#index-from'] = $indexFrom;
             
-        return $this->Media_GetTargetItemsByFilter($aFilter);
+        return //$this->Media_GetTargetItemsByFilter($aFilter);
     }
     
     public function getMediaTargetsFilter($iTargetForm) {

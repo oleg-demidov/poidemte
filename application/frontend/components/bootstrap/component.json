@@ -4,6 +4,10 @@
     "templates": {
     },
     "scripts":{
+        "popper":{
+            "file":"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js",
+            "merge":false
+        },
         "bootstrap":"js/bootstrap.min.js"
     },
     "styles":{

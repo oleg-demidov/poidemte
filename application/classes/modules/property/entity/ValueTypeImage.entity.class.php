@@ -43,7 +43,7 @@ class ModuleProperty_EntityValueTypeImage extends ModuleProperty_EntityValueType
     public function getImageWebPath($sSize = null)
     {
         if ($aFile = $this->oValue->getDataOne('file') and isset($aFile['path'])) {
-            return $this->Media_GetImageWebPath($aFile['path'], $sSize);
+            return //$this->Media_GetImageWebPath($aFile['path'], $sSize);
         }
         return null;
     }
@@ -105,7 +105,7 @@ class ModuleProperty_EntityValueTypeImage extends ModuleProperty_EntityValueType
          */
         if (isset($aFile['remove']) or isset($aFile['name'])) {
             if ($aFilePrev = $this->oValue->getDataOne('file')) {
-                $this->Media_RemoveImageBySizes($aFilePrev['path'], $this->oValue->getDataOne('image_sizes'), true);
+                //$this->Media_RemoveImageBySizes($aFilePrev['path'], $this->oValue->getDataOne('image_sizes'), true);
 
                 $this->oValue->setDataOne('file', array());
                 $this->oValue->setDataOne('image_sizes', array());
@@ -161,7 +161,7 @@ class ModuleProperty_EntityValueTypeImage extends ModuleProperty_EntityValueType
                         /**
                          * Генерируем ресайзы
                          */
-                        $this->Media_GenerateImageBySizes($sFileTmp, $sPath, $sFileName, $aSizes, $aParams);
+                        //$this->Media_GenerateImageBySizes($sFileTmp, $sPath, $sFileName, $aSizes, $aParams);
 
                         $this->Fs_RemoveFileLocal($sFileTmp);
                         return true;

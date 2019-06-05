@@ -5,7 +5,6 @@
         "tinymce": "tinymce.tpl"
     },
     "scripts": {
-        "tinymce": "tinymce/tinymce.min.js",
-        "init":"js/init.js"
+        "tinymce": "tinymce/tinymce.min.js"
     }
 }
