@@ -36,35 +36,31 @@ class ActionProfile_EventSettings extends Event {
     public function EventSecurityAjax() {
         $this->Viewer_SetResponseAjax('json');
         
-        $this->Message_AddNotice('успешнddо');
+        $this->Message_AddNotice('успешно');
         $this->Viewer_AssignAjax('data', $_REQUEST);
     }
     
     public function EventProfileAjax() {
         $this->Viewer_SetResponseAjax('json');
         
-        $iPhoto = (isset(getRequest('photo')[0])?getRequest('photo')[0]:0);
-        
-        if(is_array(getRequest('sizes')) and isset(getRequest('sizes')[$iPhoto])){
-            $aSize = getRequest('sizes')[$iPhoto];
-        }
-        if(is_array(getRequest('canvasWidth')) and isset(getRequest('canvasWidth')[$iPhoto])){
-            $iCanvasWidth = getRequest('canvasWidth')[$iPhoto];
-        }
-        
         
         $this->oUserProfile->setName(getRequest('name'));
         $this->oUserProfile->setAbout(getRequest('about'));
         $this->oUserProfile->setSite(getRequest('site'));
-        $this->oUserProfile->setPhone(getRequest('phone'));
-        $this->oUserProfile->setAddress(getRequest('address'));
         $this->oUserProfile->setLogin(getRequest('login'));
+        
+        $this->Hook_Run('profile_settings_validate_before', ['oUser' => $this->oUserProfile]);
         
         if($this->oUserProfile->_Validate()){
             
+            $this->Hook_Run('profile_settings_save_before', ['oUser' => $this->oUserProfile]);
+            
             if($this->oUserProfile->Save()){
+                
+                $this->Hook_Run('profile_settings_save_after', ['oUser' => $this->oUserProfile]);
+                
                 $this->Message_AddNotice($this->Lang_Get('common.success.save'));
-                $this->Viewer_AssignAjax('sUrlRedirect', $this->oUserProfile->getProfileUrl().'/settings');
+                $this->Viewer_AssignAjax('sUrlRedirect', $this->oUserProfile->getProfileUrl().'settings');
             }
         }else{
             $this->Message_AddError($this->oUserProfile->_getValidateError());

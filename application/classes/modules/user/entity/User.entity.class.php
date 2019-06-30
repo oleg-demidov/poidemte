@@ -256,7 +256,7 @@ class ModuleUser_EntityUser extends EntityORM
         return $this->User_GetDefaultPhoto();
     }
     
-    public function getProfileAvatar() {
+    public function getProfileAvatar($size = 'x100') {
         return $this->User_GetDefaultAvatar();
     }
     

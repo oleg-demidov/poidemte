@@ -48,7 +48,6 @@ jQuery(document).ready(function($){
     /*
      * Modals
      */
-    $('[data-type="crop-modal"]').bsCropModal();
     
     $('.js-modal-media').bsMedia();
     

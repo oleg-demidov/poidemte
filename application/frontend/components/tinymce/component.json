@@ -5,6 +5,10 @@
         "tinymce": "tinymce.tpl"
     },
     "scripts": {
-        "tinymce": "tinymce/tinymce.min.js"
+        "tinymce": {
+            "file":"tinymce/tinymce.min.js",
+            "merge": false
+        },
+        "init": "js/init.js"
     }
 }

@@ -299,6 +299,7 @@ class ModuleCategory extends ModuleORM
             return;
         }
         $aCategories = $this->GetCategoryItemsByArrayId($aCategoryId);
+        
         foreach ($aCategories as $oCategory) {
             if ($mCallback) {
                 if (is_string($mCallback)) {
@@ -307,7 +308,7 @@ class ModuleCategory extends ModuleORM
                 $iCount = call_user_func_array($mCallback, array($oCategory, $sTargetType));
             } else {
                 $iCount = $this->GetCountItemsByFilter(array('category_id' => $oCategory->getId()),
-                    'ModuleCategory_EntityTarget');
+                    'ModuleCategory_EntityTarget');$this->Logger_Notice(print_r($iCount, true));
             }
             $oCategory->setCountTarget($iCount);
             $oCategory->Update();
