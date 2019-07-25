@@ -80,10 +80,7 @@ class ActionAjax extends Action
     protected function EventCaptcha()
     {
         $this->Viewer_SetResponseAjax(null);
-        /**
-         * Подключаем каптчу
-         */
-        require_once(Config::Get('path.framework.libs_vendor.server') . '/kcaptcha/kcaptcha.php');
+        
         /**
          * Определяем уникальное название (возможность нескольких каптч на одной странице)
          */

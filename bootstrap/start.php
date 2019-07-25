@@ -28,14 +28,14 @@
  */
 
 /**
- * Формируем путь до фреймворка
+ * Запоминаем путь до приложения
  */
-$sPathToFramework = dirname(__DIR__) . '/framework/';
+define('LS_ROOT_DIR', dirname(__DIR__));
+/*
+ * Подключается весь движок и загружются конфиги
+ */
+require dirname(__DIR__). '/vendor/autoload.php'; 
 
-/**
- * Подключаем ядро
- */
-require_once($sPathToFramework . '/classes/engine/Engine.class.php');
 
 /**
  * Определяем окружение
@@ -46,17 +46,6 @@ require_once($sPathToFramework . '/classes/engine/Engine.class.php');
 $sEnv = Engine::DetectEnvironment(array(
     'production' => array('your-machine-name'),
 ));
-
-
-/**
- * Дополнительные подготовка фреймворка
- */
-require_once($sPathToFramework . '/bootstrap/start.php');
-
-/**
- * Подключаем загрузчик конфигов
- */
-require_once($sPathToFramework . '/config/loader.php');
 
 /**
  * Определяем дополнительные параметры роутинга

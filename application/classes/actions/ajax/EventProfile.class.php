@@ -34,7 +34,6 @@ class ActionAjax_EventProfile extends Event {
         
         
         $oViewer = $this->Viewer_GetLocalViewer();
-        $oViewer->GetSmartyObject()->addPluginsDir(Config::Get('path.application.server').'/classes/modules/viewer/plugs');
         $oViewer->Assign('items', $aUsers, true);
         $sHtml = $oViewer->Fetch('component@user.list');
         
