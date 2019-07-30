@@ -1,0 +1,41 @@
+/* 
+    Created on : 09.05.2019, 23:25:13
+    Author     : oleg
+*/
+
+/**
+ * Upload area
+ */
+.uploader{
+    
+}
+.media-upload-area {
+    position: relative;
+    border: 3px dashed #dfdcdc;
+    margin: -2px;
+    overflow: hidden;
+    cursor: pointer;
+    display: block;
+    color: #555;
+    text-align: center;
+}
+.media-upload-area input[type=file] {
+    position: absolute;
+    top: -999px;
+    left: -999px;
+}
+
+[data-file-tpl] [data-progress-info]{
+    
+}
+.progress-info{
+     top:0;
+}
+
+.file-upload{
+    height: 24px;
+}
+
+.progress-container{
+   
+}

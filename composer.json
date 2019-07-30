@@ -1,0 +1,9 @@
+{
+   
+    
+    "require": {
+        "livestreet/framework": "dev-master"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
