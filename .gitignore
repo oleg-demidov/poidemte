@@ -10,4 +10,5 @@
 /nbproject
 vendor
 /nbproject/private/
-
+/web/assets/*
+/web/uploads/*
