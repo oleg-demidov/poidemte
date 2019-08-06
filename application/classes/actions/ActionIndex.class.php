@@ -66,7 +66,7 @@ class ActionIndex extends Action
         /**
          * Устанавливаем шаблон вывода
          */
-        $this->SetTemplateAction('index-test');
+        $this->SetTemplateAction('index');
     }
 
     /**
