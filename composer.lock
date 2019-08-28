@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "edd1ae870b33be74462569088e2a0b8b",
+    "content-hash": "6ca4fb82e8c15a466b66ed1725cf1d32",
     "packages": [
         {
             "name": "agelxnash/jevix",
@@ -276,6 +276,42 @@
             "time": "2016-11-11T18:43:20+00:00"
         },
         {
+            "name": "livestreet/asset",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/olezhikz/ls-module-asset.git",
+                "reference": "82a75777114dc1b88db84925f9fd7a352cecc920"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/olezhikz/ls-module-asset/zipball/82a75777114dc1b88db84925f9fd7a352cecc920",
+                "reference": "82a75777114dc1b88db84925f9fd7a352cecc920",
+                "shasum": ""
+            },
+            "require": {
+                "kriswallsmith/assetic": "v1.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "5.5.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "LS\\Module\\Asset\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "oleg",
+                    "email": "end-fin@yandex.ru"
+                }
+            ],
+            "description": "Модуль ресурсов для Livetreet",
+            "time": "2019-08-25T14:43:52+00:00"
+        },
+        {
             "name": "livestreet/dbsimple",
             "version": "dev-master",
             "source": {
@@ -357,12 +393,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/olezhikz/livestreet-framework.git",
-                "reference": "ff1089236acce7f0d315ba659d68aaa3a4cb218b"
+                "reference": "bfc684c815bbc128335d877b8e681f4376949f7a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/olezhikz/livestreet-framework/zipball/ff1089236acce7f0d315ba659d68aaa3a4cb218b",
-                "reference": "ff1089236acce7f0d315ba659d68aaa3a4cb218b",
+                "url": "https://api.github.com/repos/olezhikz/livestreet-framework/zipball/bfc684c815bbc128335d877b8e681f4376949f7a",
+                "reference": "bfc684c815bbc128335d877b8e681f4376949f7a",
                 "shasum": ""
             },
             "require": {
@@ -370,7 +406,7 @@
                 "aura/autoload": "2.0.4",
                 "ganlvtech/kcaptcha": "1.0.1",
                 "imagine/imagine": "^1.2",
-                "kriswallsmith/assetic": "v1.4.0",
+                "livestreet/asset": "dev-master",
                 "livestreet/dbsimple": "dev-master",
                 "livestreet/forker": "dev-master",
                 "livestreet/smarty": "dev-master",
@@ -382,8 +418,14 @@
                 "web-monster/dklabcache": ">=1.0.0",
                 "xxtea/xxtea": "^1.0"
             },
+            "require-dev": {
+                "phpunit/phpunit": "7.5.13"
+            },
             "type": "library",
             "autoload": {
+                "psr-4": {
+                    "LS\\": "classes/"
+                },
                 "files": [
                     "bootstrap/start.php"
                 ]
@@ -398,7 +440,7 @@
                 }
             ],
             "description": "Livestreet Framework",
-            "time": "2019-07-24T00:25:19+00:00"
+            "time": "2019-08-24T18:20:47+00:00"
         },
         {
             "name": "livestreet/smarty",
@@ -787,7 +829,7 @@
         },
         {
             "name": "symfony/process",
-            "version": "v3.4.29",
+            "version": "v3.4.30",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",

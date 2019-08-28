@@ -5,5 +5,14 @@
         "livestreet/framework": "dev-master"
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "require-dev": {
+        
+    },
+    "scripts":{
+        "assets-public":            "php ./vendor/livestreet/framework/console/public_assets.php",
+        "post-create-project-cmd":  "@assets-public",
+        "post-update-cmd":          "@assets-public"
+        
+    }
 }
