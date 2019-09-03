@@ -281,12 +281,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/olezhikz/ls-module-asset.git",
-                "reference": "82a75777114dc1b88db84925f9fd7a352cecc920"
+                "reference": "bf96d78a2e2d74158b5529acf31f3dd9e742c362"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/olezhikz/ls-module-asset/zipball/82a75777114dc1b88db84925f9fd7a352cecc920",
-                "reference": "82a75777114dc1b88db84925f9fd7a352cecc920",
+                "url": "https://api.github.com/repos/olezhikz/ls-module-asset/zipball/bf96d78a2e2d74158b5529acf31f3dd9e742c362",
+                "reference": "bf96d78a2e2d74158b5529acf31f3dd9e742c362",
                 "shasum": ""
             },
             "require": {
@@ -309,7 +309,7 @@
                 }
             ],
             "description": "Модуль ресурсов для Livetreet",
-            "time": "2019-08-25T14:43:52+00:00"
+            "time": "2019-08-31T12:13:05+00:00"
         },
         {
             "name": "livestreet/dbsimple",
@@ -393,12 +393,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/olezhikz/livestreet-framework.git",
-                "reference": "bfc684c815bbc128335d877b8e681f4376949f7a"
+                "reference": "d4ff3031d4d0150fc974833d538d1a543d233464"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/olezhikz/livestreet-framework/zipball/bfc684c815bbc128335d877b8e681f4376949f7a",
-                "reference": "bfc684c815bbc128335d877b8e681f4376949f7a",
+                "url": "https://api.github.com/repos/olezhikz/livestreet-framework/zipball/d4ff3031d4d0150fc974833d538d1a543d233464",
+                "reference": "d4ff3031d4d0150fc974833d538d1a543d233464",
                 "shasum": ""
             },
             "require": {
@@ -440,7 +440,7 @@
                 }
             ],
             "description": "Livestreet Framework",
-            "time": "2019-08-24T18:20:47+00:00"
+            "time": "2019-08-31T12:09:26+00:00"
         },
         {
             "name": "livestreet/smarty",
@@ -829,16 +829,16 @@
         },
         {
             "name": "symfony/process",
-            "version": "v3.4.30",
+            "version": "v3.4.31",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
-                "reference": "d129c017e8602507688ef2c3007951a16c1a8407"
+                "reference": "d822cb654000a95b7855362c0d5b127f6a6d8baa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/d129c017e8602507688ef2c3007951a16c1a8407",
-                "reference": "d129c017e8602507688ef2c3007951a16c1a8407",
+                "url": "https://api.github.com/repos/symfony/process/zipball/d822cb654000a95b7855362c0d5b127f6a6d8baa",
+                "reference": "d822cb654000a95b7855362c0d5b127f6a6d8baa",
                 "shasum": ""
             },
             "require": {
@@ -874,7 +874,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2019-05-30T15:47:52+00:00"
+            "time": "2019-08-26T07:52:58+00:00"
         },
         {
             "name": "web-monster/dklabcache",
