@@ -24,6 +24,3 @@
 [submodule "application/plugins/moderation"]
 	path = application/plugins/moderation
 	url = git@github.com:olezhikz/ls-plugin-moderation.git
-[submodule "application/frontend/skin/bootstrap"]
-	path = application/frontend/skin/bootstrap
-	url = git@github.com:olezhikz/ls-template-bootstrap.git
