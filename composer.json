@@ -10,9 +10,7 @@
         
     },
     "scripts":{
-        "assets-public":            "php ./vendor/livestreet/framework/console/public_assets.php",
-        "post-create-project-cmd":  "@assets-public",
-        "post-update-cmd":          "@assets-public"
+        "assets-public":            "php ./vendor/livestreet/framework/console/public_assets.php"
         
     }
 }
