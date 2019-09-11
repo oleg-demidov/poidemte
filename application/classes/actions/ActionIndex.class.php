@@ -61,8 +61,7 @@ class ActionIndex extends Action
      */
     protected function EventIndex()
     {
-        $this->Component_Add('tinymce');
-        
+                
         /**
          * Устанавливаем шаблон вывода
          */

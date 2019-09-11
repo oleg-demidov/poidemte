@@ -39,7 +39,7 @@ $config['sys']['debug']['action_error'] = false;
 /**
  * Настройки HTML вида
  */
-$config['view']['skin']        = 'bootstrap';		// Название текущего шаблона
+$config['view']['skin']        = 'pdd';		// Название текущего шаблона
 $config['view']['theme'] = 'default';			// тема оформления шаблона (шаблон должен поддерживать темы)
 $config['view']['name']        = 'Pdd';                   // название сайта
 $config['view']['description'] = 'Description your site'; // seo description

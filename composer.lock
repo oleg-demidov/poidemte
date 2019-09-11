@@ -281,12 +281,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/olezhikz/ls-module-asset.git",
-                "reference": "bf96d78a2e2d74158b5529acf31f3dd9e742c362"
+                "reference": "ee38ab53e73edb5d3222a05a6ac695009ba44d78"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/olezhikz/ls-module-asset/zipball/bf96d78a2e2d74158b5529acf31f3dd9e742c362",
-                "reference": "bf96d78a2e2d74158b5529acf31f3dd9e742c362",
+                "url": "https://api.github.com/repos/olezhikz/ls-module-asset/zipball/ee38ab53e73edb5d3222a05a6ac695009ba44d78",
+                "reference": "ee38ab53e73edb5d3222a05a6ac695009ba44d78",
                 "shasum": ""
             },
             "require": {
@@ -309,7 +309,7 @@
                 }
             ],
             "description": "Модуль ресурсов для Livetreet",
-            "time": "2019-08-31T12:13:05+00:00"
+            "time": "2019-09-10T07:38:47+00:00"
         },
         {
             "name": "livestreet/dbsimple",
@@ -393,12 +393,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/olezhikz/livestreet-framework.git",
-                "reference": "d4ff3031d4d0150fc974833d538d1a543d233464"
+                "reference": "edf8f7615e4abcc189e1c04cd1d87473acf5820f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/olezhikz/livestreet-framework/zipball/d4ff3031d4d0150fc974833d538d1a543d233464",
-                "reference": "d4ff3031d4d0150fc974833d538d1a543d233464",
+                "url": "https://api.github.com/repos/olezhikz/livestreet-framework/zipball/edf8f7615e4abcc189e1c04cd1d87473acf5820f",
+                "reference": "edf8f7615e4abcc189e1c04cd1d87473acf5820f",
                 "shasum": ""
             },
             "require": {
@@ -440,7 +440,7 @@
                 }
             ],
             "description": "Livestreet Framework",
-            "time": "2019-08-31T12:09:26+00:00"
+            "time": "2019-09-10T08:54:57+00:00"
         },
         {
             "name": "livestreet/smarty",
@@ -956,9 +956,9 @@
             "authors": [
                 {
                     "name": "Ma Bingyao",
+                    "role": "Developer",
                     "email": "mabingyao@gmail.com",
-                    "homepage": "https://github.com/xxtea/xxtea-php",
-                    "role": "Developer"
+                    "homepage": "https://github.com/xxtea/xxtea-php"
                 }
             ],
             "description": "XXTEA is a fast and secure encryption algorithm. This is a XXTEA library for PHP.",

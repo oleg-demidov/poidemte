@@ -68,6 +68,6 @@ class BlockFieldCategory extends Block
             }
         }
 
-        $this->SetTemplate('component@bs-form.categories');
+        $this->SetTemplate('component@form.categories');
     }
 }
