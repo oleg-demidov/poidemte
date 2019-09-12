@@ -1,0 +1,17 @@
+{
+    "name": "menu",
+    "version": "1.0.0",
+    
+    "templates": {
+        "menu": "menu.tpl",
+        "main":"main.tpl",
+        "settings":"settings.tpl",
+        "user":"user.tpl"
+    },
+    "scripts": {
+        
+    },
+    "styles": {
+        
+    }
+}
