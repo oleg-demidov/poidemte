@@ -1,9 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
+    "hash": "5ae1a5c61aa8d9ea9f40d0aefdc4c376",
     "content-hash": "6ca4fb82e8c15a466b66ed1725cf1d32",
     "packages": [
         {
@@ -56,7 +57,7 @@
                 }
             ],
             "description": "Library for html filtering",
-            "time": "2019-03-29T12:26:55+00:00"
+            "time": "2019-03-29 12:26:55"
         },
         {
             "name": "aura/autoload",
@@ -105,7 +106,7 @@
                 "autoloader",
                 "class loader"
             ],
-            "time": "2016-10-03T19:36:19+00:00"
+            "time": "2016-10-03 19:36:19"
         },
         {
             "name": "ganlvtech/kcaptcha",
@@ -138,7 +139,7 @@
                 }
             ],
             "description": "KCAPTCHA for composer",
-            "time": "2018-02-14T06:20:49+00:00"
+            "time": "2018-02-14 06:20:49"
         },
         {
             "name": "imagine/imagine",
@@ -196,7 +197,7 @@
                 "image manipulation",
                 "image processing"
             ],
-            "time": "2019-07-09T06:55:48+00:00"
+            "time": "2019-07-09 06:55:48"
         },
         {
             "name": "kriswallsmith/assetic",
@@ -273,7 +274,7 @@
                 "compression",
                 "minification"
             ],
-            "time": "2016-11-11T18:43:20+00:00"
+            "time": "2016-11-11 18:43:20"
         },
         {
             "name": "livestreet/asset",
@@ -281,12 +282,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/olezhikz/ls-module-asset.git",
-                "reference": "ee38ab53e73edb5d3222a05a6ac695009ba44d78"
+                "reference": "849db1323eb065680ea94859e95884ac94d3e912"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/olezhikz/ls-module-asset/zipball/ee38ab53e73edb5d3222a05a6ac695009ba44d78",
-                "reference": "ee38ab53e73edb5d3222a05a6ac695009ba44d78",
+                "url": "https://api.github.com/repos/olezhikz/ls-module-asset/zipball/849db1323eb065680ea94859e95884ac94d3e912",
+                "reference": "849db1323eb065680ea94859e95884ac94d3e912",
                 "shasum": ""
             },
             "require": {
@@ -309,7 +310,7 @@
                 }
             ],
             "description": "Модуль ресурсов для Livetreet",
-            "time": "2019-09-10T07:38:47+00:00"
+            "time": "2019-09-11 03:02:15"
         },
         {
             "name": "livestreet/dbsimple",
@@ -353,7 +354,7 @@
                 "Simple",
                 "db"
             ],
-            "time": "2019-07-20T18:31:16+00:00"
+            "time": "2019-07-20 18:31:16"
         },
         {
             "name": "livestreet/forker",
@@ -385,7 +386,7 @@
                 }
             ],
             "description": "Forker presents a simple interfacing for forking in PHP.",
-            "time": "2019-07-23T07:39:59+00:00"
+            "time": "2019-07-23 07:39:59"
         },
         {
             "name": "livestreet/framework",
@@ -393,12 +394,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/olezhikz/livestreet-framework.git",
-                "reference": "edf8f7615e4abcc189e1c04cd1d87473acf5820f"
+                "reference": "bf665f00705878fab0c7fd3d58d51bf6831ffdfa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/olezhikz/livestreet-framework/zipball/edf8f7615e4abcc189e1c04cd1d87473acf5820f",
-                "reference": "edf8f7615e4abcc189e1c04cd1d87473acf5820f",
+                "url": "https://api.github.com/repos/olezhikz/livestreet-framework/zipball/bf665f00705878fab0c7fd3d58d51bf6831ffdfa",
+                "reference": "bf665f00705878fab0c7fd3d58d51bf6831ffdfa",
                 "shasum": ""
             },
             "require": {
@@ -440,7 +441,7 @@
                 }
             ],
             "description": "Livestreet Framework",
-            "time": "2019-09-10T08:54:57+00:00"
+            "time": "2019-09-11 03:01:28"
         },
         {
             "name": "livestreet/smarty",
@@ -496,7 +497,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2019-06-13T08:39:17+00:00"
+            "time": "2019-06-13 08:39:17"
         },
         {
             "name": "maximebf/consolekit",
@@ -540,7 +541,7 @@
                 "console",
                 "shell"
             ],
-            "time": "2013-01-01T16:03:55+00:00"
+            "time": "2013-01-01 16:03:55"
         },
         {
             "name": "monolog/monolog",
@@ -618,7 +619,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2018-11-05T09:00:11+00:00"
+            "time": "2018-11-05 09:00:11"
         },
         {
             "name": "natxet/cssmin",
@@ -665,7 +666,7 @@
                 "css",
                 "minify"
             ],
-            "time": "2018-01-09T11:15:01+00:00"
+            "time": "2018-01-09 11:15:01"
         },
         {
             "name": "patchwork/jsqueeze",
@@ -712,7 +713,7 @@
                 "javascript",
                 "minification"
             ],
-            "time": "2016-04-19T09:28:22+00:00"
+            "time": "2016-04-19 09:28:22"
         },
         {
             "name": "phpmailer/phpmailer",
@@ -778,7 +779,7 @@
                 }
             ],
             "description": "PHPMailer is a full-featured email creation and transfer class for PHP",
-            "time": "2019-02-01T15:04:28+00:00"
+            "time": "2019-02-01 15:04:28"
         },
         {
             "name": "psr/log",
@@ -825,7 +826,7 @@
                 "psr",
                 "psr-3"
             ],
-            "time": "2018-11-20T15:27:04+00:00"
+            "time": "2018-11-20 15:27:04"
         },
         {
             "name": "symfony/process",
@@ -874,7 +875,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2019-08-26T07:52:58+00:00"
+            "time": "2019-08-26 07:52:58"
         },
         {
             "name": "web-monster/dklabcache",
@@ -921,7 +922,7 @@
                 "redis",
                 "system"
             ],
-            "time": "2016-05-23T22:47:44+00:00"
+            "time": "2016-05-23 22:47:44"
         },
         {
             "name": "xxtea/xxtea",
@@ -956,9 +957,9 @@
             "authors": [
                 {
                     "name": "Ma Bingyao",
-                    "role": "Developer",
                     "email": "mabingyao@gmail.com",
-                    "homepage": "https://github.com/xxtea/xxtea-php"
+                    "homepage": "https://github.com/xxtea/xxtea-php",
+                    "role": "Developer"
                 }
             ],
             "description": "XXTEA is a fast and secure encryption algorithm. This is a XXTEA library for PHP.",
@@ -972,7 +973,7 @@
                 "security",
                 "xxtea"
             ],
-            "time": "2016-03-02T15:39:42+00:00"
+            "time": "2016-03-02 15:39:42"
         }
     ],
     "packages-dev": [],

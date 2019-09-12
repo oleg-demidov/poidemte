@@ -39,7 +39,7 @@ $config['sys']['debug']['action_error'] = false;
 /**
  * Настройки HTML вида
  */
-$config['view']['skin']        = 'pdd';		// Название текущего шаблона
+$config['view']['skin']        = 'bootstrap';		// Название текущего шаблона
 $config['view']['theme'] = 'default';			// тема оформления шаблона (шаблон должен поддерживать темы)
 $config['view']['name']        = 'Pdd';                   // название сайта
 $config['view']['description'] = 'Description your site'; // seo description
@@ -197,12 +197,12 @@ $config['router']['force_secure'] = array();
  */
 $config['components'] = array(
 	// Базовые компоненты
-	'css-reset', 'css-helpers', 'typography', 'forms', 'grid', 'ls-vendor', 'ls-core', 'ls-component', 'lightbox', 'avatar', 'slider', 'details', 'alert', 'dropdown', 'button', 'block',
-	'nav', 'tooltip', 'tabs', 'modal', 'table', 'text', 'uploader', 'email', 'field', 'pagination', 'editor', 'more', 'crop',
-	'performance', 'toolbar', 'actionbar', 'badge', 'autocomplete', 'icon', 'item', 'highlighter', 'jumbotron', 'notification', 'blankslate',
-
-	// Компоненты приложения
-	'auth', 'userbar', 'toolbar-scrollup',
+//	'css-reset', 'css-helpers', 'typography', 'forms', 'grid', 'ls-vendor', 'ls-core', 'ls-component', 'lightbox', 'avatar', 'slider', 'details', 'alert', 'dropdown', 'button', 'block',
+//	'nav', 'tooltip', 'tabs', 'modal', 'table', 'text', 'uploader', 'email', 'field', 'pagination', 'editor', 'more', 'crop',
+//	'performance', 'toolbar', 'actionbar', 'badge', 'autocomplete', 'icon', 'item', 'highlighter', 'jumbotron', 'notification', 'blankslate',
+//
+//	// Компоненты приложения
+//	'auth', 'userbar', 'toolbar-scrollup',
 );
 
 $config['head']['default']['js'] = array(
