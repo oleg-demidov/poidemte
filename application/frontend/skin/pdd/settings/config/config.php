@@ -5,21 +5,27 @@ $config = array();
 $config['view']['grid']['breakpoint'] = 'md';  //граница сворачивания панели блоков  вниз
 $config['view']['grid']['collapse'] = 'sm'; // Граница сворачивания меню
 
-// Подключение скриптов шаблона
-$config['head']['template']['js'] = array(
-    //"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js",
-    'recaptcha' => array(
-        'file' => "https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit",
-        'loader' => LS\Module\Asset\Loader\RemoteLoader::class
-        ),
-    '___path.skin.assets.server___/js/init.js',
-);
+// Подключение ресурсов шаблона
+$config['assets']['template'] = [
+    'js' => array(
+        //"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js",
+        'recaptcha' => array(
+            'file' => "https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit",
+            'loader' => LS\Module\Asset\Loader\RemoteLoader::class
+            ),
+        '___path.skin.assets.server___/js/init.js',
+    ),
 
-// Подключение стилей шаблона
-$config['head']['template']['css'] = array(
-    "___path.skin.assets.server___/css/layout.css",
-    "___path.skin.assets.server___/css/print.css",
-);
+    // Подключение стилей шаблона
+    'css' => array(
+        "___path.skin.assets.server___/css/layout.css",
+        "___path.skin.assets.server___/css/print.css"
+        ),
+    'img' => [
+        "logo" => "___path.skin.assets.server___/images/logo.png"
+    ]
+];  
+
 
 $config['view']['bs_themes'] = [
     'default' => [

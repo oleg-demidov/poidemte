@@ -43,7 +43,7 @@
     {block 'nav_main'}
         
         {capture name="brand"}
-            <img src="{Config::Get('path.skin.assets.web')}/images/logo.png">
+            <img src="{$LS->Asset_GetWebPath('logo')}">
         {/capture}
 
         {component 'navbar' 
@@ -177,7 +177,7 @@
                     <div class="d-flex justify-content-center px-3">
                         {capture name="img_logo"}
                             <div class="mt-1" >
-                                <img class="mt-2" width="24" height="27" src="{Config::Get('path.skin.assets.web')}/images/logo-podval.png">
+                                <img class="mt-2" width="24" height="27" src="">
                             </div>
                         {/capture}
                         

@@ -39,7 +39,7 @@ $config['sys']['debug']['action_error'] = false;
 /**
  * Настройки HTML вида
  */
-$config['view']['skin']        = 'bootstrap';		// Название текущего шаблона
+$config['view']['skin']        = 'pdd';		// Название текущего шаблона
 $config['view']['theme'] = 'default';			// тема оформления шаблона (шаблон должен поддерживать темы)
 $config['view']['name']        = 'Pdd';                   // название сайта
 $config['view']['description'] = 'Description your site'; // seo description
@@ -205,10 +205,10 @@ $config['components'] = array(
 //	'auth', 'userbar', 'toolbar-scrollup',
 );
 
-$config['head']['default']['js'] = array(
+$config['assets']['js'] = array(
 	//"https://www.google.com/recaptcha/api.js?onload=__do_nothing__&render=explicit" => array('merge' => false),
 );
-$config['head']['default']['css'] = array();
+$config['assets']['css'] = array();
 
 // Подключение темы
 if ( $config['view']['theme'] ) {
