@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6ca4fb82e8c15a466b66ed1725cf1d32",
+    "content-hash": "2a2ef9e29ef920fcff1075764a4561ea",
     "packages": [
         {
             "name": "agelxnash/jevix",
@@ -281,12 +281,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/olezhikz/ls-module-asset.git",
-                "reference": "a063a7ec8e406c0039014035a7896c31ec3fb34e"
+                "reference": "922222aff8b3d8b796308ef0c03be6852663a64a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/olezhikz/ls-module-asset/zipball/a063a7ec8e406c0039014035a7896c31ec3fb34e",
-                "reference": "a063a7ec8e406c0039014035a7896c31ec3fb34e",
+                "url": "https://api.github.com/repos/olezhikz/ls-module-asset/zipball/922222aff8b3d8b796308ef0c03be6852663a64a",
+                "reference": "922222aff8b3d8b796308ef0c03be6852663a64a",
                 "shasum": ""
             },
             "require": {
@@ -309,7 +309,7 @@
                 }
             ],
             "description": "Модуль ресурсов для Livetreet",
-            "time": "2019-09-12T12:16:55+00:00"
+            "time": "2019-09-13T11:46:30+00:00"
         },
         {
             "name": "livestreet/dbsimple",
@@ -393,12 +393,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/olezhikz/livestreet-framework.git",
-                "reference": "0f9ca7a7229a74093d55a8c2bb38c954304f00ea"
+                "reference": "024fa56bb16df6dba427d4255c9cd3bec54f8444"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/olezhikz/livestreet-framework/zipball/0f9ca7a7229a74093d55a8c2bb38c954304f00ea",
-                "reference": "0f9ca7a7229a74093d55a8c2bb38c954304f00ea",
+                "url": "https://api.github.com/repos/olezhikz/livestreet-framework/zipball/024fa56bb16df6dba427d4255c9cd3bec54f8444",
+                "reference": "024fa56bb16df6dba427d4255c9cd3bec54f8444",
                 "shasum": ""
             },
             "require": {
@@ -440,7 +440,35 @@
                 }
             ],
             "description": "Livestreet Framework",
-            "time": "2019-09-12T12:16:13+00:00"
+            "time": "2019-09-14T05:17:09+00:00"
+        },
+        {
+            "name": "livestreet/plugin-like",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/olezhikz/ls-plugin-like.git",
+                "reference": "08482d6728e177b190e530a9bfbe73363c8cb314"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/olezhikz/ls-plugin-like/zipball/08482d6728e177b190e530a9bfbe73363c8cb314",
+                "reference": "08482d6728e177b190e530a9bfbe73363c8cb314",
+                "shasum": ""
+            },
+            "type": "livestreet-plugin",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Oleg Demidov",
+                    "email": "end-fin@yandex.ru"
+                }
+            ],
+            "description": "Plugin for Livestreet likes",
+            "time": "2019-09-14T05:11:02+00:00"
         },
         {
             "name": "livestreet/smarty",
@@ -979,7 +1007,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "livestreet/framework": 20
+        "livestreet/framework": 20,
+        "livestreet/plugin-like": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
