@@ -393,12 +393,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/olezhikz/livestreet-framework.git",
-                "reference": "024fa56bb16df6dba427d4255c9cd3bec54f8444"
+                "reference": "d34331ab6d24cd9981f9778d70abbf6bb74bfc48"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/olezhikz/livestreet-framework/zipball/024fa56bb16df6dba427d4255c9cd3bec54f8444",
-                "reference": "024fa56bb16df6dba427d4255c9cd3bec54f8444",
+                "url": "https://api.github.com/repos/olezhikz/livestreet-framework/zipball/d34331ab6d24cd9981f9778d70abbf6bb74bfc48",
+                "reference": "d34331ab6d24cd9981f9778d70abbf6bb74bfc48",
                 "shasum": ""
             },
             "require": {
@@ -440,7 +440,7 @@
                 }
             ],
             "description": "Livestreet Framework",
-            "time": "2019-09-14T05:17:09+00:00"
+            "time": "2019-09-15T01:55:32+00:00"
         },
         {
             "name": "livestreet/plugin-like",
@@ -448,19 +448,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/olezhikz/ls-plugin-like.git",
-                "reference": "6a0343deb9506f46b6e400eb3f81acbd89543ed6"
+                "reference": "0ed8b663449bbfc87ef3a41a8c4300f3396ce78d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/olezhikz/ls-plugin-like/zipball/6a0343deb9506f46b6e400eb3f81acbd89543ed6",
-                "reference": "6a0343deb9506f46b6e400eb3f81acbd89543ed6",
+                "url": "https://api.github.com/repos/olezhikz/ls-plugin-like/zipball/0ed8b663449bbfc87ef3a41a8c4300f3396ce78d",
+                "reference": "0ed8b663449bbfc87ef3a41a8c4300f3396ce78d",
                 "shasum": ""
             },
             "type": "livestreet-plugin",
             "autoload": {
-                "psr-4": {
-                    "LS\\Plugin\\": "src/"
-                }
+                "classmap": [
+                    "PluginLike.class.php"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -473,7 +473,7 @@
                 }
             ],
             "description": "Plugin for Livestreet likes",
-            "time": "2019-09-14T06:43:15+00:00"
+            "time": "2019-09-15T02:37:26+00:00"
         },
         {
             "name": "livestreet/smarty",
