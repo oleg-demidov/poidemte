@@ -1,9 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
+    "hash": "f8a89991170c4e3b7ec4929d684453e6",
     "content-hash": "2a2ef9e29ef920fcff1075764a4561ea",
     "packages": [
         {
@@ -56,7 +57,7 @@
                 }
             ],
             "description": "Library for html filtering",
-            "time": "2019-03-29T12:26:55+00:00"
+            "time": "2019-03-29 12:26:55"
         },
         {
             "name": "aura/autoload",
@@ -105,7 +106,7 @@
                 "autoloader",
                 "class loader"
             ],
-            "time": "2016-10-03T19:36:19+00:00"
+            "time": "2016-10-03 19:36:19"
         },
         {
             "name": "ganlvtech/kcaptcha",
@@ -138,7 +139,78 @@
                 }
             ],
             "description": "KCAPTCHA for composer",
-            "time": "2018-02-14T06:20:49+00:00"
+            "time": "2018-02-14 06:20:49"
+        },
+        {
+            "name": "guzzlehttp/psr7",
+            "version": "1.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/psr7.git",
+                "reference": "dc784032a3f6f4e7a4b882e272b771f6fe4c37cf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/dc784032a3f6f4e7a4b882e272b771f6fe4c37cf",
+                "reference": "dc784032a3f6f4e7a4b882e272b771f6fe4c37cf",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "psr/http-message": "~1.0",
+                "ralouphie/getallheaders": "^2.0.5 || ^3.0.0"
+            },
+            "provide": {
+                "psr/http-message-implementation": "1.0"
+            },
+            "require-dev": {
+                "ext-zlib": "*",
+                "phpunit/phpunit": "~4.8.36 || ^5.7.27 || ^6.5.8"
+            },
+            "suggest": {
+                "zendframework/zend-httphandlerrunner": "Emit PSR-7 responses"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.6-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "GuzzleHttp\\Psr7\\": "src/"
+                },
+                "files": [
+                    "src/functions_include.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                },
+                {
+                    "name": "Tobias Schultze",
+                    "homepage": "https://github.com/Tobion"
+                }
+            ],
+            "description": "PSR-7 message implementation that also provides common utility methods",
+            "keywords": [
+                "http",
+                "message",
+                "psr-7",
+                "request",
+                "response",
+                "stream",
+                "uri",
+                "url"
+            ],
+            "time": "2019-06-30 00:37:05"
         },
         {
             "name": "imagine/imagine",
@@ -196,7 +268,7 @@
                 "image manipulation",
                 "image processing"
             ],
-            "time": "2019-07-09T06:55:48+00:00"
+            "time": "2019-07-09 06:55:48"
         },
         {
             "name": "kriswallsmith/assetic",
@@ -273,7 +345,7 @@
                 "compression",
                 "minification"
             ],
-            "time": "2016-11-11T18:43:20+00:00"
+            "time": "2016-11-11 18:43:20"
         },
         {
             "name": "livestreet/asset",
@@ -309,7 +381,7 @@
                 }
             ],
             "description": "Модуль ресурсов для Livetreet",
-            "time": "2019-09-13T11:46:30+00:00"
+            "time": "2019-09-13 11:46:30"
         },
         {
             "name": "livestreet/dbsimple",
@@ -353,7 +425,54 @@
                 "Simple",
                 "db"
             ],
-            "time": "2019-07-20T18:31:16+00:00"
+            "time": "2019-07-20 18:31:16"
+        },
+        {
+            "name": "livestreet/dklabcache",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/olezhikz/dklabcache.git",
+                "reference": "b12ed6b12166496a6e5a657c80638a35950d7f94"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/olezhikz/dklabcache/zipball/b12ed6b12166496a6e5a657c80638a35950d7f94",
+                "reference": "b12ed6b12166496a6e5a657c80638a35950d7f94",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "Cache/Backend/",
+                    "Zend/",
+                    "Zend/Cache/",
+                    "Zend/Cache/Backend/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "dk",
+                    "role": "Author"
+                },
+                {
+                    "name": "Dmitry Stepanenko",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "Dklabcache for composer",
+            "keywords": [
+                "cache",
+                "caching",
+                "file-system",
+                "redis",
+                "system"
+            ],
+            "time": "2019-09-19 07:10:44"
         },
         {
             "name": "livestreet/forker",
@@ -385,7 +504,7 @@
                 }
             ],
             "description": "Forker presents a simple interfacing for forking in PHP.",
-            "time": "2019-07-23T07:39:59+00:00"
+            "time": "2019-07-23 07:39:59"
         },
         {
             "name": "livestreet/framework",
@@ -393,29 +512,31 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/olezhikz/livestreet-framework.git",
-                "reference": "d34331ab6d24cd9981f9778d70abbf6bb74bfc48"
+                "reference": "f694300e9c8d1303e5886fa62bf838d1bae16066"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/olezhikz/livestreet-framework/zipball/d34331ab6d24cd9981f9778d70abbf6bb74bfc48",
-                "reference": "d34331ab6d24cd9981f9778d70abbf6bb74bfc48",
+                "url": "https://api.github.com/repos/olezhikz/livestreet-framework/zipball/f694300e9c8d1303e5886fa62bf838d1bae16066",
+                "reference": "f694300e9c8d1303e5886fa62bf838d1bae16066",
                 "shasum": ""
             },
             "require": {
                 "agelxnash/jevix": "1.2.4",
                 "aura/autoload": "2.0.4",
                 "ganlvtech/kcaptcha": "1.0.1",
+                "guzzlehttp/psr7": "1.6.0",
                 "imagine/imagine": "^1.2",
                 "livestreet/asset": "dev-master",
                 "livestreet/dbsimple": "dev-master",
+                "livestreet/dklabcache": ">=1.0.1",
                 "livestreet/forker": "dev-master",
                 "livestreet/smarty": "dev-master",
                 "maximebf/consolekit": ">=1.0.0",
                 "monolog/monolog": "1.24.0",
+                "narrowspark/http-emitter": "0.8.0",
                 "natxet/cssmin": "v3.0.6",
                 "patchwork/jsqueeze": "~2.0",
                 "phpmailer/phpmailer": "~6.0",
-                "web-monster/dklabcache": ">=1.0.0",
                 "xxtea/xxtea": "^1.0"
             },
             "require-dev": {
@@ -440,7 +561,7 @@
                 }
             ],
             "description": "Livestreet Framework",
-            "time": "2019-09-15T01:55:32+00:00"
+            "time": "2019-09-19 07:14:09"
         },
         {
             "name": "livestreet/plugin-like",
@@ -473,7 +594,7 @@
                 }
             ],
             "description": "Plugin for Livestreet likes",
-            "time": "2019-09-15T02:37:26+00:00"
+            "time": "2019-09-15 02:37:26"
         },
         {
             "name": "livestreet/smarty",
@@ -529,7 +650,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2019-06-13T08:39:17+00:00"
+            "time": "2019-06-13 08:39:17"
         },
         {
             "name": "maximebf/consolekit",
@@ -573,7 +694,7 @@
                 "console",
                 "shell"
             ],
-            "time": "2013-01-01T16:03:55+00:00"
+            "time": "2013-01-01 16:03:55"
         },
         {
             "name": "monolog/monolog",
@@ -651,7 +772,64 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2018-11-05T09:00:11+00:00"
+            "time": "2018-11-05 09:00:11"
+        },
+        {
+            "name": "narrowspark/http-emitter",
+            "version": "0.8.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/narrowspark/http-emitter.git",
+                "reference": "19044447b8cb6a821a72ace3e343b10782f4600e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/narrowspark/http-emitter/zipball/19044447b8cb6a821a72ace3e343b10782f4600e",
+                "reference": "19044447b8cb6a821a72ace3e343b10782f4600e",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1",
+                "psr/http-message": "^1.0"
+            },
+            "provide": {
+                "psr/http-message-implementation": "^1.0"
+            },
+            "require-dev": {
+                "narrowspark/coding-standard": "^1.4.0",
+                "phpunit/phpunit": "^7.0",
+                "zendframework/zend-diactoros": "^1.8.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Narrowspark\\HttpEmitter\\": "src/"
+                },
+                "exclude-from-classmap": [
+                    "tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Daniel Bannert",
+                    "email": "d.bannert@anolilab.de",
+                    "homepage": "http://www.anolilab.de",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Emitting psr-7 responses.",
+            "keywords": [
+                "emitter",
+                "http",
+                "narrowspark",
+                "psr-7",
+                "sapi"
+            ],
+            "time": "2019-03-08 14:27:56"
         },
         {
             "name": "natxet/cssmin",
@@ -698,7 +876,7 @@
                 "css",
                 "minify"
             ],
-            "time": "2018-01-09T11:15:01+00:00"
+            "time": "2018-01-09 11:15:01"
         },
         {
             "name": "patchwork/jsqueeze",
@@ -745,7 +923,7 @@
                 "javascript",
                 "minification"
             ],
-            "time": "2016-04-19T09:28:22+00:00"
+            "time": "2016-04-19 09:28:22"
         },
         {
             "name": "phpmailer/phpmailer",
@@ -811,7 +989,57 @@
                 }
             ],
             "description": "PHPMailer is a full-featured email creation and transfer class for PHP",
-            "time": "2019-02-01T15:04:28+00:00"
+            "time": "2019-02-01 15:04:28"
+        },
+        {
+            "name": "psr/http-message",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/http-message.git",
+                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/http-message/zipball/f6561bf28d520154e4b0ec72be95418abe6d9363",
+                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Http\\Message\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for HTTP messages",
+            "homepage": "https://github.com/php-fig/http-message",
+            "keywords": [
+                "http",
+                "http-message",
+                "psr",
+                "psr-7",
+                "request",
+                "response"
+            ],
+            "time": "2016-08-06 14:39:51"
         },
         {
             "name": "psr/log",
@@ -858,7 +1086,47 @@
                 "psr",
                 "psr-3"
             ],
-            "time": "2018-11-20T15:27:04+00:00"
+            "time": "2018-11-20 15:27:04"
+        },
+        {
+            "name": "ralouphie/getallheaders",
+            "version": "3.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ralouphie/getallheaders.git",
+                "reference": "120b605dfeb996808c31b6477290a714d356e822"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ralouphie/getallheaders/zipball/120b605dfeb996808c31b6477290a714d356e822",
+                "reference": "120b605dfeb996808c31b6477290a714d356e822",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6"
+            },
+            "require-dev": {
+                "php-coveralls/php-coveralls": "^2.1",
+                "phpunit/phpunit": "^5 || ^6.5"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/getallheaders.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ralph Khattar",
+                    "email": "ralph.khattar@gmail.com"
+                }
+            ],
+            "description": "A polyfill for getallheaders.",
+            "time": "2019-03-08 08:55:37"
         },
         {
             "name": "symfony/process",
@@ -907,54 +1175,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2019-08-26T07:52:58+00:00"
-        },
-        {
-            "name": "web-monster/dklabcache",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/web-monster/dklabcache.git",
-                "reference": "a0f11462b3a287016f2317c83d7fee2e6ddb22fe"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/web-monster/dklabcache/zipball/a0f11462b3a287016f2317c83d7fee2e6ddb22fe",
-                "reference": "a0f11462b3a287016f2317c83d7fee2e6ddb22fe",
-                "shasum": ""
-            },
-            "type": "library",
-            "autoload": {
-                "classmap": [
-                    "Cache/Backend/",
-                    "Zend/",
-                    "Zend/Cache/",
-                    "Zend/Cache/Backend/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "dk",
-                    "role": "Author"
-                },
-                {
-                    "name": "Dmitry Stepanenko",
-                    "role": "Maintainer"
-                }
-            ],
-            "description": "Dklabcache for composer",
-            "keywords": [
-                "cache",
-                "caching",
-                "file-system",
-                "redis",
-                "system"
-            ],
-            "time": "2016-05-23T22:47:44+00:00"
+            "time": "2019-08-26 07:52:58"
         },
         {
             "name": "xxtea/xxtea",
@@ -989,9 +1210,9 @@
             "authors": [
                 {
                     "name": "Ma Bingyao",
-                    "role": "Developer",
                     "email": "mabingyao@gmail.com",
-                    "homepage": "https://github.com/xxtea/xxtea-php"
+                    "homepage": "https://github.com/xxtea/xxtea-php",
+                    "role": "Developer"
                 }
             ],
             "description": "XXTEA is a fast and secure encryption algorithm. This is a XXTEA library for PHP.",
@@ -1005,7 +1226,7 @@
                 "security",
                 "xxtea"
             ],
-            "time": "2016-03-02T15:39:42+00:00"
+            "time": "2016-03-02 15:39:42"
         }
     ],
     "packages-dev": [],
