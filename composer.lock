@@ -512,12 +512,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/olezhikz/livestreet-framework.git",
-                "reference": "f694300e9c8d1303e5886fa62bf838d1bae16066"
+                "reference": "546ab85b4487f7a76afe2259a9127fcad234e963"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/olezhikz/livestreet-framework/zipball/f694300e9c8d1303e5886fa62bf838d1bae16066",
-                "reference": "f694300e9c8d1303e5886fa62bf838d1bae16066",
+                "url": "https://api.github.com/repos/olezhikz/livestreet-framework/zipball/546ab85b4487f7a76afe2259a9127fcad234e963",
+                "reference": "546ab85b4487f7a76afe2259a9127fcad234e963",
                 "shasum": ""
             },
             "require": {
@@ -547,6 +547,9 @@
                 "psr-4": {
                     "LS\\": "classes/"
                 },
+                "classmap": [
+                    "classes/engine/"
+                ],
                 "files": [
                     "bootstrap/start.php"
                 ]
@@ -561,7 +564,7 @@
                 }
             ],
             "description": "Livestreet Framework",
-            "time": "2019-09-19 07:14:09"
+            "time": "2019-09-19 10:47:57"
         },
         {
             "name": "livestreet/plugin-like",

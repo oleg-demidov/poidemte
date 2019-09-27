@@ -308,7 +308,7 @@ class ModuleCategory extends ModuleORM
                 $iCount = call_user_func_array($mCallback, array($oCategory, $sTargetType));
             } else {
                 $iCount = $this->GetCountItemsByFilter(array('category_id' => $oCategory->getId()),
-                    'ModuleCategory_EntityTarget');$this->Logger_Notice(print_r($iCount, true));
+                    'ModuleCategory_EntityTarget');
             }
             $oCategory->setCountTarget($iCount);
             $oCategory->Update();

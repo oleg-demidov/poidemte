@@ -41,7 +41,7 @@ $config['sys']['debug']['action_error'] = false;
  */
 $config['view']['skin']        = 'default';		// Название текущего шаблона
 $config['view']['theme'] = 'default';			// тема оформления шаблона (шаблон должен поддерживать темы)
-$config['view']['name']        = 'Pdd';                   // название сайта
+$config['view']['name']        = 'My site in Livestreet';                   // название сайта
 $config['view']['description'] = 'Description your site'; // seo description
 $config['view']['keywords']    = 'site, google, internet';      // seo keywords
 $config['view']['wysiwyg']         = false;  // использовать или нет визуальный редактор TinyMCE
