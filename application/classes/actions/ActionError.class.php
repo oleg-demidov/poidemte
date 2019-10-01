@@ -49,7 +49,7 @@ class ActionError extends Action
 	 *
 	 */
 	public function Init()
-	{
+	{            
 		/**
 		 * Устанавливаем дефолтный евент
 		 */
@@ -76,28 +76,27 @@ class ActionError extends Action
 	 */
 	protected function EventError()
 	{
-		/**
-		 * Если евент равен одной из ошибок из $aHttpErrors, то шлем браузеру специфичный header
-		 * Например, для 404 в хидере будет послан браузеру заголовок HTTP/1.1 404 Not Found
-		 */
-		if (array_key_exists($this->sCurrentEvent, $this->aHttpErrors)) {
-			/**
-			 * Смотрим есть ли сообщения об ошибках
-			 */
-			if (!$this->Message_GetError()) {
-				$this->Message_AddErrorSingle($this->Lang_Get('common.error.system.code.' . $this->sCurrentEvent),
-					$this->sCurrentEvent);
-			}
-			$aHttpError = $this->aHttpErrors[$this->sCurrentEvent];
-			if (isset($aHttpError['header'])) {
-				$sProtocol = isset($_SERVER['SERVER_PROTOCOL']) ? $_SERVER['SERVER_PROTOCOL'] : 'HTTP/1.1';
-				header("{$sProtocol} {$aHttpError['header']}");
-			}
-		}
-		/**
-		 * Устанавливаем title страницы
-		 */
-		$this->Viewer_AddHtmlTitle($this->Lang_Get('error'));
-		$this->SetTemplateAction('index');
+            /**
+             * Если евент равен одной из ошибок из $aHttpErrors, то шлем браузеру специфичный header
+             * Например, для 404 в хидере будет послан браузеру заголовок HTTP/1.1 404 Not Found
+             */
+            if (array_key_exists($this->sCurrentEvent, $this->aHttpErrors)) {
+                    /**
+                     * Смотрим есть ли сообщения об ошибках
+                     */
+                    if (!$this->Message_GetError()) {
+                        $this->Message_AddErrorSingle($this->Lang_Get('common.error.system.code.' . $this->sCurrentEvent),
+                                $this->sCurrentEvent);
+                    }
+                    $aHttpError = $this->aHttpErrors[$this->sCurrentEvent];
+                    if (isset($aHttpError['header'])) {
+                        $this->response = $this->response->withStatus($this->sCurrentEvent);
+                    }
+            }
+            /**
+             * Устанавливаем title страницы
+             */
+            $this->Viewer_AddHtmlTitle($this->Lang_Get('error'));
+            $this->SetTemplateAction('index');
 	}
 }

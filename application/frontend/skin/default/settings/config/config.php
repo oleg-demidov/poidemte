@@ -22,7 +22,9 @@ $config['assets']['template'] = [
         "___path.skin.assets.server___/css/print.css"
         ),
     'img' => [
-        "logo" => "___path.skin.assets.server___/images/logo.png"
+        "logo" => "___path.skin.assets.server___/images/logo.png",
+        "favicon" => "___path.skin.assets.server___/images/favicon.ico",
+        'default_avatar' => "___path.skin.assets.server___/images/avatars/avatar_male_100x100crop.png",
     ]
 ];  
 

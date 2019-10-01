@@ -79,7 +79,7 @@ class ActionAuth extends Action
         /**
          * Устанвливаем формат Ajax ответа
          */
-        $this->Viewer_SetResponseAjax('json');
+        $this->setResponseType(self::RESPONSE_TYPE_JSON);
         /**
          * Логин и пароль являются строками?
          */
@@ -120,14 +120,14 @@ class ActionAuth extends Action
                      * Определяем редирект
                      */
                     
-                    $this->Viewer_AssignAjax('sUrlRedirect',  $oUser->getProfileUrl());
+                    $this->assign('sUrlRedirect',  $oUser->getProfileUrl());
                     return;
                 }
             } else {
                 /**
                  * Получаем ошибки
                  */
-                $this->Viewer_AssignAjax('errors', $oUser->_getValidateErrors());
+                $this->assign('errors', $oUser->_getValidateErrors());
                 $this->Message_AddErrorSingle(null);
                 return;
             }
@@ -313,7 +313,7 @@ class ActionAuth extends Action
         /**
          * Устанавливаем формат Ajax ответа
          */
-        $this->Viewer_SetResponseAjax('json');
+        $this->setResponseType('json');
         /**
          * Создаем объект пользователя и устанавливаем сценарий валидации
          */
@@ -352,9 +352,7 @@ class ActionAuth extends Action
                             $oUser->setPasswordConfirm($sValue);
                             $oUser->setPassword(isset($aField['params']['password']) ? $aField['params']['password'] : null);
                             break;
-                        default:
-                            continue;
-                            break;
+                        
                     }
                     /**
                      * Валидируем поле
@@ -370,7 +368,7 @@ class ActionAuth extends Action
             /**
              * Получаем ошибки
              */
-            $this->Viewer_AssignAjax('errors', $oUser->_getValidateErrors());
+            $this->assign('errors', $oUser->_getValidateErrors());
         }
     }
 

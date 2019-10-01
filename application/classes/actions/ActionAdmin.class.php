@@ -78,13 +78,16 @@ class ActionAdmin extends Action
      */
     protected function EventIndex()
     {
+        $this->Logger_Notice(__METHOD__);
         /**
          * Определяем доступность установки расширенной админ-панели
          */
         $aPluginsAll = func_list_plugins(true);
         if (in_array('admin', $aPluginsAll)) {
-            $this->Viewer_Assign('availableAdminPlugin', true);
+            $this->assign('availableAdminPlugin', true);
         }
+        
+        $this->SetTemplateAction('index');
     }
 
     /**

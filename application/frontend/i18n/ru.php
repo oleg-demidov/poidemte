@@ -25,9 +25,7 @@ return array(
         'humans' => [
             'text'=>'Люди'
         ],
-        'companies' => [
-            'text'=>'Комппании'
-        ]
+        
     ],
     'user' => [
         'is_anoname' => [
@@ -40,45 +38,11 @@ return array(
             'nav' => [
                 'profile'       => 'Профиль',
                 'settings'      => 'Настройки',
-                'responses'     => 'Отзывы',
-                'proposals'     => 'Предложения',
-                'proposed'      => 'Мои предложения',
                 'responsed'     => 'Мои отзывы',
-                'arbitrage'     => 'Арбитраж',
-                'moderation'    => 'Модерация',
                 'feedback'      => 'Поддержка'
             ]
         ],
-        'profile' => [
-            'counts' => [
-                'responses'     => '%%count%% отзыв; %%count%% отзыва; %%count%% отзывов',
-                'answers'     => '%%count%% ответ; %%count%% ответа; %%count%% ответов',
-                'proposals'     => '%%count%% предложение; %%count%% предложения; %%count%% предложений',
-            ],
-            'nav' => [
-                'all'           => 'Все',
-                'responses_votes'     => 'Оценки и отзывы',
-                'proposals'     => 'Предложения'
-                
-            ],
-            'notices' => [
-                'response_blankslate'    => 'Отзывов пока нет',
-                'proposal_blankslate'    => 'Предложений пока нет',
-                'arbitrage_blankslate'    => 'Арбитраж пуст',
-                'all_blankslate'    => 'Отзывов и предложений пока нет',
-            ],
-            'actions' => [
-                'confirm' => [
-                    'text' => 'Вы владелец этой компании?'
-                ],  
-                'response' => [
-                    'text' => 'Написать отзыв'
-                ],
-                'proposal' => [
-                    'text' => 'Предложение'
-                ]
-            ],
-        ],
+        
         'settings' => [
             "profile" => [
                 'title' => 'Настройки профиля',
@@ -95,9 +59,6 @@ return array(
                     ],
                     'about' => [
                         'label' => 'О себе'
-                    ],
-                    'about_company' => [
-                        'label' => 'О комании'
                     ],
                     'site' => [
                         'label' => 'Сайт',
@@ -129,64 +90,14 @@ return array(
                 ]
             ]
         ],
-        'proposal_success' => [
-            'title' => 'Спасибо за ваше предложение',
-                'text' => 'Вы оставили предложение на странице <a href="%%url%%">%%name%%</a>',
-                'return' => 'Вернуться'
-        ],
-        'response_success' => [
-            'title' => 'Спасибо за ваш отзыв',
-                'text' => 'Вы оставили отзыв на странице <a href="%%url%%">%%pname%%</a>. '
-                . 'После модерации он там появится.',
-                'return' => 'Вернуться'
-        ],
-        'confirm_company' => [
-            "success_request" => [
-                'title' => 'Подтверждение прав на %%company%%',
-                'text' => 'Спасибо за ваше обращение. Очень скоро оно будет рассмотрено.'
-                . ' Ответ придет к вам на email.',
-                'return' => 'Вернуться'
-            ],
-            'form' => [
-                'title' => 'Подтвержждение прав',
-                'text' => 'Здравствуйте! '
-                    . 'Ваша компания была добавлена в Fend без подтверждения прав! '
-                    . 'Если Вы владелец этой компании, пожалуйста заполните данные, '
-                    . 'с Вами свяжется наш менеджер для передачи прав. '
-                    . 'Вы сможете управлять своей страницей, отвечая на отзывы и предложения.',
-                'job' => [
-                    'placeholder' => 'Должность'
-                ],
-                'phone' => [
-                    'placeholder' => 'Номер телефона'
-                ],
-                'mess' => [
-                    'placeholder' => 'Сообщение'
-                ],
-                'validate' => [
-                    'error_job' => 'Введите вашу должность',
-                    'error_name' => 'Введите ваше имя',
-                    'error_email' => 'Введите email',
-                    'error_phone' => 'Введите телефон',
-                    'error_mess' => 'Введите сообщение'
-                ]
-            ],
-            'notices' => [
-                'success_notify' => 'Сообщение отправлено'
-            ]
-        ]
+        
     ],
     'feedback' => [
         'text' => 'Адрес службы поддержки: <b>%%email%%</b>'
     ],
     'search' => [
         'text' => 'Поиск',
-        'companies' => [
-            'title' => 'Компании',
-            'blankslate' => [
-                'text' => 'Компаний пока нет'
-            ]
-        ],
+        
         'people' => [
             'title' => 'Люди',
             'blankslate' => [
@@ -194,257 +105,14 @@ return array(
             ]
         ]
     ],
-    'rating' => [
-        'of' => 'из',
-        'count' => 'Оценок',
-        'stars' => [
-            'title' => '%%val%% из %%of%% звезд',
-            'clear' => 'Очистить'
-        ]
-    ],
+    
     'profile' => [
         'notices' => [
             'error_user_not_found' => 'Пользователь не найден',
             'notice_alien_profile' => 'Вы находитесь в настройках чужого профиля'
         ]
-    ],
-    'talk' => [
-        'response' => [
-            
-            'state' => [
-                'publish' => 'Опубликовано',
-                'arbitrage' => 'На рассмотрении',
-                'chat' => 'Обсуждается'
-            ],
-            'modal' => [
-                'title' => 'Написать отзыв',
-                'title_edit' => 'Редактировать отзыв'
-            ],
-            'form' => [
-                'name' => [
-                    'placeholder' => 'Введите ваше имя'
-                ],
-                'text' => [
-                    'label' => 'Текст отзыва',
-                    'placeholder' => 'Оставте свой отзыв',
-                    'error_validate' => 'Введите текст от %%min%% до %%max%% символов'
-                ],
-                'photo' => [
-                    'label' => 'Добавить фото',
-                    'text' => 'Выбрать'
-                ],
-                'stars' => [
-                    'label' => 'Ваша оценка',
-                    'error_validate' => 'Поставте оценку'
-                ],
-                'submit' => [
-                    'text' => 'Отправить'
-                ]
-            ],
-            'notice' => [
-                'error_name' => 'Введите ваше имя',
-                'error_captcha' => 'Подтвердите, что вы не робот',
-                'error_double_text' => 'Отзыв с таким текстом уже добавлен',
-                'success_add' => 'Успешно сохранено. Спасибо за ваш отзыв.',
-                'error_not_found' => 'Отзыв не найден'
-            ]
-        ],
-        'proposal' => [
-            'modal' => [
-                'title' => 'Написать предложение'
-            ],
-            'form' => [
-                'text' => [
-                    'label' => 'Оставте свое предложение',
-                    'placeholder' => 'Текст предложения',
-                    'error_validate' => 'Введите текст от %%min%% до %%max%% символов'
-                ],
-                'photo' => [
-                    'label' => 'Добавить фото',
-                    'text' => 'Выбрать'
-                ],
-                'submit' => [
-                    'text' => 'Отправить'
-                ]
-            ],
-            'notice' => [
-                'error_double_text' => 'Предложение с таким текстом уже добавлено',
-                'success_add' => 'Успешно добавлено. Спасибо за ваше ппредложение.'
-            ]
-        ],
-        'answer' => [
-            'btn' => [
-                'text' => 'Ответить'
-            ],
-            'form' => [
-                'text' => [
-                    'label' => 'Ответ',
-                    'placeholder' => 'Текст ответа',
-                    'error_validate' => 'Введите текст от %%min%% до %%max%% символов'
-                ],
-                'photo' => [
-                    'label' => 'Добавить изображение',
-                    'text' => 'Выбрать'
-                ],
-                'submit' => [
-                    'text' => 'Отправить'
-                ]
-            ],
-            'notice' => [
-                'error_double_text' => 'Ответ с таким текстом уже добавлен',
-                'success_add' => 'Успешно добавлено.',
-                'success_remove' => 'Успешно удалено'
-            ]
-        ],
-        'arbitrage' => [
-            'btn' => [
-                'text' => 'В арбитраж'
-            ],
-            'link_chat' => [
-                'text' => 'Перейти в чат'
-            ],
-            'form' => [
-                'text' => [
-                    'label' => 'Напишите чем Вам не нравится этот отыв',
-                    'placeholder' => 'Текст жалобы',
-                    'error_validate' => 'Введите текст от %%min%% до %%max%% символов'
-                ],
-                'photo' => [
-                    'label' => 'Добавить фото',
-                    'text' => 'Выбрать'
-                ],
-                'submit' => [
-                    'text' => 'Отправить'
-                ]
-            ],
-            'notice' => [
-                'wait_moderate' => 'Ожидает ответа модератора',
-                'error_double_text' => 'Арбитраж с таким текстом уже добавлен',
-                'success_add' => 'Сообщение добавлено в арбитраж.'
-            ]
-        ]
-    ],
-    'moderation' => [
-        'menu' => [
-            'moderation' => 'Модерация',
-            'arbitrage' => 'Арбитраж',
-            'responses_all' => 'Все отзывы',
-            'responses_deleted' => 'Удаленные отзывы',
-            'feedback' => 'Поддержка',
-            'profiles'  => 'Профили' 
-        ],
-        'profiles' => [
-            'edit' => [
-                'title_add' => 'Добавить профиль',
-                'title_edit' => 'Редактировать профиль' 
-            ],
-            'title' => 'Редактирование профилей',
-            'actions' => [
-                'edit' => 'Редактировать',
-                'delete' => 'Удалить',
-                'add' => 'Добавить профиль'
-            ],
-            'form' => [
-                'role' => [
-                    'label' => 'Роль',
-                    'value' => [
-                        'user' => 'Личность',
-                        'company' => 'Компания'
-                    ]
-                ],
-                'name' => [
-                    'placeholder' => 'ФИО или название компании'
-                    
-                ],
-                'about' => [
-                    'placeholder' => 'Описание'
-                    
-                ],
-                'adrress' => [
-                    'placeholder' => 'Адресс'
-                    
-                ],
-                'phone' => [
-                    'placeholder' => 'Телефон'
-                    
-                ],
-                'site' => [
-                    'placeholder' => 'Сайт',
-                    'desc'  =>'http://site.ru'
-                ],
-                'activate' => [
-                    'label' => 'Активировать'
-                    
-                ],
-                'submit' => [
-                    'text' => 'Сохранить',
-                    
-                ]
-            ]
-        ],
-        'btn_view' => [
-            'text' => 'Полный / Свернутый'
-        ],
-        'responses' => [
-            'title' => 'Модерация отзывов',
-            'table_row' => [
-                'number'    => '№',
-                'from'      => 'От кого',
-                'to'        => 'Кому',
-                'rating'    => 'Оценка'
-            ],
-            'actions' => [
-                'edit'      => 'Редактировать',
-                'delete'    => 'Удалить',
-                'publish'   => 'Опубликовать'
-            ],
-            'blankslate' => [
-                'text' => 'Отзывов для модерации нет'
-            ],
-            'notice' => [
-                'confirm_publish'   => 'Вы действительно хотите оставить этот отзыв?',
-                'confirm_delete'   => 'Вы действительно хотите переместить этот отзыв в удаленные?',
-                'success_publish' => 'Опубликовано',
-                'success_delete' => 'Перемещено в удаленные'
-            ]
-        ],
-        'responses_all' => [
-            'title' => 'Все отзывы',
-            'blankslate' => [
-                'text' => 'Отзывы не найдены'
-            ],
-            'form' => [
-                'from' => 'От кого',
-                'to'    => 'Кому',
-                'login' => [
-                    'placeholder' => 'Логин пользователя'
-                ],
-                'text'  => 'Текст содержит',
-                'sort'  => 'Сортировать',
-                'submit' => 'Искать'
-            ]
-        ],
-        'responses_deleted' => [
-            'title' => 'Удаленные отзывы',
-        ],
-        'arbitrage' => [
-            'title' => 'Арбитраж',
-            
-            'actions' => [
-                'delete'    => 'Удалить',
-                'publish'   => 'Опубликовать'
-            ],
-            'blankslate' => [
-                'text' => 'Здесь пусто'
-            ],
-            'notice' => [
-                'confirm_publish'   => 'Вы действительно хотите оставить этот отзыв?',
-                'confirm_delete'   => 'Вы действительно хотите переместить этот отзыв в удаленные?',
-                'success_publish' => 'Промодерировано',
-                'success_delete' => 'Перемещено в удаленные'
-            ]
-        ]
-    ],
+    ],    
+    
     /**
      * Поля
      */
@@ -739,104 +407,7 @@ return array(
                 'Вам присвоен новый пароль: <b>%%password%%</b>'
         ),
     ),
-    /**
-     * Загрузка изображений
-     */
-    'media'         => array(
-        'library' => [
-            'files' => [
-                'empty' => 'Файлов нет'
-            ],
-            'info' => [
-                'empty' => 'Выберете файл',
-                'list'  => [
-                    'id'    => 'ID',
-                    'name'  => 'Имя',
-                    'date'  => 'Добавлено',
-                    'dimensions' => 'Разрешение',
-                    'size'  => 'Размер',
-                    'sizes' => 'Размеры',
-                    'count_targets' => 'Использовано'
-                ]
-            ],
-            'cutButton'     => [
-                'title'     => 'Добавить размер'
-            ],
-            'primaryButton' => 'Вставить'
-        ],
-        'title'       => 'Загрузка медиа-файлов',
-        'notices'     => [
-            'confirm_remove_file' => 'Вы уверены, что хотите удалить файл?'
-        ],
-        'error'       => array(
-            'upload'            => 'Не удалось загрузить файл',
-            'not_image'         => 'Файл не является изображением',
-            'too_large'         => 'Превышен максимальный размер файла: %%size%%Кб',
-            'incorrect_type'    => 'Неверный тип файла',
-            'max_count_files'   => 'Превышено максимальное число файлов',
-            'need_choose_items' => 'Необходимо выбрать элементы',
-        ),
-        'nav'         => array(
-            'insert'   => 'Вставить',
-            'photoset' => 'Создать фотосет',
-            'url'      => 'Вставить по ссылке',
-            'preview'  => 'Превью',
-        ),
-        'image_align' => array(
-            'title'  => 'Выравнивание',
-            'no'     => 'Нет',
-            'left'   => 'Слева',
-            'right'  => 'Справа',
-            'center' => 'По центру',
-        ),
-        'insert'      => array(
-            'submit'   => 'Вставить',
-            'settings' => array(
-                'title'  => 'Опции вставки',
-                'fields' => array(
-                    'size' => array(
-                        'label'    => 'Размер',
-                        'original' => 'Оригинал'
-                    ),
-                )
-            ),
-        ),
-        'photoset'    => array(
-            'submit'   => 'Создать фотосет',
-            'settings' => array(
-                'title'  => 'Опции фотосета',
-                'fields' => array(
-                    'use_thumbs'   => array(
-                        'label' => 'Показывать ленту с превьюшками'
-                    ),
-                    'show_caption' => array(
-                        'label' => 'Показывать описания фотографий'
-                    )
-                )
-            ),
-        ),
-        'url'         => array(
-            'fields'        => array(
-                'url'   => array(
-                    'label' => 'Ссылка',
-                ),
-                'title' => array(
-                    'label' => 'Описание',
-                ),
-            ),
-            'submit_insert' => 'Вставить как ссылку',
-            'submit_upload' => 'Загрузить и вставить'
-        ),
-        'uploader' => [
-            'notices' => [
-                'errorDublicate' => 'Файл с таким именем уже добавлен'
-            ]
-        ]
-    ),
     
-    'crop' => [
-        'title' => 'Обрезать фото'
-    ],
     /**
      * Категории
      */
@@ -850,6 +421,17 @@ return array(
             'validate_wrong'     => 'Неверная категория',
         ),
     ),
+    
+    'footer' => [
+        'nav' => [
+            'about' => [
+                'text' => 'О сайте'
+            ],
+            'contacts' => [
+                'text' => 'Контакты'
+            ]
+        ]
+    ],
     /**
      * Админка
      */

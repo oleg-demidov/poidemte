@@ -210,6 +210,10 @@ $config['assets']['js'] = array(
 );
 $config['assets']['css'] = array();
 
+$config['assets']['img'] = array(
+   
+);
+
 // Подключение темы
 if ( $config['view']['theme'] ) {
 	//$config['head']['default']['css'][] = "___path.skin.web___/themes/___view.theme___/style.css";

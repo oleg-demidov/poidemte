@@ -468,11 +468,11 @@ class ModuleUser extends ModuleORM
     }
     
     public function GetDefaultPhoto() {
-        return Config::Get('path.skin.assets.web'). '/images/avatars/user_photo_male.png';
+        return $this->Asset_GetWebPath('default_avatar');
     }
     
     public function GetDefaultAvatar() {
-        return Config::Get('path.skin.assets.web'). '/images/avatars/avatar_male_50x50crop.png';
+        return $this->Asset_GetWebPath('default_avatar');
     }
     
     

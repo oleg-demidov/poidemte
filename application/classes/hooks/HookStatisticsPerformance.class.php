@@ -32,7 +32,7 @@ class HookStatisticsPerformance extends Hook
 	 */
 	public function RegisterHook()
 	{
-		$this->AddHook('template_body_end', 'Statistics', __CLASS__, -1000);
+//		$this->AddHook('template_body_end', 'Statistics', __CLASS__, -1000);
 	}
 
 	/**

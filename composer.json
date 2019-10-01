@@ -3,7 +3,8 @@
     
     "require": {
         "livestreet/framework": "dev-master",
-        "livestreet/plugin-like": "dev-master"
+        "livestreet/plugin-like": "dev-master",
+        "livestreet/plugin-admin": "dev-master"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
