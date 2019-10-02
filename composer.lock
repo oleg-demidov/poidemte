@@ -512,12 +512,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/olezhikz/livestreet-framework.git",
-                "reference": "912aadb1e895aaa84882b8f9b6c2f035251185cb"
+                "reference": "63f756abb061b03f365ac571adf57d097c4b6f1d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/olezhikz/livestreet-framework/zipball/912aadb1e895aaa84882b8f9b6c2f035251185cb",
-                "reference": "912aadb1e895aaa84882b8f9b6c2f035251185cb",
+                "url": "https://api.github.com/repos/olezhikz/livestreet-framework/zipball/63f756abb061b03f365ac571adf57d097c4b6f1d",
+                "reference": "63f756abb061b03f365ac571adf57d097c4b6f1d",
                 "shasum": ""
             },
             "require": {
@@ -565,7 +565,7 @@
                 }
             ],
             "description": "Livestreet Framework",
-            "time": "2019-10-01 06:37:03"
+            "time": "2019-10-02 00:07:02"
         },
         {
             "name": "livestreet/plugin-admin",
@@ -930,12 +930,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/olezhikz/packages.git",
-                "reference": "399f328ecbf489e2308bf6ff5b0db52ca1be38d4"
+                "reference": "1a15adfc3353cf842f14cbfa402ec3fd26b3e354"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/olezhikz/packages/zipball/399f328ecbf489e2308bf6ff5b0db52ca1be38d4",
-                "reference": "399f328ecbf489e2308bf6ff5b0db52ca1be38d4",
+                "url": "https://api.github.com/repos/olezhikz/packages/zipball/1a15adfc3353cf842f14cbfa402ec3fd26b3e354",
+                "reference": "1a15adfc3353cf842f14cbfa402ec3fd26b3e354",
                 "shasum": ""
             },
             "type": "library",
@@ -955,7 +955,7 @@
                 }
             ],
             "description": "Просмотр установленных пакетов из installed.json",
-            "time": "2019-10-01 02:22:52"
+            "time": "2019-10-02 00:06:17"
         },
         {
             "name": "olegdemidov/exel",

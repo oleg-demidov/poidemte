@@ -103,9 +103,11 @@ class ActionAdmin extends Action
             return $this->SubmitManagePlugin($sPlugin, $sAction);
         }
         /**
-         * Получаем список блогов
+         * Получаем список плагинов
          */
         $aPlugins = $this->PluginManager_GetPluginsItems(array('order' => 'name'));
+        
+//        return print_r($aPlugins,true);
         /**
          * Загружаем переменные в шаблон
          */
