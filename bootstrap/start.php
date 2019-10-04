@@ -35,38 +35,3 @@ define('LS_ROOT_DIR', dirname(__DIR__));
  * Подключается весь движок и загружются конфиги
  */
 require dirname(__DIR__). '/vendor/autoload.php'; 
-
-
-/**
- * Определяем окружение
- * В зависимости от окружения будет дополнительно подгружаться необходимый конфиг.
- * Например, для окружения "production" будет загружен конфиг /application/config/config.production.php
- * По дефолту работает окружение "local"
- */
-$sEnv = Engine::DetectEnvironment(array(
-    'production' => array('your-machine-name'),
-));
-
-/**
- * Определяем дополнительные параметры роутинга
- */
-$aRouterParams = array(
-    'callback_after_parse_url' => array(
-        function () {
-//    
-//            /*
-//             * Обработка url типа site.ru/login
-//             */
-//            $aPages = array_keys( Config::Get('router.page') ); 
-//            $aPages[] = '';
-//                    
-//            if(!in_array(Router::GetAction(), $aPages)){
-//                Router::SetParams(array_merge([Router::GetActionEvent()],Router::GetParams()));
-//                Router::SetActionEvent(Router::GetAction());
-//                Router::SetAction(Router::getInstance()->Rewrite('profile'));
-//                
-//            }
-            
-        }
-    )
-);
