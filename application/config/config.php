@@ -205,12 +205,12 @@ $config['components'] = array(
 //	'auth', 'userbar', 'toolbar-scrollup',
 );
 
-$config['assets']['js'] = array(
+$config['assets']['default']['js'] = array(
 	//"https://www.google.com/recaptcha/api.js?onload=__do_nothing__&render=explicit" => array('merge' => false),
 );
-$config['assets']['css'] = array();
+$config['assets']['default']['css'] = array();
 
-$config['assets']['img'] = array(
+$config['assets']['default']['img'] = array(
    
 );
 
