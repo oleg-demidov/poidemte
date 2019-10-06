@@ -512,12 +512,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/olezhikz/livestreet-framework.git",
-                "reference": "1f57386ff9841c8e36b3c39cb25619b70255cdff"
+                "reference": "3116e419028d3a186a8f508ba54f912de480c4df"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/olezhikz/livestreet-framework/zipball/1f57386ff9841c8e36b3c39cb25619b70255cdff",
-                "reference": "1f57386ff9841c8e36b3c39cb25619b70255cdff",
+                "url": "https://api.github.com/repos/olezhikz/livestreet-framework/zipball/3116e419028d3a186a8f508ba54f912de480c4df",
+                "reference": "3116e419028d3a186a8f508ba54f912de480c4df",
                 "shasum": ""
             },
             "require": {
@@ -565,7 +565,7 @@
                 }
             ],
             "description": "Livestreet Framework",
-            "time": "2019-10-04 23:24:04"
+            "time": "2019-10-05 12:10:19"
         },
         {
             "name": "livestreet/plugin-admin",
@@ -573,12 +573,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/olezhikz/lsadmin-boilerplate.git",
-                "reference": "6ab3b8404606df8b67279e43f4a9361461ec1a4b"
+                "reference": "a86088389bfb66e256ef657b89bd8b692e6344c2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/olezhikz/lsadmin-boilerplate/zipball/6ab3b8404606df8b67279e43f4a9361461ec1a4b",
-                "reference": "6ab3b8404606df8b67279e43f4a9361461ec1a4b",
+                "url": "https://api.github.com/repos/olezhikz/lsadmin-boilerplate/zipball/a86088389bfb66e256ef657b89bd8b692e6344c2",
+                "reference": "a86088389bfb66e256ef657b89bd8b692e6344c2",
                 "shasum": ""
             },
             "require": {
@@ -604,7 +604,7 @@
                 }
             ],
             "description": "Админка для Livestreet",
-            "time": "2019-10-04 23:25:16"
+            "time": "2019-10-06 03:01:31"
         },
         {
             "name": "livestreet/plugin-like",
