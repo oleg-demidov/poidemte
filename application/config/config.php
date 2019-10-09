@@ -180,7 +180,6 @@ $config['router']['page']['index']          = 'ActionIndex';
 $config['router']['page']['ajax']           = 'ActionAjax';
 $config['router']['page']['auth']           = 'ActionAuth';
 $config['router']['page']['profile']        = 'ActionProfile';
-$config['router']['page']['companies']      = 'ActionCompanies';
 $config['router']['page']['people']         = 'ActionPeople';
 // Глобальные настройки роутинга
 $config['router']['config']['default']['action']	= 'index';
@@ -191,18 +190,20 @@ $config['router']['config']['action_not_found']		= 'error';
 // Принудительное использование https для экшенов. Например, 'login' и 'registration'
 $config['router']['force_secure'] = array();
 
-
 /**
- * Подключение компонентов
+ * Подключение компонентов приложения
  */
 $config['components'] = array(
-	// Базовые компоненты
-//	'css-reset', 'css-helpers', 'typography', 'forms', 'grid', 'ls-vendor', 'ls-core', 'ls-component', 'lightbox', 'avatar', 'slider', 'details', 'alert', 'dropdown', 'button', 'block',
-//	'nav', 'tooltip', 'tabs', 'modal', 'table', 'text', 'uploader', 'email', 'field', 'pagination', 'editor', 'more', 'crop',
-//	'performance', 'toolbar', 'actionbar', 'badge', 'autocomplete', 'icon', 'item', 'highlighter', 'jumbotron', 'notification', 'blankslate',
-//
-//	// Компоненты приложения
-//	'auth', 'userbar', 'toolbar-scrollup',
+    // Базовые компоненты фреймворка
+    'ls-vendor', 
+    'ls-core', 
+    'ls-component', 
+    'notification', 
+    'performance', 
+    'confirm', 
+    'lightbox', 
+    'tinymce',
+    'text', 
 );
 
 $config['assets']['default']['js'] = array(

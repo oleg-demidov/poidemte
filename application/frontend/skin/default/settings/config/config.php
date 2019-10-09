@@ -45,20 +45,11 @@ $config['view']['bs_themes'] = [
 $theme = Config::Get('view.theme')?Config::Get('view.theme'):'default'; 
 
 $config['view']['bs_theme'] = $config['view']['bs_themes'][$theme];
-
+/**
+ * Подключение компонентов шаблона приложения
+ */
 $config['components'] = [
-    // Базовые компоненты
-    'ls-vendor', 
-    'ls-core', 
-    'ls-component', 
-    'notification', 
-    'performance', 
-    'confirm', 
-    'lightbox', 
     'bootstrap',
-    'tinymce',
-    
-    //Компоненты шаблона
     'dropdown', 
     'form', 
     'pagination', 
@@ -67,7 +58,6 @@ $config['components'] = [
     'icon', 
     'autocomplete',
     'popover',
-    'text', 
     'button'
 ];
 
