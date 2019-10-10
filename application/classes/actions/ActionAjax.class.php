@@ -107,7 +107,7 @@ class ActionAjax extends Action
         $sCaptchaValidateType = func_camelize('captcha_' . Config::Get('sys.captcha.type'));
         if (!$this->Validate_Validate($sCaptchaValidateType, $sValue, array('name' => $sName))) {
             $aErrors = $this->Validate_GetErrors();
-            $this->Viewer_AssignAjax('errors', array('captcha' => array(reset($aErrors))));
+            $this->assign('errors', array('captcha' => array(reset($aErrors))));
         }
     }
 
@@ -140,7 +140,7 @@ class ActionAjax extends Action
         /**
          * Возвращаем в ответе новый рейтинг
          */
-        $this->Viewer_AssignAjax('iRating', $iRating);
+        $this->assign('iRating', $iRating);
     }
     
     public function EventVerifyRecaptcha() {
@@ -150,7 +150,7 @@ class ActionAjax extends Action
         $oValidate->msg = "Не верный код Recaptcha";
         
         if(($sResult = $oValidate->validate(getRequest('token'))) === true){
-            $this->Viewer_AssignAjax('success', true);
+            $this->assign('success', true);
         }else{
             $this->Message_AddError($sResult);
         }

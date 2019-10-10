@@ -18,18 +18,18 @@ class ActionProfile_EventSettings extends Event {
     public function EventProfile() {
         
         $this->Menu_Get('settings')->setActiveItem('profile');
-        $this->Viewer_Assign('sActiveItemSettings', 'profile');
+        $this->assign('sActiveItemSettings', 'profile');
         $this->SetTemplateAction('settings/profile');
     }
     
     public function EventNotices() {
         
-        $this->Viewer_Assign('sActiveItemSettings', 'notices');
+        $this->assign('sActiveItemSettings', 'notices');
         $this->SetTemplateAction('settings/notices');
     }
     public function EventSecurity() {
        
-        $this->Viewer_Assign('sActiveItemSettings', 'security');
+        $this->assign('sActiveItemSettings', 'security');
         $this->SetTemplateAction('settings/security');
     }
     
@@ -37,7 +37,7 @@ class ActionProfile_EventSettings extends Event {
         $this->Viewer_SetResponseAjax('json');
         
         $this->Message_AddNotice('успешно');
-        $this->Viewer_AssignAjax('data', $_REQUEST);
+        $this->assign('data', $_REQUEST);
     }
     
     public function EventProfileAjax() {
@@ -60,11 +60,11 @@ class ActionProfile_EventSettings extends Event {
                 $this->Hook_Run('profile_settings_save_after', ['oUser' => $this->oUserProfile]);
                 
                 $this->Message_AddNotice($this->Lang_Get('common.success.save'));
-                $this->Viewer_AssignAjax('sUrlRedirect', $this->oUserProfile->getProfileUrl().'settings');
+                $this->assign('sUrlRedirect', $this->oUserProfile->getProfileUrl().'settings');
             }
         }else{
             $this->Message_AddError($this->oUserProfile->_getValidateError());
-            $this->Viewer_AssignAjax('errors', $this->oUserProfile->_getValidateErrors());
+            $this->assign('errors', $this->oUserProfile->_getValidateErrors());
         }        
     }
     

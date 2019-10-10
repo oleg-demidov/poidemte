@@ -81,7 +81,7 @@ class ActionAdmin extends Action
         /**
          * Определяем доступность установки расширенной админ-панели
          */
-        $aPluginsAll = func_list_plugins(true);
+        $aPluginsAll = ModulePluginManager::listActive();
         if (in_array('admin', $aPluginsAll)) {
             $this->assign('availableAdminPlugin', true);
         }
@@ -171,6 +171,6 @@ class ActionAdmin extends Action
         /**
          * Загружаем в шаблон необходимые переменные
          */
-        $this->Viewer_Assign('sMenuHeadItemSelect', $this->sMenuHeadItemSelect);
+        $this->assign('sMenuHeadItemSelect', $this->sMenuHeadItemSelect);
     }
 }

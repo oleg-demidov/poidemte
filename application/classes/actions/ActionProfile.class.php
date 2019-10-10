@@ -107,11 +107,11 @@ class ActionProfile extends Action
      */
     public function EventShutdown()
     {
-        $this->Viewer_Assign('sMenuHeadItemSelect', $this->sMenuHeadItemSelect);
-        $this->Viewer_Assign('iCountProposals', $this->iCountProposals);
-        $this->Viewer_Assign('iCountResponses', $this->iCountResponses);
-        $this->Viewer_Assign('iCountAnswers', $this->iCountAnswers);
-        $this->Viewer_Assign('oUserProfile', $this->oUserProfile);
+        $this->assign('sMenuHeadItemSelect', $this->sMenuHeadItemSelect);
+        $this->assign('iCountProposals', $this->iCountProposals);
+        $this->assign('iCountResponses', $this->iCountResponses);
+        $this->assign('iCountAnswers', $this->iCountAnswers);
+        $this->assign('oUserProfile', $this->oUserProfile);
         
         if( in_array('admin', array_keys(Engine::getInstance()->GetPlugins()) )){
             $this->Viewer_SetSeoTags([

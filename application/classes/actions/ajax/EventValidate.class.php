@@ -27,12 +27,12 @@ class ActionAjax_EventValidate extends Event{
             /**
              * Получаем ошибки
              */
-            $this->Viewer_AssignAjax('bStateError', 1);
-            $this->Viewer_AssignAjax('error', $oEntity->_getValidateError($sField));
+            $this->assign('bStateError', 1);
+            $this->assign('error', $oEntity->_getValidateError($sField));
             return;
         }
         
-        $this->Viewer_AssignAjax('bStateError', 0);
+        $this->assign('bStateError', 0);
         
     }
 }

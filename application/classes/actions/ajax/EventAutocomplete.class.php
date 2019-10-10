@@ -23,7 +23,7 @@ class ActionAjax_EventAutocomplete extends Event {
             $aUserSource[] = ['id' => $oUser->getId(), 'name' => $oUser->getLogin()];
         }
         
-        $this->Viewer_AssignAjax('source', $aUserSource);
+        $this->assign('source', $aUserSource);
     }
 
 

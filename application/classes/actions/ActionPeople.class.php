@@ -46,9 +46,9 @@ class ActionPeople extends Action
         $aPaging = $this->Viewer_MakePaging($aUsers['count'], $iPage, $iLimit, 
                 Config::Get('module.user.search.pagination.pages_count'), Router::GetPath('people'));
 
-        $this->Viewer_Assign('aPaging', $aPaging);
-        $this->Viewer_Assign('aUsers', $aUsers['collection']);
-        $this->Viewer_Assign('count', $aUsers['count']);
+        $this->assign('aPaging', $aPaging);
+        $this->assign('aUsers', $aUsers['collection']);
+        $this->assign('count', $aUsers['count']);
         $this->SetTemplateAction('search');
     }
 

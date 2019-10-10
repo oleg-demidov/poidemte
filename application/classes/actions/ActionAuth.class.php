@@ -416,7 +416,7 @@ class ActionAuth extends Action
                  * Отправляем на мыло письмо о подтверждении регистрации
                  */
                 $this->User_SendNotifyRegistrationActivate($oUser, getRequestStr('password'));
-                $this->Viewer_AssignAjax('sUrlRedirect', Router::GetPath('auth/register-confirm'));
+                $this->assign('sUrlRedirect', Router::GetPath('auth/register-confirm'));
             } else {
                 $this->Message_AddErrorSingle($this->Lang_Get('common.error.system.base'));
                 return;
@@ -425,7 +425,7 @@ class ActionAuth extends Action
             /**
              * Получаем ошибки
              */
-            $this->Viewer_AssignAjax('errors', $oUser->_getValidateErrors());
+            $this->assign('errors', $oUser->_getValidateErrors());
             $this->Message_AddErrorSingle($oUser->_getValidateError());
         }
     }

@@ -61,6 +61,7 @@ class ActionIndex extends Action
      */
     protected function EventIndex()
     {
+        
         /**
          * Устанавливаем шаблон вывода
          */
@@ -80,7 +81,7 @@ class ActionIndex extends Action
         /**
          * Загружаем переменную в шаблон
          */
-        $this->Viewer_Assign('iNum', $iNum);
+        $this->assign('iNum', $iNum);
         /**
          * Устанавливаем TITLE страницы
          */
@@ -100,7 +101,7 @@ class ActionIndex extends Action
      */
     public function EventShutdown()
     {
-        $this->Viewer_Assign('sMenuHeadItemSelect', $this->sMenuHeadItemSelect);
+        $this->assign('sMenuHeadItemSelect', $this->sMenuHeadItemSelect);
     }
 
 

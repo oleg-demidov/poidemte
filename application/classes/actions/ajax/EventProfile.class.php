@@ -11,8 +11,8 @@ class ActionAjax_EventProfile extends Event {
     public function EventSearchUsers() {
         
         if(getRequest('query') == ''){
-            $this->Viewer_AssignAjax('count', 0);
-            $this->Viewer_AssignAjax('html', '');
+            $this->assign('count', 0);
+            $this->assign('html', '');
             return;
         }
         
@@ -38,7 +38,7 @@ class ActionAjax_EventProfile extends Event {
         $sHtml = $oViewer->Fetch('component@user.list');
         
         
-        $this->Viewer_AssignAjax('count', count($aUsers));
-        $this->Viewer_AssignAjax('html', $sHtml);
+        $this->assign('count', count($aUsers));
+        $this->assign('html', $sHtml);
     }
 }

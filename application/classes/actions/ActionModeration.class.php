@@ -101,7 +101,7 @@ class ActionModeration extends Action
      */
     public function EventShutdown()
     {
-        $this->Viewer_Assign('sMenuItemSelect', $this->sMenuItemSelect);
+        $this->assign('sMenuItemSelect', $this->sMenuItemSelect);
         
         $this->Menu_Get('moderation')->setActiveItem($this->sMenuItemSelect);
 

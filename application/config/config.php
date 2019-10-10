@@ -149,16 +149,9 @@ $config['db']['table']['user'] = '___db.table.prefix___user';
 $config['db']['table']['user_session'] = '___db.table.prefix___session';
 $config['db']['table']['session'] = $config['db']['table']['user_session'];
 $config['db']['table']['user_reminder'] = '___db.table.prefix___reminder';
-$config['db']['table']['media'] = '___db.table.prefix___media';
-$config['db']['table']['media_target'] = '___db.table.prefix___media_target';
 $config['db']['table']['category'] = '___db.table.prefix___category';
 $config['db']['table']['category_target'] = '___db.table.prefix___category_target';
 $config['db']['table']['rating_vote'] = '___db.table.prefix___rating_vote';
-$config['db']['table']['talk_message'] = '___db.table.prefix___talk_message';
-$config['db']['table']['talk_proposal'] = '___db.table.prefix___talk_message';
-$config['db']['table']['talk_response'] = '___db.table.prefix___talk_message';
-$config['db']['table']['talk_answer'] = '___db.table.prefix___talk_message';
-$config['db']['table']['talk_arbitrage'] = '___db.table.prefix___talk_message';
 $config['db']['table']['rbac_role'] = '___db.table.prefix___rbac_role';
 $config['db']['table']['rbac_permission'] = '___db.table.prefix___rbac_permission';
 $config['db']['table']['rbac_role_permission'] = '___db.table.prefix___rbac_role_permission';
@@ -203,7 +196,6 @@ $config['components'] = array(
     'confirm', 
     'lightbox', 
     'tinymce',
-    'text', 
 );
 
 $config['assets']['default']['js'] = array(
