@@ -193,9 +193,7 @@ $config['components'] = array(
     'ls-component', 
     'notification', 
     'performance', 
-    'confirm', 
-    'lightbox', 
-    'tinymce',
+    'confirm',
 );
 
 $config['assets']['default']['js'] = array(
