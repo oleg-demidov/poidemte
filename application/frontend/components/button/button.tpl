@@ -6,10 +6,6 @@
 {extends "component@button.abstract"}
 
 {block 'options' append}
-    {component_define_params params=[ 
-        'text', 
-        'disabled'
-    ]}
     {* Название компонента *}
     {$component = $com|default:"btn"}
     {$tag = $tag|default:"button"}

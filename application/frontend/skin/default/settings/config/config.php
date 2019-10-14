@@ -59,7 +59,7 @@ $config['components'] = [
     'autocomplete',
     'popover',
     'button',
-    'lightbox', 
+//    'lightbox', 
     'tinymce',
 ];
 

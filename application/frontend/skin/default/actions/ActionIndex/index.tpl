@@ -6,6 +6,8 @@
 {block 'layout_content'}
     
     {component "button" text = "text" mods = "success"}
+    
+
     <div class="row justify-content-center mt-5">
         
         <div class="col-md-7">
