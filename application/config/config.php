@@ -190,7 +190,7 @@ $config['components'] = array(
     // Базовые компоненты фреймворка
     'ls-vendor', 
     'ls-core', 
-    'ls-component', 
+    'component', 
     'notification', 
     'performance', 
     'confirm',
