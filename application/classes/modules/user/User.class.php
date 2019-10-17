@@ -299,10 +299,7 @@ class ModuleUser extends ModuleORM
         $this->Session_DropCookie('key');
     }
 
-    public function Shutdown()
-    {
-        $this->Viewer_Assign('oUserCurrent', $this->oUserCurrent);
-    }
+   
 
     /**
      * Обновление данных сессии

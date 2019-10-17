@@ -26,7 +26,7 @@ class HookMain extends Hook {
 	 * Регистрируем хуки
 	 */
 	public function RegisterHook() {
-		$this->AddHook('start_action','StartAction');
+		$this->AddHook('action_fetch_html_before','StartAction');
 	}
 	/**
 	 * Обработка хука старте экшенов. Выполняется один раз в отличии от хука "init_action"

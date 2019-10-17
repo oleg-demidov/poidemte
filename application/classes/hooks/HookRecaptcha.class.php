@@ -11,7 +11,7 @@ class HookRecaptcha extends Hook {
 	 * Регистрируем хуки
 	 */
 	public function RegisterHook() {
-            $this->AddHook('action_event_auth_before','RecaptchaPrepend');
+//            $this->AddHook('action_event_auth_before','RecaptchaPrepend');
 	}
 	public function RecaptchaPrepend() {
             /**

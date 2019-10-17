@@ -61,7 +61,6 @@ class ActionIndex extends Action
      */
     protected function EventIndex()
     {
-        
         /**
          * Устанавливаем шаблон вывода
          */
