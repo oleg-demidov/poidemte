@@ -9,7 +9,7 @@
  * 
  *}
  
- {extends "component@field.abstract"}
+ {extends "component@field.layout"}
 
 
 

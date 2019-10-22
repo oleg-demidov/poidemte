@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e2d1a0dad18206dbfe35285f0c7a324f",
-    "content-hash": "2c90ef7c1fc9ab41a70c1e1c8e027935",
+    "hash": "336ccee45960ad429a7bda91287d5e44",
+    "content-hash": "88e49e5bb9b977fe76c521b3e3a61f6c",
     "packages": [
         {
             "name": "agelxnash/jevix",
@@ -609,39 +609,6 @@
             "time": "2019-10-20 18:08:05"
         },
         {
-            "name": "livestreet/http-message",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/olezhikz/livestreet-http-message.git",
-                "reference": "dd8211342d3f367f44c9b468582ede53d2c3cba1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/olezhikz/livestreet-http-message/zipball/dd8211342d3f367f44c9b468582ede53d2c3cba1",
-                "reference": "dd8211342d3f367f44c9b468582ede53d2c3cba1",
-                "shasum": ""
-            },
-            "require": {
-                "php-comp/http-message": "v1.4.1"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "LS\\HTTP\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "authors": [
-                {
-                    "name": "Oleg Demidov",
-                    "email": "end-fin@yandex.ru"
-                }
-            ],
-            "description": "Описание проекта ls-http.",
-            "time": "2019-10-18 11:55:54"
-        },
-        {
             "name": "livestreet/plugin-admin",
             "version": "dev-master",
             "source": {
@@ -686,12 +653,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/olezhikz/ls-plugin-cdocs.git",
-                "reference": "1aa2972b813d67e052a2c3cedb61b654ec91a54f"
+                "reference": "a8441f5d241e5408ec4a67ca478391c69f3c4fa8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/olezhikz/ls-plugin-cdocs/zipball/1aa2972b813d67e052a2c3cedb61b654ec91a54f",
-                "reference": "1aa2972b813d67e052a2c3cedb61b654ec91a54f",
+                "url": "https://api.github.com/repos/olezhikz/ls-plugin-cdocs/zipball/a8441f5d241e5408ec4a67ca478391c69f3c4fa8",
+                "reference": "a8441f5d241e5408ec4a67ca478391c69f3c4fa8",
                 "shasum": ""
             },
             "type": "livestreet-plugin",
@@ -715,7 +682,7 @@
                 }
             ],
             "description": "Plugin for Livestreet. Components documentation",
-            "time": "2019-10-21 12:13:06"
+            "time": "2019-10-21 12:16:38"
         },
         {
             "name": "livestreet/plugin-like",
@@ -1503,7 +1470,6 @@
         "livestreet/framework": 20,
         "livestreet/plugin-like": 20,
         "livestreet/plugin-admin": 20,
-        "livestreet/http-message": 20,
         "livestreet/plugin-cdocs": 20
     },
     "prefer-stable": true,

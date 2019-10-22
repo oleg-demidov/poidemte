@@ -3,7 +3,7 @@
  *
  *}
  
-{extends "component@button.abstract"}
+{extends "component@button.layout"}
 
 {block 'options' append}
     {* Название компонента *}

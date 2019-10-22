@@ -80,7 +80,7 @@ $config['block']['userProfile'] = array(
     'blocks' => array(
         'left' => array(
             'component@user.block-photo'    => array('priority' => 100),
-            'menuProfile'      => array('priority' => 99),
+            BlockMenuProfile::class      => array('priority' => 99),
             'component@user.block-actions'  => array('priority' => 98),
         )
     )
@@ -94,7 +94,7 @@ $config['block']['moderation'] = array(
     ),
     'blocks' => array(
         'left' => array(
-            'menu' => ['priority' => 99, 'params' => ['name' => 'moderation', "template" => "profile"]]
+//            'menu' => ['priority' => 99, 'params' => ['name' => 'moderation', "template" => "profile"]]
         )
     )
 );
@@ -107,7 +107,7 @@ $config['block']['settingsProfile'] = array(
     ),
     'blocks' => array(
         'left' => array(
-            'menuSettings'     => array('priority' => 100)
+//            'menuSettings'     => array('priority' => 100)
             
         )
     )

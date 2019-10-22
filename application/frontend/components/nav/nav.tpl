@@ -1,30 +1,32 @@
 {**
  * Навигация
  *
- * @param array     $items
- * @param string    $activeItem
  * @param string    $justify        Горизонтальное выравнивание
  * @param bool      $vertical       
  * 
  *}
-{$component = "nav"}
-{component_define_params params=[ 'items', 'activeItem', 'justify', 'vertical', 'isRoot', 'hook', 'classes', 'attributes', 'bmods', 
-    'itemsClasses' ]}
+ 
+{extends "component@nav.layout"}
+ 
+{block name="options" append}
+    
+    {$component = "nav"}
+    {component_define_params params=[ 
+        'hook',
+        'itemsClasses'
+    ]}
 
-{* Получаем пункты установленные плагинами *}
-{if $hook}
-    {hook run="nav_{$hook}" assign='hookItems' params=$hookParams items=$items array=true}
-    {$items = ( $hookItems ) ? $hookItems : $items}
-{/if}
+    {* Получаем пункты установленные плагинами *}
+    {if $hook}
+        {hook run="nav_{$hook}" assign='hookItems' params=$hookParams items=$items array=true}
+        {$items = ( $hookItems ) ? $hookItems : $items}
+    {/if}
 
-{if $justify}
-    {$classes = "{$classes} justify-content-{$justify}"}
-{/if}
-{if $vertical}
-    {$classes = "{$classes} flex-column"}
-{/if}
+    
+{/block}
 
-{block 'nav_content'}{strip}
+
+{block 'content'}{strip}
     <ul class="{$component} {cmods name=$component mods=$bmods delimiter="-"} {$classes}" {cattr list=$attributes}>
         {foreach $items as $item}
             {if !is_array($item)}
