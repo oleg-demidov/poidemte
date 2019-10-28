@@ -27,7 +27,7 @@
 
 
 {block 'content'}{strip}
-    <ul class="{$component} {cmods name=$component mods=$bmods delimiter="-"} {$classes}" {cattr list=$attributes}>
+    <ul class="{$component} {cmods name=$component mods=$mods delimiter="-"} {$classes}" {cattr list=$attributes}>
         {foreach $items as $item}
             {if !is_array($item)}
                 {$item}

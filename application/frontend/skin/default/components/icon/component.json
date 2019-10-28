@@ -1,0 +1,18 @@
+{
+    "name": "icon",
+    "version": "1.0.0",
+    
+    "templates": {
+        "stack": "stack.tpl",
+        "icon": "icon.tpl"
+    },
+    "assets":{
+        "css": {
+            "fontawesome":{
+                "file":"https://use.fontawesome.com/releases/v5.6.3/css/all.css",
+                "loader": "LS\\Module\\Asset\\Loader\\RemoteLoader"
+            }
+        }
+    }
+    
+}
