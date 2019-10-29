@@ -15,7 +15,7 @@
 {block 'content'}{strip}
     {if $tag != "input"}
         <{$tag} class="{$component} {cmods name=$component mods=$mods delimiter="-"} {$classes}" 
-           {cpopover} {cattr list=$attr} {if $disabled}aria-disabled="true"{/if} >
+            {cattr list=$attr} {if $disabled}aria-disabled="true"{/if} >
            
             {* Иконка *}
             {if $icon}
@@ -41,7 +41,7 @@
     
     {else}
         <input class="{$component} {cmods name=$component mods=$mods delimiter="-"} {$classes}"
-            {cpopover} {cattr list=$attr} type="{$type|default:"button"}" value="{$text}">
+             {cattr list=$attr} type="{$type|default:"button"}" value="{$text}">
     {/if}
     
 {/strip}{/block}

@@ -2,7 +2,8 @@
     "name": "nav",
     "version": "1.0.0",
     "templates": {
-        "nav": "nav.tpl"
+        "nav": "nav.tpl",
+        "item": "item.tpl"
     },
     "css":{
         "nav":"css/nav.css"
