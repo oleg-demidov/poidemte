@@ -1,39 +1,39 @@
 {**
- * Кнопка
+ * Карусель
  *
- * @param mixed   $text             Массив либо строка с текстом уведомления. Массив должен быть в формате: `[ [ title, msg ], ... ]`
- * @param string  $bmods="success"  Список модификторов основного блока (через пробел)
- * @param string  $bg="light"       Модификтор фона
- * @param string  $classes          Список классов основного блока (через пробел)
- * @param array   $attributes       Список атрибутов основного блока
  * @param bool    $indicators       Индикаторы
  * @param bool    $controls         Кнопки Previous Next
- *}{strip}
+ * @param int     $interval         Прормежуток по времени
+ *}
  
- {* Название компонента *}
-{$component = "carousel"}
+{extends "component@carousel.layout"}
 
-{component_define_params params=[ 'bmods', 'bg', 'classes', 'attributes', 'items', 'indicators', 'controls', 'interval' ]}
+{block 'options' append}
+    {component_define_params params=[ 
+        'indicators', 
+        'controls', 
+        'interval' 
+    ]}
+    {* Название компонента *}
+    {$component = "carousel"}
+    
+    {if $interval}
+        {$attr['data-interval'] = $interval}
+    {else}
+        {$attr['data-interval'] = "false"}
+    {/if}
+    
+    
+    {if count($items)<2}
+        {$indicators = false}
+        {$controls = false}
+    {/if}
+    
+    {$id = "carousel{math equation='rand()'}"}
+{/block}
 
-{$id = "carousel{math equation='rand()'}"}
-
-{if $interval}
-    {$attributes['data-interval'] = $interval}
-{else}
-    {$attributes['data-interval'] = "false"}
-{/if}
-
-{if count($items)<2}
-    {$indicators = false}
-    {$controls = false}
-{/if}
-
-
-
-{block 'carousel_options'}{/block}
-
-{block 'carousel_content'}{strip}
-    <div id="{$id}" class="{$component} {cmods name=$component mods=$bmods delimiter="-"} {$classes}" {cattr list=$attributes} data-ride="carousel">
+{block 'content'}
+    <div id="{$id}" class="{$component} {cmods name=$component mods=$mods delimiter="-"} {$classes}" {cattr list=$attr} data-ride="carousel">
         {if $indicators}
             <ol class="carousel-indicators">
                 {foreach $items as $key => $item name="carousel_indicators"}
@@ -65,4 +65,4 @@
 
         
     </div>
-{/strip}{/block}{/strip}
+{/block}
