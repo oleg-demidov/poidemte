@@ -5,10 +5,11 @@
 {extends "component@collapse.layout"}
 
 {block 'options' append}
-    {$attr['id'] = "collapse{math equation='rand()'}"}
+    {$id = "collapse{math equation='rand()'}"}
+    
 {/block}
 
-{block "content" append}
+{block "content" append}{$params|print_r}
     {if $button}
         {if is_array($button)}
             {component "button" params=$button}
