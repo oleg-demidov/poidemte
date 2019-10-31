@@ -6,7 +6,7 @@
 {extends "component@dropdown.item-layout"}
  
 {block 'content' append}
-    <a class="dropdown-item {$classes}" {cattr list=$attr} {cpopover} href="#">
+    <a class="dropdown-item {$classes}" {cattr list=$attr} href="#">
         {* Иконка *}
         {if $icon}
             {if is_array($icon)}

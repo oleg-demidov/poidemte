@@ -1,0 +1,7 @@
+{
+    "name": "accordion",
+    "version": "1.0.0",
+    "templates": {
+        "accordion": "accordion.tpl"
+    }
+}
