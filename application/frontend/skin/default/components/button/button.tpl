@@ -9,13 +9,11 @@
     {* Название компонента *}
     {$component = $com|default:"btn"}
     
-    
 {/block}
 
 {block 'content'}{strip}
     {if $tag != "input"}
-        <{$tag} class="{$component} {cmods name=$component mods=$mods delimiter="-"} {$classes}" 
-            {cattr list=$attr} {if $disabled}aria-disabled="true"{/if} >
+        <{$tag} {cattr list=$attr} {if $disabled}aria-disabled="true"{/if} >
            
             {* Иконка *}
             {if $icon}

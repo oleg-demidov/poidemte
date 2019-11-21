@@ -8,44 +8,48 @@
  * @param string  $role             Вспомогательный атрибут role
  * @param string  $tag              Тег основного элемента
  *}
- 
-{block name="before_options"}{/block}
- 
-{block 'options'}
-    {component_define_params params=[ 
-        'attr',  
-        'classes',
-        'mods',
-        'role',
-        'popover',
-        'tag'
-    ]}
-    
-    {*   для отображения всплывающего элемента*}
-    {if $popover}
-        
-        {if is_array($popover)}
-            {foreach $popover as $popover_key => $popover_param}
-                {$attr["data-{$popover_key}"] = $popover_param}
-            {/foreach}
-            
-        {else}
-            {$attr["data-toggle"] = "popover"}
-            {$attr["data-content"] = $popover}
-            {$attr["data-placement"] = "top"}
-            {$attr["data-trigger"] = "hover"}
-        {/if}
-    {/if} 
 
-{/block}
+{component_define_params params=[ 
+    'attr',  
+    'classes',
+    'mods',
+    'role',
+    'popover',
+    'tag'
+]}
 
-{block name="after_options"}
-    
-    {if $role}
-        {$attr['role'] = $role}
+{block 'options'}{/block}
+
+{if $component} 
+    {$classes = "{$component} {$classes}"}
+{/if}
+
+{if $mods}
+    {$classes = "{$classes} {cmods name=$component mods=$mods delimiter='-'}"}
+{/if}
+
+{$attr["class"] = $classes}
+{$attr["role"] = $role}
+
+{*   для отображения всплывающего элемента*}
+{if $popover}
+
+    {if is_array($popover)}
+        {foreach $popover as $popover_key => $popover_param}
+            {$attr["data-{$popover_key}"] = $popover_param}
+        {/foreach}
+
+    {else}
+        {$attr["data-toggle"] = "popover"}
+        {$attr["data-content"] = $popover}
+        {$attr["data-placement"] = "top"}
+        {$attr["data-trigger"] = "hover"}
     {/if}
-    
-{/block}
+{/if} 
+
+{if $role}
+    {$attr['role'] = $role}
+{/if}
 
 {strip}
     {block name="before_content"}{/block}

@@ -5,11 +5,13 @@
 {extends "component@accordion.layout"}
 
 {block 'options' append}
-    {$id = "accordion{math equation='rand()'}"}
+    {$attr.id = "accordion{math equation='rand()'}"}
+    
+    {$classes = "{$classes} accordion"}
 {/block}
 
 {block "content" append}
-    <div id="{$id}" class="accordion {$classes}" {cattr list=$attr}>
+    <div  {cattr list=$attr}>
         {foreach $items as $item}
             {$collapseActive  = ($activeItem and $item.name == $activeItem) or $item.active}
             
@@ -28,7 +30,7 @@
                     }
                 </div>
 
-                <div id="{$collapseId}" class="collapse {if $collapseActive}show{/if}" aria-labelledby="headingOne" data-parent="#{$id}">
+                <div id="{$collapseId}" class="collapse {if $collapseActive}show{/if}" aria-labelledby="headingOne" data-parent="#{$attr.id}">
                     <div class="card-body">
                         {$item.content}
                     </div>

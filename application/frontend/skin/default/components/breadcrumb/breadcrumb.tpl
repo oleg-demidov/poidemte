@@ -10,7 +10,7 @@
 {/block}
 
 {block 'content'}
-    <nav aria-label="{$component}" class="{cmods name=$component mods=$mods delimiter="-"} {$classes}" {cattr list=$attr}>
+    <nav {cattr list=$attr}>
         <ol class="{$component}">
             {foreach $items as $item name="breadcrumb_for"}
                 {if $smarty.foreach.breadcrumb_for.last}

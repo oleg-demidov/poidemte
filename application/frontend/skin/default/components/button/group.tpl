@@ -10,12 +10,16 @@
     
     {$component = "btn-group"}
     
+    {if $mods|strpos:"vertical" !== false}
+        {$component = null}
+        {$classes = "{$classes} btn-group-vertical"}
+    {/if}
+    
 {/block}
 
 {block "content"}{strip}
    
-    <div class="{if $mods|strpos:"vertical"=== false}{$component}{/if} {cmods name=$component mods=$mods delimiter="-"} {$classes}" 
-          {cattr list=$attr}>
+    <div {cattr list=$attr}>
         {foreach $items as $item}
             {if is_array($item)}
                 {component "button" params=$item}

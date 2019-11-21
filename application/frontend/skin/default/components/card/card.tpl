@@ -20,7 +20,7 @@
 {/block}
 
 {block "content" append}
-    <{$tag} class="{$component} {cmods name=$component mods=$mods delimiter="-"} {$classes}" {cattr list=$attr}>
+    <{$tag} {cattr list=$attr}>
         <img class="card-img-top" src="{$img.src}" alt="{$img.alt}">
 
         {if $header}
