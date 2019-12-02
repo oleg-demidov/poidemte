@@ -227,7 +227,7 @@
         {if $oUserCurrent}
             
         {else}
-            {component 'auth' template='modal'}
+
         {/if}
         {if $oUserAdmin}
             {component 'modal' 

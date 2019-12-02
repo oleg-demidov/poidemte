@@ -2,10 +2,6 @@
  * Юзербар
  *}
  
-{component "form.text" 
-    attributes  = ['data-ajax-search' => true, 'data-url' => {router page="ajax/search-users"}, 'style' => 'max-width:250px;']
-    placeholder = $aLang.search.text
-    classesGroup= "mb-0 w-25"}
 
 
 {if $oUserCurrent}

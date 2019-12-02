@@ -18,7 +18,8 @@
         'mods',
         'role',
         'popover',
-        'tag'
+        'tag',
+        'hook'
     ]}
     
     {*   для отображения всплывающего элемента*}
@@ -36,16 +37,22 @@
             {$attr["data-trigger"] = "hover"}
         {/if}
     {/if} 
-
-{/block}
-
-{block name="after_options"}
     
     {if $role}
         {$attr['role'] = $role}
     {/if}
-    
+
 {/block}
+
+
+{if $hook}
+    {hook 
+        run         = $hook 
+        params      = $params 
+        array       = true 
+        array_merge = true 
+        assign      = 'params'}
+{/if}
 
 {strip}
     {block name="before_content"}{/block}

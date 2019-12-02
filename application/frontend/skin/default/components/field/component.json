@@ -1,12 +1,12 @@
 {
-    "name": "form",
+    "name": "field",
     "version": "1.0.0",
     "templates": {
-        "form": "form.tpl",
-        "group": "form.group.tpl",
-        "text": "field.text.tpl",
+        "text"      : "field.text.tpl",
+        "password"  : "field.password.tpl",
+        
         "email": "field.email.tpl",
-        "field": "field.tpl",
+        "group": "form.group.tpl",
         "range": "field.range.tpl",
         "checkbox": "field.checkbox.tpl",
         "select": "field.select.tpl",
