@@ -33,7 +33,7 @@
 {/block}
 
 {block 'content'}
-    <div id="{$id}" class="{$component} {cmods name=$component mods=$mods delimiter="-"} {$classes}" {cattr list=$attr} data-ride="carousel">
+    <div id="{$id}" {cattr list=$attr} data-ride="carousel">
         {if $indicators}
             <ol class="carousel-indicators">
                 {foreach $items as $key => $item name="carousel_indicators"}

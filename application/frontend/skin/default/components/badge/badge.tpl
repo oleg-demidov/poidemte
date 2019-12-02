@@ -13,5 +13,5 @@
 
 
 {block 'content'}
-    <span class="{$component} {cmods name=$component mods=$mods delimiter="-"} {$classes}" {cattr list=$attr}>{$text}</span>
+    <span  {cattr list=$attr}>{$text}</span>
 {/block}

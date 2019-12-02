@@ -10,11 +10,20 @@
  
 {component_define_params params=[ 'items', 'classes', 'attributes', 'name', 'bmods' ]}
 
+{block 'options' append}
+    {* Название компонента *}
+    {$component = "btn-group"}
+    
+    {$mods = "{$mods} toggle"}
+    
+    {$attr['data-toggle'] = "buttons"}
+    
+{/block}
+
 {block 'button_toggle_content'}
-    <div class="btn-group btn-group-toggle {cmods name=$component mods=$bmods delimiter="-"} {$classes}" 
-         {cattr list=$attributes} data-toggle="buttons">
+    <div {cattr list=$attr}>
         {foreach $items as $item}
-            <label class="{$component} {cmods name=$component mods=$item.bmods delimiter="-"} {$item.classes} {if $item.checked}active{/if}" 
+            <label class="{$item.classes} {if $item.checked}active{/if}" 
                    {cattr list=$item.attributes}>
                 <input type="radio" name="{$name}" value="{$item.value}" {if $item.id}id="{$item.id}"{/if}
                        autocomplete="off" {if $item.checked}checked{/if}> 
