@@ -1,34 +1,35 @@
 {**
  * Диапазон
  *
- * @param string  $disabled          Отключено
+ * @param int  $min          Минимальное значение
+ * @param int  $max          Максимальное значение
  * 
  *}
  
-{extends "component@form.field"}
+{extends "component@field"}
 
-{component_define_params params=[ 'disabled', 'min', 'max']}
+{block name="options"}
+    
+    {component_define_params params=[ 
+        'min', 
+        'max'
+    ]}
 
-{block name="field_options"}
-    {$classes = ""}
-    {$bmods = "{$bmods} range"}
-
-    {if $custom}
-        {$classesGroup = "custom-range"}
-        {$component = "custom"}
-    {/if}
+    {$classes = "custom-range"}
 
     {if $min}
-        {$attributes.min = $min}
+        {$attr.min = $min}
     {/if}
 
     {if $max}
-        {$attributes.max = $max}
+        {$attr.max = $max}
     {/if}
+    
+    {$attr.type = 'range'}
 {/block}
 
-{block name="field_input"}
-    <input type="range" class="{cmods name=$component mods=$bmods delimiter="-"} {$classes}" {cattr list=$attributes} {if $disabled}disabled{/if}>
+{block name="field_input" append}
+    <input {cattr list=$validateRules} {cattr list=$attr}>
 {/block}
     
 

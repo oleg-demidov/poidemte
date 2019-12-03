@@ -1,47 +1,50 @@
 {**
- * Элемент формы
- *
- * @param string  $bmods="success"  Список модификторов основного блока (через пробел)
- * @param string  $bg="light"       Модификтор фона
- * @param string  $classes          Список классов основного блока (через пробел)
- * @param array   $attributes       Список атрибутов основного блока
- * 
+ * Группировка полей
+ * @param array  $prepend           Впереди
+ * @param array  $items             Основное
+ * @param array  $append            Сзади
  *}
 
-{component_define_params params=[ 'bmods', 'bg', 'classes', 'attributes', 'content', 'component', 'popover',  'componentGroup', 'prepend']}
+{extends "component@component.layout"}
+ 
+{block name="options" append}
+    {component_define_params params=[ 
+        'prepend'
+        'items',
+        'append'
+    ]}
 
-{if $custom}
-    {$classes = "{$classes} custom-{$type}"}
-    {$component = {$componentGroup|default:"custom-control"}}
-{else}
-    {$component = {$componentGroup|default:"form-group"}}
-{/if}
+{/block}
 
-{if $prepend}
-    {$component = "input-group"}
-{/if}
-
-{block 'form_group_options'}{/block}
-
-{block 'form_group_content'}
-    <div class="{$component} {cmods name=$component mods=$bmods delimiter="-"} {$classes}" 
-        {if $popover}{component "popover" params=$popover} {/if} {cattr list=$attributes}>
-        
-        {if $prepend}
-            <div class="input-group-prepend">
-                <div class="input-group-text">
-                    {$prepend}
-                </div>
+{block 'content'}
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <button type="button" class="btn btn-outline-secondary">Action</button>
+            <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+              <div role="separator" class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Separated link</a>
             </div>
-        {/if}
-
-        {if is_array($content)}
-            {foreach $content as $item}
-                {$item}
-            {/foreach}
-        {else}
-            {$content}
-        {/if}        
+        </div>
+        <input type="text" class="form-control" aria-label="Text input with segmented dropdown button">
+        <div class="input-group-append">
+          <button type="button" class="btn btn-outline-secondary">Action</button>
+          <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="sr-only">Toggle Dropdown</span>
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+            <div role="separator" class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Separated link</a>
+          </div>
+        </div>
     </div>
 {/block}
 

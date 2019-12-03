@@ -1,19 +1,23 @@
 {**
- * Текст
+ * Текстовая область
  *
- * @param string  $readonly          Список классов основного блока (через пробел)
- * 
  *}
  
-{extends "component@form.field"}
+{extends "component@field"}
 
-{component_define_params params=[ 'readonly', 'rows', 'entity']}
+{block name="options" append}
+    {component_define_params params=[  
+        'rows'
+    ]}
+    
+    {$classes = "form-control"}
+    
+    {$attr.rows = $rows|default:3}
+{/block}
 
 {block name="field_input"}
-    {$attributes=$attributes|array_diff_key:(['value']|array_flip)}
-    <textarea {cattr list=$validateRules}
-        class="{$component} {cmods name=$component mods=$bmods delimiter="-"} {$classes}" 
-        {cattr list=$attributes} rows="{$rows|default:3}">{$value}</textarea>
+
+    <textarea {cattr list=$validateRules} {cattr list=$attr}>{$value}</textarea>
         
 {/block}
     

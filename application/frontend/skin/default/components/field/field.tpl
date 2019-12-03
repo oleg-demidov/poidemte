@@ -1,63 +1,23 @@
 {**
- * Форма
+ * Поле формы основной шаблон
  *
- 
- * @param string  $bmods="success"  Список модификторов основного блока (через пробел)
- * @param string  $bg="light"       Модификтор фона
- * @param string  $classes          Список классов основного блока (через пробел)
- * @param array   $attributes       Список атрибутов основного блока
- * 
+ * @param string  $prepend          Группировка Перед полем
+ * @param string  $desc             Подсказка к полю
  *}
  
- {extends "component@field.layout"}
-
-
+{extends "component@field.layout"}
 
 {block "options" append}
-    {$component = "form-control"}
-    {component_define_params params=[ 'bmods', 'bg',  'classes', 'popover', 'attributes', 
-        'classesGroup', 'attributesGroup', 'classesLabel', 'classesDesc', 'custom', 'size', 'prepend']}
-
-    {if $custom}
-        {$component = "custom-control"}
-    {/if}
-
-    {if $size}
-        {$classes ="{$classes} form-control-{$size}"}
-        {$classesLabel="{$classesLabel} form-control-{$size}"}
-    {/if}
-
-    {if ! $attributes.triggers}
-        {$attributes.triggers = "change keyup"}
-    {/if}
-    {$attributes["aria-describedby"] = "{$attributes.id}Help"}
-    {if $value}
-        {$attributes.value = $value}
-    {/if}
-    
-    
+    {component_define_params params=[ 
+        'prepend',
+        'desc'
+    ]}
     
 {/block}
   
 
 {block name="content"}
-    
-    
-    {if $custom}
-        {$classes = "{$classes} custom-{$type}"}
-        {$component = {$componentGroup|default:"custom-control"}}
-    {else}
-        {$component = {$componentGroup|default:"form-group"}}
-    {/if}
-
-    {if $prepend}
-        {$component = "input-group"}
-    {/if}
-
-
-    <div class="{$component} {cmods name=$component mods=$bmodsGroup delimiter="-"} {$classesGroup}" 
-        {if $popover}{component "popover" params=$popover} {/if} {cattr list=$attributesGroup}>
-
+    <div class="form-group">
         {if $prepend}
             <div class="input-group-prepend">
                 <div class="input-group-text">
@@ -65,15 +25,15 @@
                 </div>
             </div>
         {/if}
-
+        
         {if $label}
-            <label for="{$attributes.id} {$classesLabel}">{$label}</label>
+            <label for="{$attr.id}">{$label}</label>
         {/if}
-
+        
         {block name="field_input"}{/block}
-
+        
         {if $desc}
-            <small id="{$attributes.id}Help" class="form-text text-muted {$classesDesc}">{$desc}</small>
+            <small id="{$attr.id}Help" class="form-text text-muted">{$desc}</small>
         {/if}
 
         {if !$prepend}
@@ -84,6 +44,7 @@
                 {$validate.msgSuccess}
             </div>
         {/if}
+        
     </div>
     
 {/block}

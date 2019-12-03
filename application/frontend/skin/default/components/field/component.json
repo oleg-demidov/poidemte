@@ -4,15 +4,20 @@
     "templates": {
         "text"      : "field.text.tpl",
         "password"  : "field.password.tpl",
+        "select"    : "field.select.tpl",
+        "email"     : "field.email.tpl",
+        "checkbox"  : "field.checkbox.tpl",
+        "radio"     : "field.radio.tpl",
+        "range"     : "field.range.tpl",
+        "file"      : "field.file.tpl",
+        "textarea"  : "field.textarea.tpl",
+        "group"     : "form.group.tpl",
         
-        "email": "field.email.tpl",
-        "group": "form.group.tpl",
-        "range": "field.range.tpl",
-        "checkbox": "field.checkbox.tpl",
-        "select": "field.select.tpl",
+        
+        
         "categories": "field.categories.tpl",
-        "file": "field.file.tpl",
-        "textarea": "field.textarea.tpl",
+        
+        
         "recaptcha": "field.recaptcha.tpl"
     },
     "assets": {

@@ -1,51 +1,45 @@
 {**
  * Флажок
  *
- * @param boll  $disabled           Отключено
- * @param boll  $inline             На одной строке
- * @param boll  $radio              Выбор
  * @param boll  $checked            Выбран
  * 
  *}
  
-{extends "component@form.field"}
+{extends "component@field.layout"}
 
-{component_define_params params=[ 'disabled', 'inline', 'radio', 'checked', 'custom']}
 
-{block name="field_options"}
-    {$component = "form-check"}
+
+{block name="options" append}
+    {component_define_params params=[ 
+        'checked'
+    ]}
     
-    {if $custom}
-        {$component = "custom-control"}
-    {else}
-        {$componentGroup= "form-check"}
-    {/if}
-    {if $radio}
-        {$attributes.type = 'radio'}
-        {$type = 'radio'}
-    {else}
-        {$attributes.type = 'checkbox'}
-    {/if}
+    {$classes = "custom-control-input"}
     
-    {if $inline}
-        {$bmodsGroup = "inline"}
-    {/if}
+    {$attr.type = 'checkbox'}
     
     {if $checked}
-        {$attributes.checked = true}
+        {$attr.checked = true}
     {/if}
     
     {if $disabled}
-        {$attributes.disabled = true}
+        {$attr.disabled = true}
     {/if}
     
 {/block}
 
-{block name="field_content"}
-    <input class="{$component}-input {cmods name=$component mods=$bmods delimiter="-"} {$classes}" {cattr list=$attributes} >
-    {if $label}
-        <label class="{$component}-label" for="{$attributes.id}">{$label}</label>
-    {/if}
+{block name="content"}
+    <div class="custom-control custom-{$attr.type} {cmods name='custom-control' mods=$mods delimiter="-"}">
+        <input {cattr list=$attr}>
+        <label class="custom-control-label" for="{$attr.id}">{$label}</label>
+    </div>
+    
+    <div class="invalid-feedback">
+        {$validate.msgError|default:$msg}       
+    </div>
+    <div class="valid-feedback">
+        {$validate.msgSuccess}
+    </div>
 {/block}
 
 

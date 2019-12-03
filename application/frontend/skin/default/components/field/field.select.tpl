@@ -1,44 +1,52 @@
 {**
  * Select
  *
- * @param string  $readonly          Список классов основного блока (через пробел)
+ * @param array  $selected          Имена выбраных элементов
+ * @param array  $items             Опции селекта
  * 
  *}
  
-{extends "component@form.field"}
+{extends "component@field"}
 
-{component_define_params params=[ 'disabled', 'items', 'selected']}
 
-{block name="field_options"}
-    {if $custom}
-        {$component = "custom-select"}
-        {$type = ""}
-    {/if}
-    {if $disabled}
-        {$attributes.disabled = true}
-    {/if}
+
+{block name="options" append}
+    
+    {component_define_params params=[ 
+        'items', 
+        'selected',
+        'multiple',
+        'size'
+    ]}
+    
+    
+    {$component = "custom-select"}
+    
     
     {if $size}
-        {$classes ="{$classes} {$component}-{$size}"}
+        {$attr.size = $size}
     {/if}
+    
+    {if $selected and !is_array($selected)}
+        {$selected = [$selected]}
+    {/if}
+
+    {if $multiple}
+        {$attr.multiple = true}
+    {/if}
+    
 {/block}
 
 {block name="field_input"}
-    <select class="{$component} {cmods name=$component mods=$bmods delimiter="-"} {$classes}" {cattr list=$attributes}>
+    
+    <select {cattr list=$attr}>
         {foreach $items as $item}
-            <option value="{$item.value}"{if $item.value == $selected}selected{/if}>{$item.text}</option>
+            {$bSelectItem = (in_array($item.value, $selected) or $item.selected)}
+            <option value="{$item.value}"{if $bSelectItem}selected{/if}>{$item.text}</option>
         {/foreach}
     </select>
+    
 {/block}
     
-{block name="out_content"}
-    {component "form.group" 
-        prepend=$prepend
-        custom=$customfalse 
-        classes=$classesGroup 
-        bmods=$bmodsGroup 
-        componentGroup=$componentGroup 
-        content=$smarty.capture.content}
-{/block}
 
 

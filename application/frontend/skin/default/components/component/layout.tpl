@@ -54,6 +54,15 @@
         assign      = 'params'}
 {/if}
 
+{$attr.class = "{$component} $classes"}
+
+{if $component and $mods}
+    
+    {$attr.class = "{cmods name=$component mods=$mods delimiter="-"} {$attr.class}"}
+
+{/if}
+
+
 {strip}
     {block name="before_content"}{/block}
 

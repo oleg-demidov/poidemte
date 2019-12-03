@@ -1,30 +1,22 @@
 {**
- * Текст
+ * Текстовое поле
  *}
  
-{extends "component@field.layout"}
+{extends "component@field"}
 
 {block name="options" append}
     
     {$attr.type = 'text'}
     
-    {$attr.class = "form-control {cmods name='form-control' mods=$mods delimiter='-'} {$classes} "}
+    {$component = "form-control"}
 
 {/block}
 
 
-{block name="content" append}
-    {if $label}
-        <label for="{$attr.id}">{$label}</label>
-    {/if}
+{block name="field_input"}
     
     <input {cattr list=$validateRules} {cattr list=$attr}>
-    <div class="invalid-feedback">
-        {$validate.msgError|default:$msg}       
-    </div>
-    <div class="valid-feedback">
-        {$validate.msgSuccess}
-    </div>
+    
 {/block}
     
 

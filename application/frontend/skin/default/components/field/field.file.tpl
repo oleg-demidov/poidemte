@@ -8,30 +8,27 @@
  * 
  *}
  
-{extends "component@form.field"}
+{extends "component@field.layout"}
 
-{component_define_params params=[ 'disabled']}
-
-{block name="field_options"}
-    {$component = "form-check"}
+{block name="options" append}
     
-    {if $custom}
-        {$component = "custom-file"}
-    {else}
-        {$componentGroup= "form-check"}
-    {/if}
+    {$classes = "custom-file-input"}
         
     {if $disabled}
-        {$attributes.disabled = true}
+        {$attr.disabled = true}
     {/if}
+    
+    {$attr.type = "file"}
     
 {/block}
 
-{block name="field_content"}
-    <input type="{$type}" class="{$component}-input {cmods name=$component mods=$bmods delimiter="-"} {$classes}" {cattr list=$attributes}>
-    {if $label}
-        <label class="{$component}-label" for="{$attributes.id}">{$label}</label>
-    {/if}
+{block name="content"}
+    <div class="form-group custom-file">
+        <input {cattr list=$validateRules} {cattr list=$attr}>
+        
+        <label class="custom-file-label" for="customFile">{$label}</label>
+       
+    </div>
 {/block}
 
 
