@@ -1,49 +1,39 @@
 {**
  * Группировка полей
- * @param array  $prepend           Впереди
+ * @param array  $prependItems      Впереди
  * @param array  $items             Основное
- * @param array  $append            Сзади
+ * @param array  $appendItems       Сзади
  *}
 
 {extends "component@component.layout"}
  
 {block name="options" append}
     {component_define_params params=[ 
-        'prepend'
+        'prependItems',
         'items',
-        'append'
+        'appendItems'
     ]}
+    
+    {$classes = "{$classes} input-group"}
 
 {/block}
 
 {block 'content'}
-    <div class="input-group">
+    <div {cattr list=$attr}>
         <div class="input-group-prepend">
-            <button type="button" class="btn btn-outline-secondary">Action</button>
-            <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <span class="sr-only">Toggle Dropdown</span>
-            </button>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-              <div role="separator" class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Separated link</a>
-            </div>
+            {foreach $prependItems as $itemPrepend}
+                {$itemPrepend}
+            {/foreach}
         </div>
-        <input type="text" class="form-control" aria-label="Text input with segmented dropdown button">
+        
+        {foreach $items as $item}
+            {$item}
+        {/foreach}
+            
         <div class="input-group-append">
-          <button type="button" class="btn btn-outline-secondary">Action</button>
-          <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <span class="sr-only">Toggle Dropdown</span>
-          </button>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-            <div role="separator" class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Separated link</a>
-          </div>
+            {foreach $appendItems as $appendItem}
+                {$appendItem}
+            {/foreach}
         </div>
     </div>
 {/block}

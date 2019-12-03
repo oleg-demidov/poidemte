@@ -10,22 +10,19 @@
 {block "options" append}
     {component_define_params params=[ 
         'prepend',
-        'desc'
+        'desc',
+        'group' => true
     ]}
     
 {/block}
   
 
 {block name="content"}
-    <div class="form-group">
-        {if $prepend}
-            <div class="input-group-prepend">
-                <div class="input-group-text">
-                    {$prepend}
-                </div>
-            </div>
-        {/if}
-        
+    
+    {if $group}
+        <div class="form-group">
+    {/if}
+                
         {if $label}
             <label for="{$attr.id}">{$label}</label>
         {/if}
@@ -36,16 +33,16 @@
             <small id="{$attr.id}Help" class="form-text text-muted">{$desc}</small>
         {/if}
 
-        {if !$prepend}
-            <div class="invalid-feedback">
-                {$validate.msgError|default:$msg}       
-            </div>
-            <div class="valid-feedback">
-                {$validate.msgSuccess}
-            </div>
-        {/if}
+        <div class="invalid-feedback">
+            {$validate.msgError|default:$msg}       
+        </div>
+        <div class="valid-feedback">
+            {$validate.msgSuccess}
+        </div>
+      
+    {if $group}
+        </div>
+    {/if}
         
-    </div>
-    
 {/block}
 
