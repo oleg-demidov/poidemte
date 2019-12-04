@@ -6,22 +6,24 @@
  
 {extends "component@modal.layout"}
 
-{block 'options'}
+{block 'options' append}
     
     {component_define_params params=[ 
-        'effect' => "fade",  
-        'footer', 
-        'id'        
+        'effect'    => "fade",  
+        'closed'    => false
     ]}
+        {$id}
+    {$attr = [ 
+        id  => $id,
+        role    => 'dialog'
+    ]}{$attr|print_r}
     
-    {$component="modal"}
-    
-    {$classes = "{$classes} {$effect}"}
+    {$classes = "modal {$classes} {$effect}"}
 {/block}
 
 {block 'content'}
     <div  {cattr list=$attr}>
-        <div class="modal-dialog {cmods name=$component mods=$bmods delimiter="-"} " role="document">
+        <div class="modal-dialog {cmods name='modal-dialog' mods=$mods delimiter="-"} " role="document">
             <div class="modal-content">
                 {if $header}
                     <div class="modal-header">
@@ -35,29 +37,17 @@
                 {/if}
 
                 {if $content}
-                    <div class="modal-body {$classesBody}">
+                    <div class="modal-body">
                         {$content}
                     </div>
                 {/if}
 
-                {if $showFooter or $footer}
-
-                    {if $footer}
-                        <div class="modal-footer">
-                            {$footer}
-                        </div>
-                    {else}
-                        <div class="modal-footer">
-                            {$primaryButton.attributes['data-type'] = "btn-modal" }
-                            {component "button" 
-                                params=$primaryButton 
-                                text={$primaryButton.text|default:"Ok"}}
-                            {if $closed}
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">{$closeText|default:$aLang.common.close}</button>
-                            {/if} 
-                        </div>
-                    {/if}  
-                {/if}      
+                {if $footer}
+                    <div class="modal-footer">
+                        {$footer}
+                    </div>
+                {/if}
+                            
             </div>
         </div>
     </div>
