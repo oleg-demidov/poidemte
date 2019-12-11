@@ -13,7 +13,7 @@
         
         <div class="col-lg-3 col-sm-6">
         {* E-mail *}
-        {component 'form' 
+        {component 'field' 
             template    = 'text' 
             name        = "mail"
             placeholder = $aLang.auth.registration.form.fields.email.placeholder
@@ -26,7 +26,7 @@
         
         <div class="col-lg-3 col-sm-6">
         {* Имя Фамилия *}
-        {component 'form' 
+        {component 'field' 
             template    = 'text' 
             name        = "name"
             placeholder = $aLang.auth.registration.form.fields.name_company.placeholder
@@ -39,7 +39,7 @@
         
         <div class="col-lg-3 col-sm-6">
         {* Логин *}
-        {component 'form' 
+        {component 'field' 
             template    = 'text' 
             name        = "login"
             placeholder = $aLang.auth.registration.form.fields.login.placeholder
@@ -52,7 +52,7 @@
         
         <div class="col-lg-3 col-sm-6">
         {* Пароль *}
-        {component 'form' template='text' 
+        {component 'field' template='text' 
             type        = "password"
             name        = "password"
             placeholder = $aLang.auth.registration.form.fields.password.placeholder
@@ -65,12 +65,7 @@
         
     <div class="d-flex flex-wrap justify-content-start justify-content-sm-end align-items-center pt-2">
         {if Config::Get('module.user.captcha_use_registration')}
-            {component "form.recaptcha" 
-                validate    = [ 
-                    entity  => $oUserProfile
-                ]
-                classesGroup     = "mt-sm-0 mt-2 mb-0"
-                name        = "recaptcha"}
+            
         {/if}
 
 

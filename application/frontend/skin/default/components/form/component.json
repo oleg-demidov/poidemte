@@ -1,7 +1,19 @@
 {
     "name": "form",
     "version": "1.0.0",
+    "dependencies": {
+        "field": "*"
+    },
     "templates": {
         "form": "form.tpl"
+    },
+    "assets": {
+        "js": {
+            "form-validate": "js/form-validate.js",
+            "form-ajax": "js/form-ajax.js"
+        },
+        "css": {
+            "loader": "css/loader.css"
+        }
     }
 }

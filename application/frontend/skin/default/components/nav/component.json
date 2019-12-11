@@ -3,7 +3,8 @@
     "version": "1.0.0",
     "templates": {
         "nav": "nav.tpl",
-        "item": "item.tpl"
+        "item": "item.tpl",
+        "panes": "panes.tpl"
     },
     "css":{
         "nav":"css/nav.css"

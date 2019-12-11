@@ -60,14 +60,29 @@ jQuery(document).ready(function($){
     /*
      * Дополнительная обработка табов в модальных окнах
      */
-    $('[data-toggle="modal-tab"]').on('click', function(event){
-        $($(this).data('target')).tab('show');
+    $('[data-toggle="tab"]').on('shown.bs.tab', function(event){
+        let $tab = $(event.currentTarget);
+        
+        let $tabs = $('[href="' + $tab.attr('href') + '"]').filter(function(i, el){
+            if(el === $tab.get(0)){
+                return false
+            }
+            return true;
+        });
+        
+        $tabs.tab('show');
+        
+        let $modal = $tabs.closest('.modal' );
+        
+        if($modal.length){
+            $modal.modal('show');
+            $tab.on('click', function(event){
+                $modal.modal('show');
+            })
+        }
     });
     
-    $('[data-toggle="modal"]').on('click', function(event){
-        $($(this).data('target')).modal('toggle');
-        return false;
-    });
+  
 
     
     $('html').removeClass('no-js');
@@ -84,7 +99,7 @@ jQuery(document).ready(function($){
     /*
      * Lightbox
      */
-    $('[data-lightbox]').lsLightbox({ width:"100%", height:"100%" });
+//    $('[data-lightbox]').lsLightbox({ width:"100%", height:"100%" });
 
     /**
      * Подтверждение удаления

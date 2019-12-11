@@ -6,7 +6,7 @@
 
 <form action="{router page='auth'}password-reset/" method="post" class="mt-3 js-form-validate js-auth-reset-form">
     {* E-mail *}
-    {component 'form' 
+    {component 'field' 
         template    = 'text' 
         name        = "mail"
         placeholder = $aLang.auth.reset.form.fields.mail.label

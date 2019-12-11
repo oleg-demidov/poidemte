@@ -12,11 +12,11 @@
         'effect'    => "fade",  
         'closed'    => false
     ]}
-        {$id}
+        {*finish params{$params|print_r}*}
     {$attr = [ 
         id  => $id,
         role    => 'dialog'
-    ]}{$attr|print_r}
+    ]}
     
     {$classes = "modal {$classes} {$effect}"}
 {/block}

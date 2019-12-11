@@ -14,10 +14,14 @@
     
 {/block}
 
-{block "content" append}{if $attr.action}eee{/if}
+{block "content" append}
     <form  {cattr list=$attr}>
         {foreach $items as $item}
-            {$item}
+            {if is_array($item)}
+                {component "field" template=$item.type params=$item}
+            {else}
+                {$item}
+            {/if}
         {/foreach}
         
         {$content}

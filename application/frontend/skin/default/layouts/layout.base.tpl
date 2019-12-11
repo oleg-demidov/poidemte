@@ -227,15 +227,9 @@
         {if $oUserCurrent}
             
         {else}
-
+            {component "auth.modal"}
         {/if}
-        {if $oUserAdmin}
-            {component 'modal' 
-                header  = {lang 'user.userbar.nav.feedback'} 
-                id      = "modalFeedback"
-                closed  = true
-                content = {lang 'feedback.text' email=$oUserAdmin->getMail()}}
-        {/if}
+        
 
         
     {/block}

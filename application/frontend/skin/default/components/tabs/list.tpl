@@ -1,12 +1,28 @@
 {**
  * Табы
  *
- * @param array     $items
- * @param string    $activeItem
- * @param string    $justify        Горизонтальное выравнивание
- * @param bool      $vertical       
+ * @param string   $id        Аттрибут id
  * 
  *}
+ 
+{extends "component@component.layout"}
+ 
+{block name="options" append}
+    {component_define_params params=[ 
+        'items', 
+        'activeItem', 
+        'id' 
+    ]}
+    
+{/block}
+
+{block 'content'}{strip}
+    {component "nav"
+        items = $params.items
+    }    
+{/strip}{/block}
+
+
 {component_define_params params=[ 'items', 'activeItem', 'classes', 'attributes', 'bmods', 'id' ]}
 
 {block 'tabs_list_content'}{strip}

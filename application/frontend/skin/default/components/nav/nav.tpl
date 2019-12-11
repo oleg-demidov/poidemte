@@ -23,14 +23,8 @@
             {else}
 
                 {component "nav.item" 
+                    params  = $item
                     active  = ($activeItem and $item.name == $activeItem)
-                    disabled = $item.disabled
-                    url     = $item.url|default:$itemsParams.url
-                    name    = $item.name|default:$itemsParams.name
-                    icon    = $item.icon|default:$itemsParams.icon
-                    badge   = $item.badge|default:$itemsParams.badge
-                    enable  = $item.enable|default:$itemsParams.enable
-                    text    = $item.text|default:$itemsParams.text
                 }
                 
             {/if}            

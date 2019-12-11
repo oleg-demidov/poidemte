@@ -4,7 +4,7 @@
 
 <form action="{router page='auth'}reactivation/" method="post" class="js-form-reactivation">
     {* E-mail *}
-    {component 'form' 
+    {component 'field' 
         template    = 'text' 
         name        = "mail"
         placeholder = $aLang.auth.reactivation.form.fields.mail.label
