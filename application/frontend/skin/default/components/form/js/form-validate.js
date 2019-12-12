@@ -20,8 +20,7 @@
             },
             
             // Параметры запроса
-            params: {},
-
+            params: {}
             
         },
 
@@ -34,45 +33,28 @@
         _create: function() {
             this._super();
             
-            this.elements.fields.bsFieldValidate();
+            this.elements.fields.bsFieldValidate({
+                urls:{ load: this.option('urls.load')}
+            });
 
-            this._on(this.element, {submit:"onSubmit"});
+            this._on(this.element, {submit:"validate"});
+            this._on(this.elements.fields, {change:"validate"});
         },
+       
         
-        onSubmit: function(event){
+        validate: function(event){
             
-            this.validate(function(result){
-                if(!result){
-                    event.stopImmediatePropagation();
-                    event.preventDefault();
-                }
-                
-            }.bind(this));
-                        
-        },
-        
-        validate: function(resultValidate){
+            console.log(event)
+            let data = { data: this.element.serializeJSON()};
             
-            this.elements.fields = this.element.find(this.option('selectors.fields'));
-            this.elements.fields.bsFieldValidate();
-            
-            if(!this.isValidFields()){
-                resultValidate(false);
-                return false;
+            if(event.type === "change"){
+                data.field = event.currentTarget.name;
             }
             
-            resultValidate(true);            
-        },
-                
-        isValidFields:function(){
-            let valid = true;
-            $.each(this.elements.fields, function(i,field){
-                $(field).bsFieldValidate('validate');
-                if($(field).bsFieldValidate('isValid') === false){
-                    valid = false;
-                }
-            }.bind(this));
-            return valid;
+            this._load('load', data);
+            
+            event.stopImmediatePropagation();
+            event.preventDefault();
         }
     });
 })(jQuery);

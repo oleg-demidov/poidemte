@@ -17,7 +17,7 @@
 
 {block name="field_input"}
 
-    <textarea {cattr list=$validateRules} {cattr list=$attr}>{$value}</textarea>
+    <textarea {cattr list=$attr}>{$value}</textarea>
         
 {/block}
     

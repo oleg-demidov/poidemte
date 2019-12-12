@@ -256,6 +256,7 @@ return array(
             // Сообщения
             'notices' => array(
                 'password_no_valid'  => 'Введите от %%min%% до %%max%% символов',
+                'passwords_mismatch' => 'Пароли не совпадают',
                 'name_no_valid'      => 'Введите от %%min%% до %%max%% символов',
                 'already_registered' => 'Вы уже зарегистрированы у нас и даже авторизованы!',
                 'success'            => 'Поздравляем! Регистрация прошла успешно',

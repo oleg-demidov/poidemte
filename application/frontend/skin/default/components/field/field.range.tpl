@@ -29,7 +29,7 @@
 {/block}
 
 {block name="field_input" append}
-    <input {cattr list=$validateRules} {cattr list=$attr}>
+    <input {cattr list=$attr}>
 {/block}
     
 

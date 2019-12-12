@@ -9,26 +9,27 @@ class ActionAjax_EventValidate extends Event{
     
     public function EventValidate() {
         
-        if(!$sEntity = getRequest('entity')){
+        if(!$sEntity = $this->getRequest('entity')){
             return $this->EventErrorDebug();
         }
         
-        if(!$sField = getRequest('field')){
-            return $this->EventErrorDebug();
-        }     
+        $aField = null;
+        if($this->getRequest('field')){
+            $aField = [$this->getRequest('field')];
+        }  
         
         $oEntity = Engine::GetEntity($sEntity);
         
-        $oEntity->_setValidateScenario(getRequest('scenario', ''));
+        $oEntity->_setValidateScenario($this->getRequest('scenario', ''));
         
-        $oEntity->_setData([$sField => getRequest('value')]); 
+        $oEntity->_setData($this->getRequest('data')); 
         
-        if (!$oEntity->_Validate([$sField], true)) {
+        if (!$oEntity->_Validate($aField)) {
             /**
              * Получаем ошибки
              */
             $this->assign('bStateError', 1);
-            $this->assign('error', $oEntity->_getValidateError($sField));
+            $this->assign('errors', $oEntity->_getValidateErrors());
             return;
         }
         

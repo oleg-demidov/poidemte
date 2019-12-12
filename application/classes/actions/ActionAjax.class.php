@@ -36,10 +36,10 @@ class ActionAjax extends Action
         /**
          * Устанавливаем формат ответа
          */
-        if (getRequest('is_iframe')) {
-            $this->Viewer_SetResponseAjax('jsonIframe', false);
+        if ($this->getRequest('is_iframe')) {
+            $this->setResponseType(self::RESPONSE_TYPE_JSON_IFRAME);
         } else {
-            $this->Viewer_SetResponseAjax('json');
+            $this->setResponseType(self::RESPONSE_TYPE_JSON);
         }
         
     }

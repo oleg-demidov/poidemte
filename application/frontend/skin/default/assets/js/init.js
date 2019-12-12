@@ -130,11 +130,13 @@ jQuery(document).ready(function($){
     /*
      * Validate  должно быть перед ajax формой
      */
-    $('[data-form-validate]').bsFormValidate();
+    $('[data-form-validate]').bsFormValidate({
+        urls:{ load: aRouter.ajax + '/validate'}
+    });
     /*
      * Ajax форма
      */
-    $('[data-form-ajax]').bsFormAjax();
+//    $('[data-form-ajax]').bsFormAjax();
     /**
      * Auth and AJAX
      */

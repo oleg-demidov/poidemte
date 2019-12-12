@@ -24,7 +24,7 @@
 
 {block name="content"}
     <div class="form-group custom-file">
-        <input {cattr list=$validateRules} {cattr list=$attr}>
+        <input {cattr list=$attr}>
         
         <label class="custom-file-label" for="customFile">{$label}</label>
        
