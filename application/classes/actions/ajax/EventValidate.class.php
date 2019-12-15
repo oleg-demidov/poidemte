@@ -8,7 +8,7 @@
 class ActionAjax_EventValidate extends Event{
     
     public function EventValidate() {
-        
+                
         if(!$sEntity = $this->getRequest('entity')){
             return $this->EventErrorDebug();
         }
@@ -23,7 +23,7 @@ class ActionAjax_EventValidate extends Event{
         $oEntity->_setValidateScenario($this->getRequest('scenario', ''));
         
         $oEntity->_setData($this->getRequest('data')); 
-        
+
         if (!$oEntity->_Validate($aField)) {
             /**
              * Получаем ошибки
@@ -33,6 +33,7 @@ class ActionAjax_EventValidate extends Event{
             return;
         }
         
+        $this->assign('errors', []);
         $this->assign('bStateError', 0);
         
     }

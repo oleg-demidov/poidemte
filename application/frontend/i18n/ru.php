@@ -166,6 +166,7 @@ return array(
             ),
             // Всплывающие сообщения
             'notices' => array(
+                
                 'error_login'         => 'Неправильно указан логин (e-mail) или пароль!',
                 'error_not_activated' => 'Вы не активировали вашу учетную запись. <br/> <a href="%%reactivation_path%%">Повторный запрос активации</a>'
             ),
@@ -191,6 +192,7 @@ return array(
             ),
             // Всплывающие сообщения
             'notices' => array(
+                
                 'success' => 'Ссылка для активации отправлена на ваш адрес электронной почты',
             )
         ),
@@ -225,27 +227,26 @@ return array(
                 // Поля
                 'fields' => array(
                     'email' => [
-                        'error' => 'Введите корректный email',
+                        'label'     => 'Email',
+                        'error'     => 'Введите корректный email',
                         'placeholder' => 'Email'
                     ],
-                    'name' => [
-                        'placeholder' => 'Имя Фамилия',
-                    ],
-                    'name_company' => [
-                        'placeholder' => 'Название компании',
-                    ],
+                    
                     'login' =>[
-                        'placeholder' => 'Логин',
-                        'desc' => 'Будет использоваться как ссылка на профиль (fend.ru/login)'
+                        'label'         => 'Логин',
+                        'placeholder'   => 'Логин',
+                        'desc'          => 'Будет использоваться как ссылка на профиль (fend.ru/login)'
                     ],
                     'password_confirm' => array(
-                        'label' => 'Повторите пароль'
+                        'label'         => 'Подтверждение пароля',
+                        'placeholder'   => 'Повторите пароль'
                     ),
                     'submit'           => array(
                         'text' => 'Зарегистрироваться'
                     ),
                     'password' => [
-                        'placeholder' => 'Пароль',
+                        'label'         => 'Пароль',
+                        'placeholder'   => 'Пароль',
                     ]
                 )
             ),
@@ -255,6 +256,7 @@ return array(
             ),
             // Сообщения
             'notices' => array(
+                'error_login_pattern'=> 'Логин может состоять из букв, цифр и подчеркивания',
                 'password_no_valid'  => 'Введите от %%min%% до %%max%% символов',
                 'passwords_mismatch' => 'Пароли не совпадают',
                 'name_no_valid'      => 'Введите от %%min%% до %%max%% символов',

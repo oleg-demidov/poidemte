@@ -2,54 +2,98 @@
 
 class ModuleUser_EntityUser extends EntityORM
 {
-    protected $aValidateRules = array(
-        array(
-            'mail', 
-            'email', 
+        
+    protected function rules() {
+        $rules = [
+            array(
+                'mail', 
+                'email', 
+                'allowEmpty' => false, 
+                'on' => array('registration'),
+                'label' => $this->Lang_Get('auth.registration.form.fields.email.label')
+            ),
+            [   
+                'mail_login', 
+                'string', 
+                'on' => array('login'),
+                'allowEmpty' => false
+            ],
+            [   
+                'mail', 
+                'mail_exists', 
+                'on' => array('registration'),
+                'allowEmpty' => false,
+                'label' => $this->Lang_Get('auth.registration.form.fields.email.label')
+            ],
+            [
+                'login', 
+                'login_exists', 
+                'allowEmpty' => false,
+                'on' => array('registration'),
+                'label' => $this->Lang_Get('auth.registration.form.fields.login.label')
+            ],
+            [
+                'login', 
+                'string', 
+                'min'   => 3,
+                'max'   => 50,
+                'allowEmpty' => false,
+                'on' => array('registration'),
+                'label' => $this->Lang_Get('auth.registration.form.fields.login.label')
+            ],
+            [
+                'password', 
+                'string', 
+                'on' => array('registration'),
+                'allowEmpty' => false,
+                'label' => $this->Lang_Get('auth.registration.form.fields.password.label')
+            ],
+            [
+                'password_confirm', 
+                'string', 
+                'on' => array('registration'),
+                'allowEmpty' => false,
+                'label' => $this->Lang_Get('auth.registration.form.fields.password_confirm.label')
+            ],
+            [
+                'password', 
+                'password', 
+                'on' => array('registration'),
+                'allowEmpty' => false,
+                'label' => $this->Lang_Get('auth.registration.form.fields.password.label')
+            ],
+            [
+                'password_confirm', 
+                'password_confirm', 
+                'on' => array('registration'),
+                'allowEmpty' => false,
+                'label' => $this->Lang_Get('auth.registration.form.fields.password_confirm.label')
+            ]
+        ];
+        
+        if (Config::Get('module.user.captcha_use_registration')) {
+            
+            $rules[] = [
+                'recaptcha', 
+                'captcha_recaptcha',
+                'allowEmpty' => false, 
+                'on'        => array('registration'),
+                'msg'       => $this->Lang_Get('validate.recaptcha.is_empty'),
+            ];
+        }
+        
+        $rules[] = [
+            'login', 
+            'regexp',
+            'pattern'   => '/^[\w_]{0,}$/i',
+            'msg'       => $this->Lang_Get('auth.registration.notices.error_login_pattern'),
             'allowEmpty' => false, 
-            'on' => array('registration')
-        ),
-        [   
-            'mail_login', 
-            'string', 
-            'on' => array('login'),
-            'allowEmpty' => false
-        ],
-        [   
-            'mail', 
-            'mail_exists', 
-            'on' => array('registration'),
-            'allowEmpty' => false
-        ],
-        [
-            'login', 
-            'login', 
-            'on' => array('registration')
-        ],
-        [
-            'login', 
-            'login_exists', 
-            'on' => array('registration')
-        ],
-        [
-            'password', 
-            'password', 
-            'on' => array('registration'),
-            'allowEmpty' => false
-        ],
-        [
-            'password_repeat', 
-            'password_repeat', 
-            'on' => array('registration'),
-            'allowEmpty' => false
-        ],
-        [
-            'password', 
-            'string', 
-            'on' => array('login'),
-            'allowEmpty' => false
-        ]
-    );
+            'on'        => array('registration'),
+            'label'     => $this->Lang_Get('auth.registration.form.fields.login.label')
+        ];
+        
+        return $rules;        
+    }    
 
     protected $aRelations = array(
         'session' => array(self::RELATION_TYPE_HAS_ONE, 'ModuleUser_EntitySession', 'user_id'),
@@ -62,7 +106,6 @@ class ModuleUser_EntityUser extends EntityORM
         }
         return $this->Lang_Get('auth.registration.notices.error_login');
     }
-   
 
     /**
      * Проверка емайла на существование
@@ -98,7 +141,6 @@ class ModuleUser_EntityUser extends EntityORM
             return true;
         }
         
-        
         return $this->Lang_Get('auth.registration.notices.error_login_used');
     }
     
@@ -107,7 +149,7 @@ class ModuleUser_EntityUser extends EntityORM
         return true;
     }
     
-    public function ValidatePasswordRepeat($sValue)
+    public function ValidatePasswordConfirm($sValue)
     {
         if($sValue != $this->getPassword()){
             return $this->Lang_Get('auth.registration.notices.passwords_mismatch');

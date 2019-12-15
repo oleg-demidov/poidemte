@@ -12,14 +12,16 @@
         "file"      : "field.file.tpl",
         "textarea"  : "field.textarea.tpl",
         "group"     : "form.group.tpl",
-        
-        
-        "recaptcha": "field.recaptcha.tpl"
+        "recaptcha" : "field.recaptcha.tpl"
     },
     "assets": {
         "js": {
-            "field-validate": "js/field-validate.js",
-            "recaptcha-active": "js/recaptcha.js"
+            "field"     : "js/field.js",
+            "recaptcha" : "js/field.recaptcha.js",
+            "recaptcha-vendor" : {
+                "file"      : "https://www.google.com/recaptcha/api.js?onload=recaptchaReady&render=explicit",
+                "loader"    : "LS\\Module\\Asset\\Loader\\RemoteLoader"
+            }
         },
         "css": {
             "form": "css/form.css"

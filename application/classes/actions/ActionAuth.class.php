@@ -208,7 +208,7 @@ class ActionAuth extends Action
         /**
          * Устанвливаем формат Ajax ответа
          */
-        $this->Viewer_SetResponseAjax('json');
+        $this->setResponseType(self::RESPONSE_TYPE_JSON);
         /**
          * Пользователь с таким емайлом существует?
          */
@@ -380,7 +380,7 @@ class ActionAuth extends Action
         /**
          * Устанавливаем формат Ajax ответа
          */
-        $this->Viewer_SetResponseAjax('json');
+        $this->setResponseType(self::RESPONSE_TYPE_JSON);
         /**
          * Создаем объект пользователя и устанавливаем сценарий валидации
          */
@@ -389,44 +389,41 @@ class ActionAuth extends Action
         /**
          * Заполняем поля (данные)
          */
-        $oUser->setRole(getRequestStr('role'));
-        $oUser->setMail(getRequestStr('mail'));
-        $oUser->setPassword(getRequestStr('password'));
-        $oUser->setLogin(getRequestStr('login'));
-        $oUser->setName(getRequestStr('name'));
-        $oUser->setDateRegister(date("Y-m-d H:i:s"));
-        $oUser->setIpRegister(func_getIp());
-        $oUser->setRecaptcha(getRequestStr('recaptcha'));
-        $oUser->setActivate(0);
-        $oUser->setActivateKey(md5(func_generator() . time()));
+        $oUser->_setDataSafe($this->getRequest('data'));
+                
         $this->Hook_Run('registration_validate_before', array('oUser' => $oUser));
         /**
          * Запускаем валидацию
          */
         if ($oUser->_Validate()) {
             $this->Hook_Run('registration_validate_after', array('oUser' => $oUser));
+            
             $oUser->setPassword($this->User_MakeHashPassword($oUser->getPassword()));
-            if ($oUser->Add()) {
-                $this->Hook_Run('registration_after', array('oUser' => $oUser));
-                /**
-                 * Убиваем каптчу
-                 */
-                $this->Session_Drop('captcha_keystring_user_signup');
-                /**
-                 * Отправляем на мыло письмо о подтверждении регистрации
-                 */
-                $this->User_SendNotifyRegistrationActivate($oUser, getRequestStr('password'));
-                $this->assign('sUrlRedirect', Router::GetPath('auth/register-confirm'));
-            } else {
-                $this->Message_AddErrorSingle($this->Lang_Get('common.error.system.base'));
-                return;
-            }
+            $oUser->setDateRegister(date("Y-m-d H:i:s"));
+            $oUser->setIpRegister(func_getIp());
+            $oUser->setActivate(0);
+            $oUser->setActivateKey(md5(func_generator() . time()));  
+            $this->assign('ok', 1);
+            
+//            if ($oUser->Add()) {
+//                $this->Hook_Run('registration_after', array('oUser' => $oUser));
+//                /**
+//                 * Отправляем на мыло письмо о подтверждении регистрации
+//                 */
+//                $this->User_SendNotifyRegistrationActivate($oUser, getRequestStr('password'));
+//                /*
+//                 * Перенаправление на подтверждение
+//                 */
+//                $this->assign('sUrlRedirect', Router::GetPath('auth/register-confirm'));
+//            } else {
+//                $this->Message_AddErrorSingle($this->Lang_Get('common.error.system.base'));
+//                return;
+//            }
         } else {
             /**
              * Получаем ошибки
              */
             $this->assign('errors', $oUser->_getValidateErrors());
-            $this->Message_AddErrorSingle($oUser->_getValidateError());
         }
     }
 

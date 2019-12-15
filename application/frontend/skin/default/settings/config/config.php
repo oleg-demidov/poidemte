@@ -9,10 +9,7 @@ $config['view']['grid']['collapse'] = 'sm'; // Граница сворачива
 $config['assets']['template'] = [
     'js' => array(
         //"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js",
-        'recaptcha' => array(
-            'file' => "https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit",
-            'loader' => LS\Module\Asset\Loader\RemoteLoader::class
-            ),
+        
         '___path.skin.assets.server___/js/init.js',
     ),
 

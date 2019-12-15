@@ -9,8 +9,7 @@
     },
     "assets": {
         "js": {
-            "form-validate": "js/form-validate.js",
-            "form-ajax": "js/form-ajax.js"
+            "form": "js/form.js"
         },
         "css": {
             "loader": "css/loader.css"

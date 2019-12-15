@@ -1,20 +1,20 @@
 {**
- * Текст
+ * Recaptcha
  *
  * @param string  $readonly          Список классов основного блока (через пробел)
  * 
  *}
- 
-{extends "component@form.field"}
+{extends "component@field"}
 
-{component_define_params params=[ 'readonly']}
+{block name="options" append}
+    {$attr.type = "hidden"}
 
-{$id = "recaptcha{math equation='rand()'}"}
+    {$classes = "form-control"}
+{/block}
+
 {block name="field_input"}
-    <input  type="text" name="{$name}" style="display:none;"
-        class=" {$component} {cmods name=$component mods=$bmods delimiter="-"} {$classes}" 
-        {cattr list=$attributes} >
-    <div id="g-recaptcha-{$attributes.id}" data-field-id="{$attributes.id}" class=" g-recaptcha" data-sitekey="{Config::Get('module.validate.recaptcha.site_key')}"></div>
+    <div id="g-recaptcha-{$attr.id}" data-field-id="{$attr.id}" class="g-recaptcha" data-sitekey="{Config::Get('module.validate.recaptcha.site_key')}"></div>
+    <input  style="display:none;" {cattr list=$attr} >
 {/block}
     
 

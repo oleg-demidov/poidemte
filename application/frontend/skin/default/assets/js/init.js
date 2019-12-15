@@ -8,6 +8,15 @@
 
 jQuery(document).ready(function($){
     
+    /**
+     * Иниц-ия модулей ядра
+     */
+    ls.init({
+        production: false
+    });
+    
+    $('html').removeClass('no-js');
+    
     ls.registry.set('component.tinimce.plugins', []);
     ls.registry.set('component.tinimce.toolbar', []);
     
@@ -81,20 +90,6 @@ jQuery(document).ready(function($){
             })
         }
     });
-    
-  
-
-    
-    $('html').removeClass('no-js');
-
-    /**
-     * Иниц-ия модулей ядра
-     */
-    ls.init({
-        production: false
-    });
-
-    ls.dev.init();
 
     /*
      * Lightbox
@@ -128,29 +123,13 @@ jQuery(document).ready(function($){
     
     
     /*
-     * Validate  должно быть перед ajax формой
+     * Форма с ajax отправкой и валидацией
      */
-    $('[data-form-validate]').bsFormValidate({
-        urls:{ load: aRouter.ajax + '/validate'}
+    $('[data-form]').bsForm({
+        urls:{ validate: aRouter.ajax + 'validate'}
     });
-    /*
-     * Ajax форма
-     */
-//    $('[data-form-ajax]').bsFormAjax();
-    /**
-     * Auth and AJAX
-     */
     
-    $('.js-auth-login-form').bsFormAjax({
-        urls:{
-            submit: aRouter.auth + 'ajax-login'
-        }
-    });
-    $('.js-auth-reset-form').bsFormAjax({
-        urls:{
-            submit: aRouter.auth + 'ajax-password-reset'
-        }
-    });
+    
     
     // Подгрузка ajax
     $('[data-ajax-list]').bsAjaxList();
@@ -171,7 +150,12 @@ jQuery(document).ready(function($){
     $('[data-autocomplete]').bsAutocomplete();
     
     
-    
+    /*
+     * ReCaptcha
+     */
+    $('.g-recaptcha').bsRecaptcha({
+        site_key: ls.registry.get('recaptcha.site_key')
+    });
     /*
      * Пагинация
      */

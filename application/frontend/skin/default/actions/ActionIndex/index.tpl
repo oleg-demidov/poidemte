@@ -20,10 +20,7 @@
             {component "tinymce"}
         </div>
         <div class="col-md-5 d-flex  justify-content-center mt-md-0 mt-4">
-            <div style="max-width: 310px;">
-                <h5 class="text-center">Зарегестрироваться</h5><br>
-                {component 'auth' template='registration'}
-            </div>
+            
         </div>
             
         {component "button" text="Modal" bmods="success" attributes=["data-toggle"=>"modal", "data-target"=>"#exampleModal"]}

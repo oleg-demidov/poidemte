@@ -9,14 +9,13 @@
         options: {
             // Классы
             selectors: {
-                fields: 'input, .form-control, textarea',
-                recaptcha: ".g-recaptcha",
+                fields: 'input, select, textarea',
                 submit: '[type="submit"]'
             },
 
             // Ссылка
             urls: {
-                load: null
+                validate: null
             },
             
             // Параметры запроса
@@ -32,10 +31,8 @@
          */
         _create: function() {
             this._super();
-            
-            this.elements.fields.bsFieldValidate({
-                urls:{ load: this.option('urls.load')}
-            });
+           
+            this.elements.fields.bsField();
 
             this._on(this.element, {submit:"validate"});
             this._on(this.elements.fields, {change:"validate"});
@@ -44,14 +41,18 @@
         
         validate: function(event){
             
-            console.log(event)
             let data = { data: this.element.serializeJSON()};
             
             if(event.type === "change"){
                 data.field = event.currentTarget.name;
             }
             
-            this._load('load', data);
+            this._load('validate', data, function(response){
+                if(response.errors === undefined){
+                    return;
+                }
+                this.elements.fields.bsField()
+            }.bind(this), {showProgress:false});
             
             event.stopImmediatePropagation();
             event.preventDefault();

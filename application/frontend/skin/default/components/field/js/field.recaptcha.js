@@ -13,7 +13,7 @@
 
     var notReadyItems = [];
 
-    $.widget("livestreet.bsReCaptcha", $.livestreet.lsComponent, {
+    $.widget("livestreet.bsRecaptcha", $.livestreet.lsComponent, {
         /**
          * Дефолтные опции
          */
@@ -25,7 +25,9 @@
                 register:   aRouter.auth + "ajax-register",
                 verify:     aRouter.ajax + "verify-recaptcha"
             },
-            verifyRecaptcha:null
+            theme:'light',
+            
+            id: null
         },
         
         /**
@@ -36,21 +38,45 @@
          */
         _create: function () {
             this._super();
-            
-            this.element.data('recaptcha', true);
-        },
 
-        execute: function( call ){
-            grecaptcha.execute(this.option('site_key'), {action: 'login' }).then(function(token) {
-                this._load('verify', {token:token}, function(response){
-                    call(response);
-                    this._trigger( "verifyRecaptcha", null, { context: this, response: response } );
-                }.bind(this), {showProgress:false})
-            }.bind(this));
+            if(!recaptchaIsReady){
+                $(document).on( 'recaptchaReady', this.render.bind(this));
+            }else{
+                this.render();
+            }
+                      
         },
         
-        reset: function () {
-            grecaptcha.reset(this.grecaptcha);
+        render: function(event)
+        {
+            this.options.id = grecaptcha.render(this.element.get(0), {
+                sitekey     : this.option('site_key'),
+                callback    : this.result.bind(this),
+                theme       : this.option('theme')
+            });
+        },
+        
+        result:function(response){
+            $('input', this.element.parent())
+                    .val(response).bsField('clearMsg')
+        },
+        
+        reset: function()
+        {
+            grecaptcha.reset(
+                this.option('id')
+            )
         }
+
     });
 })(jQuery);
+
+ 
+/*
+ * ReCaptcha
+ */
+let recaptchaIsReady = false;
+function recaptchaReady(){
+    $(document).trigger('recaptchaReady');
+    recaptchaIsReady = true;
+}

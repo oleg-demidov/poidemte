@@ -56,7 +56,6 @@ $config['view']['img_max_size_url'] = 500;    // максимальный раз
  * Общие настройки
  */
 $config['general']['admin_mail']  = 'admin@admin.adm'; // email администратора
-$config['general']['captcha']['type'] = 'recaptcha'; // тип используемой каптчи: kcaptcha, recaptcha
 
 /**
  * Настройки модулей
