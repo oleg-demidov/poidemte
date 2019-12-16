@@ -15,9 +15,8 @@
     name    = "form_login"
     classes = "mt-3"
     validate = [
-        entity      => "User_User",
-        scenario    => 'login',
-        remote      => true
+        entity      => "User_ValidateLogin",
+        scenario    => 'login'
     ]
 
     action  = {router page='auth/login'}

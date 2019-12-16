@@ -11,9 +11,10 @@
     {$attr['name']      = $name}
     {$attr['enctype']   = $enctype|default:"multipart/form-data"}
     {$attr['class']     = $classes}
+    {$attr['data-validate-remote'] = "false"}
     
     {if $validate.remote}
-        {$attr['data-form-validate'] = true}
+        {$attr['data-validate-remote'] = "true"}
         {$attr['novalidate'] = true}
     {/if}
     
@@ -29,7 +30,11 @@
     <form  {cattr list=$attr}>
         {foreach $items as $item}
             {if is_array($item)}
-                {component "field" template=$item.type params=$item validate=$validate}
+                {if !$item.validate}
+                    {$item.validate = $validate}
+                {/if}
+
+                {component "field" template=$item.type params=$item }
             {else}
                 {$item}
             {/if}

@@ -12,12 +12,7 @@ class ModuleUser_EntityUser extends EntityORM
                 'on' => array('registration'),
                 'label' => $this->Lang_Get('auth.registration.form.fields.email.label')
             ),
-            [   
-                'mail_login', 
-                'string', 
-                'on' => array('login'),
-                'allowEmpty' => false
-            ],
+            
             [   
                 'mail', 
                 'mail_exists', 

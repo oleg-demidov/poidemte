@@ -43,14 +43,13 @@
                 params: {
                     entity      : this.option('params.entity'),
                     scenario    : this.option('params.scenario')
-                }
+                },
+                validateRemote: this.element.data('validateRemote')
             });
             
             this._on(this.element, {submit:"onSubmit"});
             
         },
-        
-        
         
         onSubmit: function(event){
 
@@ -86,9 +85,9 @@
                 $('.g-recaptcha', this.element).bsRecaptcha("reset")
             }
             
-            $.each(response.errors, function(name, error){
+            $.each(response.errors, function(name, error){ console
                 let $field = $('[name="' + name + '"]', this.element);
-
+console.log($field, name, this.element)
                 $field.bsField('setInvalidMessage', error.join('<br>'));
                 $field.bsField('setInvalid');
 

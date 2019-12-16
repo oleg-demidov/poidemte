@@ -14,6 +14,10 @@
     },
     "scripts":{
         "assets-public":            "php ./vendor/livestreet/framework/console/public_assets.php"
-        
+    },
+    "autoload": {
+        "psr-4" : {
+            "App\\": "classes/"
+        }        
     }
 }

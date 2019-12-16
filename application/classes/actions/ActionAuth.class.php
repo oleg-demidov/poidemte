@@ -80,59 +80,31 @@ class ActionAuth extends Action
          * Устанвливаем формат Ajax ответа
          */
         $this->setResponseType(self::RESPONSE_TYPE_JSON);
-        /**
-         * Логин и пароль являются строками?
-         */
-        if (!is_string(getRequest('mail_login')) or !is_string(getRequest('password'))) {
-            $this->Message_AddErrorSingle($this->Lang_Get('common.error.system.base'));
+        
+        $validator = Engine::GetEntity("User_ValidateLogin");
+        $validator->_setValidateScenario('login');
+                
+        $validator->_setDataSafe($this->getRequest('data'));
+        
+        if ($validator->_Validate()) 
+        {
+            $bRemember = getRequest('remember', false) ? true : false;
+            /**
+             * Авторизуем
+             */
+            $this->User_Authorization($validator->getUser(), $bRemember);
+
+            /**
+             * Определяем редирект
+             */
+            $this->assign('sUrlRedirect',  $validator->getUser()->getProfileUrl());
+        } else {
+            /**
+             * Получаем ошибки
+             */
+            $this->assign('errors', $validator->_getValidateErrors());
             return;
         }
-        /**
-         * Проверяем есть ли такой юзер
-         */
-        $aFilter = [
-            '#where' => ['t.login = ? or t.mail = ?' => [getRequest('mail_login'), getRequest('mail_login')]]
-        ];
-        if ($oUser = $this->User_GetUserByFilter($aFilter)) {
-            /**
-             *  Выбираем сценарий валидации
-             */
-            $oUser->_setValidateScenario('signIn');
-            /**
-             * Запускаем валидацию
-             */
-            if ($oUser->_Validate()) {
-                /**
-                 * Сверяем хеши паролей и проверяем активен ли юзер
-                 */
-                if ($this->User_VerifyAccessAuth($oUser) and $oUser->getPassword() == $this->User_MakeHashPassword(getRequest('password'))) {
-                    if (!$oUser->getActivate()) {
-                        $this->Message_AddErrorSingle($this->Lang_Get('auth.login.notices.error_not_activated',
-                            array('reactivation_path' => Router::GetPath('auth/reactivation'))));
-                        return;
-                    }
-                    $bRemember = getRequest('remember', false) ? true : false;
-                    /**
-                     * Авторизуем
-                     */
-                    $this->User_Authorization($oUser, $bRemember);
-                    /**
-                     * Определяем редирект
-                     */
-                    
-                    $this->assign('sUrlRedirect',  $oUser->getProfileUrl());
-                    return;
-                }
-            } else {
-                /**
-                 * Получаем ошибки
-                 */
-                $this->assign('errors', $oUser->_getValidateErrors());
-                $this->Message_AddErrorSingle(null);
-                return;
-            }
-        }
-        $this->Message_AddErrorSingle($this->Lang_Get('auth.login.notices.error_login'));
     }
 
     /**

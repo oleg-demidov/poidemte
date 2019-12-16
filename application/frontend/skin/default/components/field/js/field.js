@@ -13,6 +13,8 @@
                 validFeedback:".valid-feedback"
             }
         },
+        
+        validateRemote : false,
 
         /**
          * Конструктор
@@ -23,9 +25,15 @@
         _create: function() {
             this._super();
             
+            if(this.element.data('validateRemote') !== undefined){
+                this.option('validateRemote', this.element.data('validateRemote'));
+            }
+            
             this.feedbackElements();
             
-            this._on(this.element, {change:"validate"});
+            if(this.option('validateRemote')){
+                this._on(this.element, {change:"validate"});
+            }
             
         },
         
