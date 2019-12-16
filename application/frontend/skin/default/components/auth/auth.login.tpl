@@ -6,14 +6,20 @@
 
 {component 'form' 
     attr    = [
-        'data-url'          => {router page='auth/ajax-login'},
-        'data-form-ajax',
-        'novalidate'
+        'data-action'          => {router page='auth/ajax-login'},
+        'data-form',
+        'autocomplete'        => "off"
     ]
 
     method  = "post" 
-    name    = "login_user"
+    name    = "form_login"
     classes = "mt-3"
+    validate = [
+        entity      => "User_User",
+        scenario    => 'login',
+        remote      => true
+    ]
+
     action  = {router page='auth/login'}
 
     hook    = "form_login"

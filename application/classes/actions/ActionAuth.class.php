@@ -403,22 +403,21 @@ class ActionAuth extends Action
             $oUser->setIpRegister(func_getIp());
             $oUser->setActivate(0);
             $oUser->setActivateKey(md5(func_generator() . time()));  
-            $this->assign('ok', 1);
             
-//            if ($oUser->Add()) {
-//                $this->Hook_Run('registration_after', array('oUser' => $oUser));
-//                /**
-//                 * Отправляем на мыло письмо о подтверждении регистрации
-//                 */
-//                $this->User_SendNotifyRegistrationActivate($oUser, getRequestStr('password'));
-//                /*
-//                 * Перенаправление на подтверждение
-//                 */
-//                $this->assign('sUrlRedirect', Router::GetPath('auth/register-confirm'));
-//            } else {
-//                $this->Message_AddErrorSingle($this->Lang_Get('common.error.system.base'));
-//                return;
-//            }
+            if ($oUser->Add()) {
+                $this->Hook_Run('registration_after', array('oUser' => $oUser));
+                /**
+                 * Отправляем на мыло письмо о подтверждении регистрации
+                 */
+                $this->User_SendNotifyRegistrationActivate($oUser, $this->getRequest('password'));
+                /*
+                 * Перенаправление на подтверждение
+                 */
+                $this->assign('sUrlRedirect', Router::GetPath('auth/register-confirm'));
+            } else {
+                $this->Message_AddErrorSingle($this->Lang_Get('common.error.system.base'));
+                return;
+            }
         } else {
             /**
              * Получаем ошибки
