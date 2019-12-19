@@ -81,9 +81,9 @@ class ModuleUser_EntityValidateLogin extends Entity{
     }
     
     public function ValidatePassword($sValue) {
-        $this->Logger_Notice($sValue);
-        $this->Logger_Notice($this->User_MakeHashPassword($sValue));
-        $this->Logger_Notice($this->getUser()->getPassword());
+        if (!$this->getUser()) {
+            return '';
+        }
         if ($this->getUser()->getPassword() != $this->User_MakeHashPassword($sValue)) {
             return $this->Lang_Get('auth.login.notices.error_login');
         }

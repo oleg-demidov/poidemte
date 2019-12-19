@@ -13,12 +13,7 @@ class ActionProfile extends Action
     protected $sMenuHeadItemSelect = 'index';
     
     protected $oUserProfile;
-    
-    protected $iCountResponses = 0;
-    
-    protected $iCountProposals = 0;
-    
-    protected $iCountAnswers = 0;
+   
 
     /**
      * Инициализация
@@ -43,14 +38,12 @@ class ActionProfile extends Action
      */
     protected function RegisterEvent()
     {
-        //$this->AddEvent('index', 'EventIndex');
-        //$this->AddEventPreg('/^.+$/i', '/^$/i',['EventIndex' , 'profile']);
         
         $this->RegisterEventExternal('Settigns', 'ActionProfile_EventSettings');
         $this->AddEventPreg('/^.+$/i', '/^settings$/i', '/^(profile)?$/i', ['Settigns::EventProfile' , 'settings']);
         $this->AddEventPreg('/^.+$/i', '/^settings$/i', '/^notices$/i', ['Settigns::EventNotices' , 'notices']);
         $this->AddEventPreg('/^.+$/i', '/^settings$/i', '/^security$/i', ['Settigns::EventSecurity' , 'security']);
-       // $this->AddEventPreg('/^.+$/i', '/^settings$/i', '/^security-ajax$/i', 'Settigns::EventSecurityAjax' );
+        $this->AddEventPreg('/^.+$/i', '/^settings$/i', '/^security-ajax$/i', 'Settigns::EventSecurityAjax' );
         $this->AddEventPreg('/^.+$/i', '/^settings$/i', '/^profile-ajax$/i', 'Settigns::EventProfileAjax' );
         
         $this->RegisterEventExternal('Profile', 'ActionProfile_EventProfile');

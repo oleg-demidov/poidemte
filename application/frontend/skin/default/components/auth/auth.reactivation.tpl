@@ -1,25 +1,46 @@
 {**
  * Форма запроса повторной активации аккаунта
  *}
+{**
+ * Форма восстановления пароля
+ *}
+    
+{component 'form' 
+    attr    = [
+        'data-action'          => {router page='auth/ajax-reactivation'},
+        'data-form',
+        'autocomplete'        => "off"
+    ]
 
-<form action="{router page='auth'}reactivation/" method="post" class="js-form-reactivation">
-    {* E-mail *}
-    {component 'field' 
-        template    = 'text' 
-        name        = "mail"
-        placeholder = $aLang.auth.reactivation.form.fields.mail.label
-        type        = "email"
-        attributes  = [
-            required => true
-        ]}
+    method  = "post" 
+    name    = "form_login"
+    classes = "mt-3"
+    validate = [
+        entity      => "User_ValidateReactivation",
+        scenario    => 'reactivation'
+    ]
+
+    action  = {router page='auth/reactivation'}
+
+    hook    = "form_reactivation"
+
+    items   = [
+        [ 
+            type        => 'email', 
+            name        => "mail",
+            placeholder => $aLang.auth.reactivation.form.fields.mail.label
+        ],
+        [
+            type        => "recaptcha",
+            name        => "recaptcha"
+        ],
         
-    <div class="d-flex justify-content-center">
         {component 'button' 
-            classes = ""
-            name='submit_reactivation' 
-            type="submit" 
-            bmods='primary' 
-            text=$aLang.auth.reactivation.form.fields.submit.text}
-    </div>
-
-</form>
+            classes     = "mt-3"
+            mods        = "block primary "
+            name        = 'submit_reactivation' 
+            type        = "submit" 
+            bmods       = 'primary' 
+            text        = $aLang.auth.reactivation.form.fields.submit.text}
+    ]
+}

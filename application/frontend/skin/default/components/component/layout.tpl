@@ -55,7 +55,9 @@
             assign      = 'params'}
     {/if}
 
-    {$attr.class = "{$component} $classes"}
+    {if $component or $classes}
+        {$attr.class = "{$component} $classes"}
+    {/if}
 
     {if $component and $mods}
 

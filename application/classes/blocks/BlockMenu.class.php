@@ -34,21 +34,14 @@ class BlockMenu extends Block {
             return false;
         }
         
-        $activeItem = $oMenu->getActiveItem();
+        $this->Hook_Run('menu_' . $sNameMenu, ['menu' => $oMenu, 'activeItem' => &$activeItem]);
         
-        $this->Hook_Run('menu_before_prepare', ['menu' => &$oMenu, 'activeItem' => &$activeItem]);
-                
         $ItemsTree = $this->prepareItems($oMenu->getItems());
                         
-        $this->Hook_Run('menu_after_prepare', ['items' => &$ItemsTree['items'] , 'activeItem' => &$activeItem]);
-
-        $this->Viewer_Assign('activeItem', $this->GetParam('activeItem', $activeItem), true);  
-        $this->Viewer_Assign('mods', $this->GetParam('mods', null), true);  
-        $this->Viewer_Assign('classes', $this->GetParam('classes', null), true); 
-        $this->Viewer_Assign('template', $this->GetParam('template', $sNameMenu), true); 
-        $this->Viewer_Assign('params', $ItemsTree);
+        $this->Viewer_Assign('activeItem', $oMenu->getActiveItem());
+        $this->Viewer_Assign('items', $ItemsTree);
         
-        $this->SetTemplate("component@menu");
+        $this->SetTemplate("component@menu.{$sNameMenu}");
     }
     
     public function prepareItems($ItemsTree) {
@@ -69,7 +62,7 @@ class BlockMenu extends Block {
                 'menu'          => $this->prepareItems( $aChildrens )
             ];
         }
-        return [ 'items' => $aItemsNav];
+        return $aItemsNav;
     }
 
 }

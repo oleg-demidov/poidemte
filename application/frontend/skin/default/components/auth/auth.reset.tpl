@@ -1,26 +1,43 @@
 {**
  * Форма восстановления пароля
  *}
+    
+{component 'form' 
+    attr    = [
+        'data-action'          => {router page='auth/ajax-password-reset'},
+        'data-form',
+        'autocomplete'        => "off"
+    ]
 
-{component_define_params params=[ 'modal' ]}
+    method  = "post" 
+    name    = "form_login"
+    classes = "mt-3"
+    validate = [
+        entity      => "User_ValidatePasswordReset",
+        scenario    => 'reset'
+    ]
 
-<form action="{router page='auth'}password-reset/" method="post" class="mt-3 js-form-validate js-auth-reset-form">
-    {* E-mail *}
-    {component 'field' 
-        template    = 'text' 
-        name        = "mail"
-        placeholder = $aLang.auth.reset.form.fields.mail.label
-        type        = "email"
-        attributes  = [
-            required => true
-        ]}
+    action  = {router page='auth/password-reset'}
+
+    hook    = "form_reset_password"
+
+    items   = [
+        [ 
+            type        => 'email', 
+            name        => "mail",
+            placeholder => $aLang.auth.reset.form.fields.mail.label
+        ],
+        [
+            type        => "recaptcha",
+            name        => "recaptcha"
+        ],
         
-    <div class="d-flex justify-content-center">
         {component 'button' 
-            classes = ""
-            name='submit_reset' 
-            type="submit" 
-            bmods='primary' 
-            text=$aLang.auth.reset.form.fields.submit.text}
-    </div>
-</form>
+            classes     = "mt-3"
+            mods        = "block primary "
+            name        = 'submit_reset' 
+            type        = "submit" 
+            bmods       = 'primary' 
+            text        = $aLang.auth.reset.form.fields.submit.text}
+    ]
+}

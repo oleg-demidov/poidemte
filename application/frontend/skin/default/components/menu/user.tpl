@@ -4,6 +4,20 @@
  * 
  *}
  
+{extends "component@nav.layout"}
+
+{block name="options" append}
+    {component_define_params params=[ 
+        'activeItem', 
+        'items'    
+    ]} 
+{/block}
+
+{block name="content" append}
+    {$items|print_r}
+{/block}
+
+
 {$params.name = 'user'}  
 {$params.url = $oUserCurrent->getUserWebPath()}
 {$params.offset = "0,10"}

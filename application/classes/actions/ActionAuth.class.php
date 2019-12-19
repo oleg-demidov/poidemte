@@ -124,23 +124,35 @@ class ActionAuth extends Action
      */
     protected function EventAjaxReactivation()
     {
-        $this->Viewer_SetResponseAjax('json');
-
-        if (getRequestStr('mail') and $oUser = $this->User_GetUserByMail(getRequestStr('mail'))) {
-            if ($oUser->getActivate()) {
+        $this->setResponseType(self::RESPONSE_TYPE_JSON);
+        
+        $validator = Engine::GetEntity("User_ValidateReactivation");
+        $validator->_setValidateScenario('reactivation');
+                
+        $validator->_setDataSafe($this->getRequest('data'));
+        
+        if ($validator->_Validate()) 
+        {
+            $user = $validator->getUser();
+            if ($user->getActivate()) {
                 $this->Message_AddErrorSingle($this->Lang_Get('auth.registration.notices.error_reactivate'));
                 return;
             } else {
-                $oUser->setActivateKey(func_generator(32));
-                if ($oUser->Update()) {
+                $user->setActivateKey(func_generator(32));
+                if ($user->Update()) {
                     $this->Message_AddNotice($this->Lang_Get('auth.reactivation.notices.success'));
-                    $this->User_SendNotifyReactivationCode($oUser);
+                    $this->User_SendNotifyReactivationCode($user);
                     return;
                 }
             }
+        } else {
+            /**
+             * Получаем ошибки
+             */
+            $this->assign('errors', $validator->_getValidateErrors());
+            return;
         }
 
-        $this->Message_AddErrorSingle($this->Lang_Get('auth.notices.error_bad_email'));
     }
 
     /**
@@ -182,13 +194,20 @@ class ActionAuth extends Action
          */
         $this->setResponseType(self::RESPONSE_TYPE_JSON);
         /**
-         * Пользователь с таким емайлом существует?
+         * Создаем объект пользователя и устанавливаем сценарий валидации
          */
-        if (getRequestStr('mail') and $oUser = $this->User_GetUserByMail(getRequestStr('mail'))) {
+        $validator = Engine::GetEntity('User_ValidatePasswordReset');
+        $validator->_setValidateScenario('reset');
+        /**
+         * Заполняем поля (данные)
+         */
+        $validator->_setDataSafe($this->getRequest('data'));
+                
+        if ($validator->_Validate()) {
             /**
              * Удаляем старые записи
              */
-            $aReminderItems = $this->User_GetReminderItemsByUserId($oUser->getId());
+            $aReminderItems = $this->User_GetReminderItemsByUserId($validator->getUser()->getId());
             foreach ($aReminderItems as $oReminder) {
                 $oReminder->Delete();
             }
@@ -200,14 +219,18 @@ class ActionAuth extends Action
             $oReminder->setDateExpire(date("Y-m-d H:i:s", time() + 60 * 60 * 24 * 7));
             $oReminder->setDateUsed(null);
             $oReminder->setIsUsed(0);
-            $oReminder->setUserId($oUser->getId());
+            $oReminder->setUserId($validator->getUser()->getId());
             if ($oReminder->Add()) {
                 $this->Message_AddNotice($this->Lang_Get('auth.reset.notices.success_send_link'));
-                $this->User_SendNotifyReminderCode($oUser, $oReminder);
+                $this->User_SendNotifyReminderCode($validator->getUser(), $oReminder);
                 return;
             }
-        }
-        $this->Message_AddError($this->Lang_Get('auth.notices.error_bad_email'), $this->Lang_Get('common.error.error'));
+        }else{
+            /**
+             * Получаем ошибки
+             */
+            $this->assign('errors', $validator->_getValidateErrors());
+        }        
     }
 
     /**

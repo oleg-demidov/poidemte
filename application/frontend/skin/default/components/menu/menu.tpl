@@ -5,7 +5,19 @@
  * @param string  $classes
  * @param array   $attributes
  *}
+ 
+{extends "component@component.layout"}
 
-{component_define_params params=[ 'activeItem', 'mods', 'classes', 'template' ]} 
+{block name="options" append}
+    {component_define_params params=[ 
+        'activeItem', 
+        'items' 
+    ]} {$params|print_r}
+{/block}
 
-{component "menu.{$template}" params=$params activeItem=$activeItem mods=$mods classes=$classes}
+
+{block name="content" append}44
+{*    {component "menu.{$template}" params=$params activeItem=$activeItem mods=$mods classes=$classes}*}
+{/block}
+
+

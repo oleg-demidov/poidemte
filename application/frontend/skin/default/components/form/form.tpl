@@ -17,7 +17,7 @@
         {$attr['data-validate-remote'] = "true"}
         {$attr['novalidate'] = true}
     {/if}
-    
+        
     {if $validate.entity}
         {$attr['data-param-entity'] = $validate.entity}
         {$attr['data-param-scenario'] = $validate.scenario}
