@@ -14,7 +14,7 @@
             </div>
             <div class="col-sm-6 mt-sm-0 mt-2 col-md-8">
                 {component "rating.stars" value=$oUser->getRating()}
-                <a href="#collapse{$oUser->getId()}" data-toggle="collapse">{$aLang.user.item.more}</a>
+                <a href="#collapse{$oUser->getId()}" data-toggle="collapse">{lang 'user.item.more'}</a>
             </div>
         </div>
         <div class="collapse" id="collapse{$oUser->getId()}">

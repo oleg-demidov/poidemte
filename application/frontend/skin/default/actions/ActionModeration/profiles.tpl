@@ -5,7 +5,7 @@
 
 
 {block 'layout_page_title'}
-    <h2 class="page-header">{$aLang.moderation.profiles.title}</h2>
+    <h2 class="page-header">{lang 'moderation.profiles.title'}</h2>
 {/block}
                     
 {block 'layout_content'}

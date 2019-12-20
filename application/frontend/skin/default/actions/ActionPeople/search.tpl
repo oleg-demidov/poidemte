@@ -4,7 +4,7 @@
 {extends 'layouts/layout.base.tpl'}
 
 {block 'layout_page_title' }
-    {$aLang.search.people.title}
+    {lang 'search.people.title'}
 {/block}
 
 {block 'layout_content'}

@@ -6,10 +6,10 @@
 
 {block 'layout_page_title'}
     {if !$oProfile}
-        <h2 class="page-header">{$aLang.moderation.profiles.edit.title_add}</h2>
+        <h2 class="page-header">{lang 'moderation.profiles.edit.title_add'}</h2>
         {$oProfile = Engine::GetEntity('User_User')}
     {else}
-        <h2 class="page-header">{$aLang.moderation.profiles.edit.title_edit}</h2>
+        <h2 class="page-header">{lang 'moderation.profiles.edit.title_edit'}</h2>
     {/if}
     
 {/block}

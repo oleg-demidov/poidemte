@@ -18,5 +18,5 @@
 {/block}
 
 {block 'layout_user_page_title'}
-    {$aLang.user.settings.title}
+    {lang 'user.settings.title'}
 {/block}

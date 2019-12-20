@@ -5,7 +5,7 @@
 {extends 'layouts/layout.base.tpl'}
 
 {block 'layout_page_title'}
-    {$aLang.auth.login.title}
+    {lang 'auth.login.title'}
 {/block}
 
 {block 'layout_content'}

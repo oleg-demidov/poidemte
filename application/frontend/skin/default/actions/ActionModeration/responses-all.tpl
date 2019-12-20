@@ -5,7 +5,7 @@
 
 
 {block 'layout_page_title'}
-    <h2 class="page-header">{$aLang.moderation.responses_all.title}</h2>
+    <h2 class="page-header">{lang 'moderation.responses_all.title'}</h2>
 {/block}
                     
 {block 'layout_content'}
@@ -51,10 +51,10 @@
     
     </div>
     <div class="row mt-3">
-        <div class="col-1">{$aLang.moderation.responses.table_row.number}</div>
-        <div class="col">{$aLang.moderation.responses.table_row.from}</div>
-        <div class="col d-none d-sm-block">{$aLang.moderation.responses.table_row.to}</div>
-        <div class="col d-none d-xl-block">{$aLang.moderation.responses.table_row.rating}</div>
+        <div class="col-1">{lang 'moderation.responses.table_row.number'}</div>
+        <div class="col">{lang 'moderation.responses.table_row.from'}</div>
+        <div class="col d-none d-sm-block">{lang 'moderation.responses.table_row.to'}</div>
+        <div class="col d-none d-xl-block">{lang 'moderation.responses.table_row.rating'}</div>
         <div class="col-2 col-lg"></div>
     </div>
 

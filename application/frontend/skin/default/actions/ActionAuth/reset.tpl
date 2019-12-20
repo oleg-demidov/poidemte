@@ -5,7 +5,7 @@
 {extends 'layouts/layout.base.tpl'}
 
 {block 'layout_page_title'}
-    {$aLang.auth.reset.title}
+    {lang 'auth.reset.title'}
 {/block}
 
 {block 'layout_content'}

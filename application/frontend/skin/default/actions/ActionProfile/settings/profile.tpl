@@ -5,7 +5,7 @@
 
 {block 'layout_page_title'}
     <h2>
-        {$aLang.user.settings.profile.title}
+        {lang 'user.settings.profile.title'}
     </h2>
 {/block}
 

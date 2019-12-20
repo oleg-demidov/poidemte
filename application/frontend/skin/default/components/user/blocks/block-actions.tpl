@@ -6,7 +6,7 @@
                 <u class="nav">
                     <li class="nav-item  ">
                         <a class="text-danger nav-link" data-toggle = "modal" data-target = "#confirmModal"  href="#">
-                            {$aLang.user.profile.actions.confirm.text}</a>
+                            {lang 'user.profile.actions.confirm.text'}</a>
                     </li>
                 </u>
             </div>
