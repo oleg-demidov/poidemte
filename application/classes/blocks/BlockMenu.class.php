@@ -28,7 +28,7 @@
 class BlockMenu extends Block {
 
     public function Exec() {
-        $sNameMenu = $this->GetParam('name');
+        $sNameMenu = $this->GetParam('name', 'main');
                 
         if(!$oMenu = $this->Menu_Get($sNameMenu)){
             return false;

@@ -3,7 +3,7 @@
     "version": "1.0.0",
     
     "templates": {
-        "menu"      : "menu.tpl",
+        "menu"      : "main.tpl",
         "main"      : "main.tpl",
         "settings"  : "settings.tpl",
         "user"      : "user.tpl"
