@@ -1,9 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
+    "hash": "59b9e62889261f760c881b56be783990",
     "content-hash": "88e49e5bb9b977fe76c521b3e3a61f6c",
     "packages": [
         {
@@ -56,7 +57,7 @@
                 }
             ],
             "description": "Library for html filtering",
-            "time": "2019-03-29T12:26:55+00:00"
+            "time": "2019-03-29 12:26:55"
         },
         {
             "name": "aura/autoload",
@@ -105,7 +106,7 @@
                 "autoloader",
                 "class loader"
             ],
-            "time": "2016-10-03T19:36:19+00:00"
+            "time": "2016-10-03 19:36:19"
         },
         {
             "name": "ckr/arraymerger",
@@ -144,7 +145,7 @@
                 }
             ],
             "description": "Provides functionality to merge arrays recursively",
-            "time": "2016-03-10T09:47:33+00:00"
+            "time": "2016-03-10 09:47:33"
         },
         {
             "name": "guzzlehttp/psr7",
@@ -215,7 +216,7 @@
                 "uri",
                 "url"
             ],
-            "time": "2019-06-30T00:37:05+00:00"
+            "time": "2019-06-30 00:37:05"
         },
         {
             "name": "imagine/imagine",
@@ -273,7 +274,7 @@
                 "image manipulation",
                 "image processing"
             ],
-            "time": "2019-12-04T09:55:33+00:00"
+            "time": "2019-12-04 09:55:33"
         },
         {
             "name": "kriswallsmith/assetic",
@@ -350,7 +351,7 @@
                 "compression",
                 "minification"
             ],
-            "time": "2016-11-11T18:43:20+00:00"
+            "time": "2016-11-11 18:43:20"
         },
         {
             "name": "livestreet/asset",
@@ -386,7 +387,7 @@
                 }
             ],
             "description": "Модуль ресурсов для Livetreet",
-            "time": "2019-09-13T11:46:30+00:00"
+            "time": "2019-09-13 11:46:30"
         },
         {
             "name": "livestreet/dbsimple",
@@ -430,7 +431,7 @@
                 "Simple",
                 "db"
             ],
-            "time": "2019-07-20T18:31:16+00:00"
+            "time": "2019-07-20 18:31:16"
         },
         {
             "name": "livestreet/dklabcache",
@@ -477,7 +478,7 @@
                 "redis",
                 "system"
             ],
-            "time": "2019-09-19T07:10:44+00:00"
+            "time": "2019-09-19 07:10:44"
         },
         {
             "name": "livestreet/forker",
@@ -509,7 +510,7 @@
                 }
             ],
             "description": "Forker presents a simple interfacing for forking in PHP.",
-            "time": "2019-07-23T07:39:59+00:00"
+            "time": "2019-07-23 07:39:59"
         },
         {
             "name": "livestreet/framework",
@@ -517,12 +518,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/olezhikz/livestreet-framework.git",
-                "reference": "5e06565668b6650b30bc56bbc8bd4972ea591924"
+                "reference": "83b2d832a318f7ace3bfbba6beced7c21a785731"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/olezhikz/livestreet-framework/zipball/5e06565668b6650b30bc56bbc8bd4972ea591924",
-                "reference": "5e06565668b6650b30bc56bbc8bd4972ea591924",
+                "url": "https://api.github.com/repos/olezhikz/livestreet-framework/zipball/83b2d832a318f7ace3bfbba6beced7c21a785731",
+                "reference": "83b2d832a318f7ace3bfbba6beced7c21a785731",
                 "shasum": ""
             },
             "require": {
@@ -571,7 +572,7 @@
                 }
             ],
             "description": "Livestreet Framework",
-            "time": "2019-12-20T11:53:50+00:00"
+            "time": "2019-12-23 03:42:27"
         },
         {
             "name": "livestreet/plugin-admin",
@@ -610,7 +611,7 @@
                 }
             ],
             "description": "Админка для Livestreet",
-            "time": "2019-11-14T12:17:50+00:00"
+            "time": "2019-11-14 12:17:50"
         },
         {
             "name": "livestreet/plugin-cdocs",
@@ -647,7 +648,7 @@
                 }
             ],
             "description": "Plugin for Livestreet. Components documentation",
-            "time": "2019-12-20T11:53:38+00:00"
+            "time": "2019-12-20 11:53:38"
         },
         {
             "name": "livestreet/plugin-like",
@@ -683,7 +684,7 @@
                 }
             ],
             "description": "Plugin for Livestreet likes",
-            "time": "2019-10-01T09:38:44+00:00"
+            "time": "2019-10-01 09:38:44"
         },
         {
             "name": "livestreet/smarty",
@@ -739,7 +740,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2019-06-13T08:39:17+00:00"
+            "time": "2019-06-13 08:39:17"
         },
         {
             "name": "maximebf/consolekit",
@@ -783,7 +784,7 @@
                 "console",
                 "shell"
             ],
-            "time": "2013-01-01T16:03:55+00:00"
+            "time": "2013-01-01 16:03:55"
         },
         {
             "name": "monolog/monolog",
@@ -861,7 +862,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2018-11-05T09:00:11+00:00"
+            "time": "2018-11-05 09:00:11"
         },
         {
             "name": "narrowspark/http-emitter",
@@ -918,7 +919,7 @@
                 "psr-7",
                 "sapi"
             ],
-            "time": "2019-03-08T14:27:56+00:00"
+            "time": "2019-03-08 14:27:56"
         },
         {
             "name": "natxet/cssmin",
@@ -965,7 +966,7 @@
                 "css",
                 "minify"
             ],
-            "time": "2018-01-09T11:15:01+00:00"
+            "time": "2018-01-09 11:15:01"
         },
         {
             "name": "olegdemidov/composer-packages",
@@ -998,7 +999,7 @@
                 }
             ],
             "description": "Просмотр установленных пакетов из installed.json",
-            "time": "2019-10-02T00:06:17+00:00"
+            "time": "2019-10-02 00:06:17"
         },
         {
             "name": "olegdemidov/exel",
@@ -1026,7 +1027,7 @@
                 }
             ],
             "description": "Library for plugin admin",
-            "time": "2019-09-30T13:41:54+00:00"
+            "time": "2019-09-30 13:41:54"
         },
         {
             "name": "patchwork/jsqueeze",
@@ -1073,7 +1074,7 @@
                 "javascript",
                 "minification"
             ],
-            "time": "2016-04-19T09:28:22+00:00"
+            "time": "2016-04-19 09:28:22"
         },
         {
             "name": "php-comp/http-message",
@@ -1122,7 +1123,7 @@
                 "psr7",
                 "tool"
             ],
-            "time": "2018-11-12T05:05:26+00:00"
+            "time": "2018-11-12 05:05:26"
         },
         {
             "name": "phpmailer/phpmailer",
@@ -1184,7 +1185,7 @@
                 }
             ],
             "description": "PHPMailer is a full-featured email creation and transfer class for PHP",
-            "time": "2019-12-10T11:17:38+00:00"
+            "time": "2019-12-10 11:17:38"
         },
         {
             "name": "psr/http-message",
@@ -1234,7 +1235,7 @@
                 "request",
                 "response"
             ],
-            "time": "2016-08-06T14:39:51+00:00"
+            "time": "2016-08-06 14:39:51"
         },
         {
             "name": "psr/log",
@@ -1281,7 +1282,7 @@
                 "psr",
                 "psr-3"
             ],
-            "time": "2019-11-01T11:05:21+00:00"
+            "time": "2019-11-01 11:05:21"
         },
         {
             "name": "ralouphie/getallheaders",
@@ -1321,7 +1322,7 @@
                 }
             ],
             "description": "A polyfill for getallheaders.",
-            "time": "2019-03-08T08:55:37+00:00"
+            "time": "2019-03-08 08:55:37"
         },
         {
             "name": "symfony/process",
@@ -1370,7 +1371,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2019-11-28T10:05:51+00:00"
+            "time": "2019-11-28 10:05:51"
         },
         {
             "name": "xxtea/xxtea",
@@ -1405,9 +1406,9 @@
             "authors": [
                 {
                     "name": "Ma Bingyao",
-                    "role": "Developer",
                     "email": "mabingyao@gmail.com",
-                    "homepage": "https://github.com/xxtea/xxtea-php"
+                    "homepage": "https://github.com/xxtea/xxtea-php",
+                    "role": "Developer"
                 }
             ],
             "description": "XXTEA is a fast and secure encryption algorithm. This is a XXTEA library for PHP.",
@@ -1421,7 +1422,7 @@
                 "security",
                 "xxtea"
             ],
-            "time": "2016-03-02T15:39:42+00:00"
+            "time": "2016-03-02 15:39:42"
         }
     ],
     "packages-dev": [],

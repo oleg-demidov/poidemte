@@ -21,7 +21,6 @@ class ActionProfile extends Action
      */
     public function Init()
     {
-
         $this->SetDefaultEvent('index');
         $this->oUserProfile = $this->User_GetUserByLogin($this->sCurrentEvent);
     }

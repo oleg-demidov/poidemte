@@ -9,6 +9,10 @@
     {$attr.type = 'text'}
     
     {$component = "form-control"}
+    
+    {if $value}
+        {$attr.value = $value}
+    {/if} 
 
 {/block}
 

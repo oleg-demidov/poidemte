@@ -10,8 +10,8 @@
 {/block}
 
 {block 'layout_content'}
-    
-    {component 'form' 
+
+    {cblock 'form' 
         attr    = [
             'data-action'          => {router page='profile/ajax-settings/profile'},
             'data-form',
@@ -61,6 +61,8 @@
                 text        = $aLang.common.save}
         ]
     }
+        <input type="hidden" name="id" value="{$oUserProfile->getId()}" >
+    {/cblock}
     
     
 {/block}

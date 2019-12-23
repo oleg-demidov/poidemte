@@ -15,7 +15,7 @@ class ActionProfile_EventProfile extends Event {
     {
 
         $userCurrent = $this->User_GetUserCurrent();
-        if($userCurrent->getId() != $this->oUserProfile->getId() || $userCurrent->isAdmin()){ 
+        if($userCurrent->getId() !== $this->oUserProfile->getId() && !$userCurrent->isAdmin()){ 
             return Router::Action('error', '404');;
         }
     }

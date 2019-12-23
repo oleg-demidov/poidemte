@@ -19,24 +19,18 @@
             icon    => "user:r",
             text    => {lang 'user.userbar.nav.profile'}, 
             url     => $oUserCurrent->getProfileUrl() 
+        ],
+        [
+            icon    => "tools:s",
+            text    => {lang 'user.userbar.nav.settings'}, 
+            url     => {router page="profile/{$oUserCurrent->getLogin()}/settings"} 
+        ],
+        [
+            icon    => "sign-out-alt:s",
+            text    => {lang 'auth.logout'}, 
+            url     => "{router page='auth'}logout/?security_ls_key={$LIVESTREET_SECURITY_KEY}" 
         ]
     ]} 
-
-    {if $oUserCurrent->getIsAdmin()}
-        {$dropitems[] = [ text => $aLang.admin.title, url => {router page="admin"}]}  
-    {/if}
-
-    {$dropitems[] = [
-        icon    => "tools:s",
-        text    => {lang 'user.userbar.nav.settings'}, 
-        url     => {router page="profile/{$oUserCurrent->getLogin()}/settings"} 
-    ]}
-    
-    {$dropitems[] = [
-        icon    => "sign-out-alt:s",
-        text    => {lang 'auth.logout'}, 
-        url     => "{router page='auth'}logout/?security_ls_key={$LIVESTREET_SECURITY_KEY}" 
-    ]}
 
     {component 'button.group' 
         classes     = ""
