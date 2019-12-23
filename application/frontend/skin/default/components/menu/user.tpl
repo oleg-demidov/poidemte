@@ -14,35 +14,39 @@
 {/block}
 
 {block name="content" append}
-    {$dropitems = []} 
+    {$dropitems = [
+        [
+            icon    => "user:r",
+            text    => {lang 'user.userbar.nav.profile'}, 
+            url     => $oUserCurrent->getProfileUrl() 
+        ]
+    ]} 
 
     {if $oUserCurrent->getIsAdmin()}
         {$dropitems[] = [ text => $aLang.admin.title, url => {router page="admin"}]}  
     {/if}
 
-    {$dropitems[] = {component "button" com="dropdown-item"
-        name    = 'feedback'
-        text    = {lang 'user.userbar.nav.feedback'}
-        attributes = ['data-toggle' => 'modal', 'data-target' => '#modalFeedback']
-        url     = '#'
-    }}
+    {$dropitems[] = [
+        icon    => "tools:s",
+        text    => {lang 'user.userbar.nav.settings'}, 
+        url     => {router page="profile/{$oUserCurrent->getLogin()}/settings"} 
+    ]}
+    
+    {$dropitems[] = [
+        icon    => "sign-out-alt:s",
+        text    => {lang 'auth.logout'}, 
+        url     => "{router page='auth'}logout/?security_ls_key={$LIVESTREET_SECURITY_KEY}" 
+    ]}
 
-    {component 'nav' 
-        bmods="fill"
-        classes=""
-        items = [
+    {component 'button.group' 
+        classes     = ""
+        items       = [
             {component 'dropdown' 
+                right   = true
                 url     = $oUserCurrent->getUserWebPath()
                 text    = {component 'user.inline' oUser=$oUserCurrent}
                 classes = "text-nowrap"
-                items   = $dropitems},
-
-            [ 
-                icon   => [ icon => "sign-out-alt", display => "s", classes => "d-md-none d-inline"],
-                'text' => "<span class='d-none d-md-block'>{lang 'auth.logout'}</span>",  
-                'url' => "{router page='auth'}logout/?security_ls_key={$LIVESTREET_SECURITY_KEY}" 
-            ]
+                items   = $dropitems}
         ]
     }
 {/block}
-

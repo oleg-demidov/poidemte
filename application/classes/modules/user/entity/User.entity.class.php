@@ -30,8 +30,8 @@ class ModuleUser_EntityUser extends EntityORM
             [
                 'login', 
                 'string', 
-                'min'   => 3,
-                'max'   => 50,
+                'min'   => Config::Get('module.user.login.min_size'),
+                'max'   => Config::Get('module.user.login.max_size'),
                 'allowEmpty' => false,
                 'on' => array('registration'),
                 'label' => $this->Lang_Get('auth.registration.form.fields.login.label')
@@ -80,7 +80,7 @@ class ModuleUser_EntityUser extends EntityORM
         $rules[] = [
             'login', 
             'regexp',
-            'pattern'   => '/^[\w_]{0,}$/i',
+            'pattern'   => Config::Get('module.user.login.pattern') ,
             'msg'       => $this->Lang_Get('auth.registration.notices.error_login_pattern'),
             'allowEmpty' => false, 
             'on'        => array('registration'),

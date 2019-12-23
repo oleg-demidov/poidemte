@@ -60,7 +60,7 @@
             ]
             
             items = [
-                {insert name='block' block='menu' params=[ 'name' => "main", "activeItem" => $sMenuHeadItemSelect, "mods" => "main" ]}
+                {insert name='block' block='BlockMenu' params=[ 'name' => "main", "activeItem" => $sMenuHeadItemSelect, "mods" => "main" ]}
             ]
             after={component 'userbar'}
         }

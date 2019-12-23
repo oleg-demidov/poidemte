@@ -5,7 +5,7 @@
 
 
 {if $oUserCurrent}
-    {insert name='block' block='menuUser' params=[  ]}
+    {insert name='block' block='BlockMenuUser' params=[  ]}
 
 {else}
     {if !in_array(Router::GetActionEvent(), ["login", "register"])}

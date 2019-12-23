@@ -3,11 +3,12 @@
  *
  * 
  *}
-{component "nav" 
-    bmods="pills" 
-    classes=" flex-column mt-3" 
-    hook="profile" 
-    params=$params
+ 
+{component 'nav' 
+    mods        = "pills" 
+    activeItem  = $activeItem 
+    items       = $items
+    classes     = "flex-column"
 }
 
 

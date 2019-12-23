@@ -7,10 +7,16 @@
 {extends "component@dropdown.layout"}
  
 {block name="options" append}
+    
+    {component_params params = [
+        'right'
+    ]}
         
     {$classes= "{$classes} dropdown-toggle"}
     
     {$attr['data-toggle'] = "dropdown"}
+    
+
 {/block}
 
 {block 'content' append}
@@ -20,7 +26,7 @@
         classes = $classes
         mods = $mods}
     
-    <div class="dropdown-menu">
+    <div class="dropdown-menu {if $right}dropdown-menu-right{/if}">
         {foreach $items as $item}
             {if $item == '-'}
                 <div class="dropdown-divider"></div>

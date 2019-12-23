@@ -83,19 +83,6 @@ $config['block']['userProfile'] = array(
     )
 );
 
-$config['block']['moderation'] = array(
-    'action' => array(
-        'moderation' => [
-            '{moderation}'
-        ]
-    ),
-    'blocks' => array(
-        'left' => array(
-//            'menu' => ['priority' => 99, 'params' => ['name' => 'moderation', "template" => "profile"]]
-        )
-    )
-);
-
 $config['block']['settingsProfile'] = array(
     'action' => array(
         'profile' => [
@@ -104,7 +91,7 @@ $config['block']['settingsProfile'] = array(
     ),
     'blocks' => array(
         'left' => array(
-//            'menuSettings'     => array('priority' => 100)
+            BlockMenuSettings::class    => array('priority' => 100)
             
         )
     )
