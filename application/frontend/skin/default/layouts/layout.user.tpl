@@ -1,13 +1,25 @@
 {**
  * Базовый шаблон профиля пользователя
  *}
-
 {extends './layout.base.tpl'}
 
-{block 'layout_content_header' prepend}
-    {component 'user' template='header' user=$oUserProfile}
+{block 'layout_content'}
+    <u>{$oUserProfile->getLogin()}</u><br>
+    <h2>{$oUserProfile->getName()}</h2>
+    
+    {hook run='profile_about_before'}  
+    
+    {if $oUserProfile->getAbout()}
+        {component 'text' text=$oUserProfile->getAbout()}
+    {/if}
+    
+    {show_blocks group='profile'}
 
-    <h3 class="profile-page-header">
-        {block 'layout_user_page_title'}{/block}
-    </h3>
+    {hook run='profile_content_before'}
+    
+    {block name="profile_content"}
+
+    {/block}
+    
+    {hook run='profile_content_after'}
 {/block}

@@ -13,8 +13,6 @@
         {component 'text' text=$oUserProfile->getAbout()}
     {/if}
     
-    {show_blocks group='profile'}
-
     {hook run='profile_content_before'}
     
     {block name="profile_content"}

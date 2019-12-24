@@ -22,7 +22,7 @@ class ActionProfile extends Action
     public function Init()
     {
         $this->SetDefaultEvent('index');
-        $this->oUserProfile = $this->User_GetUserByLogin($this->sCurrentEvent);
+        $this->oUserProfile = $this->User_GetUserByLogin($this->sCurrentEvent);  
     }
 
     /**
@@ -42,7 +42,7 @@ class ActionProfile extends Action
         $this->AddEventPreg('/^ajax-settings$/i', '/^profile$/i', 'SettignsAjax::EventProfileAjax' );
         
         $this->RegisterEventExternal('Profile', 'ActionProfile_EventProfile');
-        $this->AddEventPreg('/^.+$/i', '/^(all)?$/i', '/^(page(\d))?$/i', ['Profile::EventIndex' , 'profile']);
+        $this->AddEventPreg('/^.+$/i',  ['Profile::EventIndex' , 'profile']);
         
        
     }

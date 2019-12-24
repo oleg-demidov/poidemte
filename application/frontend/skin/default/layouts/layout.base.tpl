@@ -66,24 +66,11 @@
         }
     {/block}
     
-    {block name="after_nav_main"}
-        {*<div class="row mt-1 ">
-            <div class="col-xl-1 "></div>
-            <div class="col-xl-7 col-12 col-lg-8 ">
-                <div class="w-100 ml-3">
-                    Хлебные крошки
-                </div>
-            </div>
-            <div class="col-xl-3 d-flex justify-content-md-between col-12 col-lg-4">
-                <div class="w-100 d-flex justify-content-md-between ">
-                    {component 'search' template='navbar'}
-                </div>
-            </div>
-            <div class="col-xl-1"></div>
-        </div>*}
-    {/block}
-    
+        
         <div class="row pt-4 no-gutters {hook run='layout_container_class' action=$sAction}">
+            
+            {show_blocks group='up'}
+            
             <div class="col-xl-1 "></div>
             
             {**
@@ -119,9 +106,9 @@
                                     {if is_array($layoutNavItem)}
                                         {component 'nav' 
                                             itemsClasses="m-1" 
-                                            bmods='pills' 
-                                            params=$layoutNavItem 
-                                            assign=_layoutNavItemContent}
+                                            mods    ='pills' 
+                                            params  =$layoutNavItem 
+                                            assign  =_layoutNavItemContent}
                                         {$_layoutNavContent = "$_layoutNavContent $_layoutNavItemContent"}
                                     {else}
                                         {$_layoutNavContent = "$_layoutNavContent $layoutNavItem"}

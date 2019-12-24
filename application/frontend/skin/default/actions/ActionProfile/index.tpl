@@ -1,7 +1,7 @@
 {**
  * Все
  *}
-{extends './profile.tpl'}
+{extends 'layouts/layout.user.tpl'}
 
 {block name="profile_content"}
     
