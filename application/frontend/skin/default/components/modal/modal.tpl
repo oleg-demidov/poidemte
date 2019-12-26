@@ -12,7 +12,7 @@
         'effect'    => "fade",  
         'closed'    => false
     ]}
-        {*finish params{$params|print_r}*}
+
     {$attr = [ 
         id  => $id,
         role    => 'dialog'
@@ -23,7 +23,7 @@
 
 {block 'content'}
     <div  {cattr list=$attr}>
-        <div class="modal-dialog {cmods name='modal-dialog' mods=$mods delimiter="-"} " role="document">
+        <div class="modal-dialog {cmods name='modal-dialog' mods=$mods delimiter="-"} " role="dialog">
             <div class="modal-content">
                 {if $header}
                     <div class="modal-header">

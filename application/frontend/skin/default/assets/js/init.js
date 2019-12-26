@@ -14,6 +14,11 @@ jQuery(document).ready(function($){
     ls.init({
         production: false
     });
+
+    /**
+     * Notification
+     */
+    ls.notification.init();
     
     $('html').removeClass('no-js');
     
@@ -47,8 +52,7 @@ jQuery(document).ready(function($){
      */
     $('[data-toggle="popover"]').popover();
     $('[data-toggle="tooltip"]').tooltip();
-    $('.btn').bsButton();
-     
+    
     /*
      * Modals
      */
@@ -58,14 +62,7 @@ jQuery(document).ready(function($){
         $(this).closest('.modal-content').find('form').submit();
     });
     
-    /*
-     * Пересчет модальных окон при закрытии вложенных
-     */
-//    $('.modal').on('hidden.bs.modal', function (e) {
-//        console.log($('.modal.show'))
-//        $($('.modal.show').get(0)).modal('handleUpdate')
-//    })
-    
+        
     /*
      * Дополнительная обработка табов в модальных окнах
      */
@@ -91,11 +88,7 @@ jQuery(document).ready(function($){
         }
     });
 
-    /*
-     * Lightbox
-     */
-//    $('[data-lightbox]').lsLightbox({ width:"100%", height:"100%" });
-
+   
     /**
      * Подтверждение удаления
      */
@@ -114,13 +107,6 @@ jQuery(document).ready(function($){
         });
     });
 
-
-    /**
-     * Notification
-     */
-    ls.notification.init();
-
-    
     
     /*
      * Форма с ajax отправкой и валидацией
@@ -129,26 +115,11 @@ jQuery(document).ready(function($){
         urls:{ validate: aRouter.ajax + 'validate'}
     });
     
-    
-    
-    // Подгрузка ajax
-    $('[data-ajax-list]').bsAjaxList();
-    
-    $('[data-ajax-btn]').bsAjaxButton()
-    
-    // Ajax поиск
-    $('[data-ajax-search]').bsAjaxSearch();
-    
+   
     /*
      * Button
      */
     $('.btn').bsButton();
-   
-    /*
-     * Автозавершение
-     */
-    $('[data-autocomplete]').bsAutocomplete();
-    
     
     /*
      * ReCaptcha

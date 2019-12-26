@@ -1,7 +1,7 @@
 {**
 * Основной лэйаут, который наследуют все остальные лэйауты
 *
-* @param boolean $layoutShowSidebar        Показывать сайдбар или нет, сайдбар не будет выводится если он не содержит блоков
+* @param boolean $layoutShowSidebar        Показывать  сайдбар или нет, сайдбар не будет выводится если он не содержит блоков
 * @param string  $layoutNavContent         Название навигации
 * @param string  $layoutNavContentPath     Кастомный путь до навигации контента
 * @param string  $layoutShowSystemMessages Показывать системные уведомления или нет
@@ -13,6 +13,7 @@
 
 {block 'layout_options' append}
     {$layoutShowSidebar = $layoutShowSidebar|default:true}
+    {$layoutShowSidebarRight = $layoutShowSidebarRight|default:true}
     {$layoutShowSystemMessages = $layoutShowSystemMessages|default:true}
     {$themeColor = {Config::Get('view.bs_theme.color')}}
     {$themeBg = {Config::Get('view.bs_theme.bg')}}
@@ -24,13 +25,12 @@
 {block 'layout_head' append}
     {* Получаем блоки для вывода в сайдбаре *}
     {if $layoutShowSidebar}
-        {show_blocks group='left' assign=layoutSidebarBlocks}
-
-        {$layoutSidebarBlocks = trim( $layoutSidebarBlocks )}
-        {$layoutShowSidebar = !!$layoutSidebarBlocks}
+        {show_blocks group='left' assign=sidebarLeftBlocks}
+        {show_blocks group='right' assign=sidebarRightBlocks}
+        
+        {$layoutShowSidebar = !!$sidebarLeftBlocks or !!$sidebarRightBlocks}
     {/if}
-
-
+   
 {/block}
 
 {block 'layout_body'}
@@ -43,171 +43,189 @@
     {block 'nav_main'}
         
         {capture name="brand"}
-            <img src="{$LS->Asset_GetWebPath('logo')}">
+            <a href="{router page='/'}" >
+                {asset name='logo' type='img'}
+            </a>
         {/capture}
 
         {component 'navbar' 
             classes = "bg-light pr-2 pl-0 py-0 ls-shadow-sm" 
-            bmods = "expand-{Config::Get('view.grid.collapse')} light" 
-            brand = [
-                text => $smarty.capture.brand,
-                url  => {router page='/'},
-                classes => 'p-0',
-                attributes => [
-                    style => "margin-bottom: -2px;"
-                ],
-                com     => 'link'
-            ]
+            mods    = "expand-{$collapse} light" 
+            before  = $smarty.capture.brand
             
-            items = [
+            items   = [
                 {insert name='block' block='BlockMenu' params=[ 'name' => "main", "activeItem" => $sMenuHeadItemSelect, "mods" => "main" ]}
             ]
-            after={component 'userbar'}
+
+            after   = {component 'userbar'}
         }
     {/block}
     
         
-        <div class="row pt-4 no-gutters {hook run='layout_container_class' action=$sAction}">
-            
-            {show_blocks group='up'}
-            
-            <div class="col-xl-1 "></div>
-            
-            {**
-            * Сайдбар
-            * Показываем сайдбар
+    <div class="row p-2 no-gutters {hook run='layout_container_class' action=$sAction}">
+
+        
+
+        <div class="col-xl-1 "></div>
+
+        <div class="col-12 col-xl-10">
+            {*
+                Полоса над основным контентом
             *}
-            {if $layoutShowSidebar}
-                <div class="col-12 col-{$breakpoint}-3 col-xl-2 layout-sidebar pr-{$breakpoint}-0">
-                    <div class="mx-2">
-                        {$layoutSidebarBlocks}
+            <div class="w-100">
+                
+                {block name="layout_page_header"} 
+                    {*
+                        Хлебные крошки
+                    *}
+                    {if $aBreadcrumbs}
+                        {component "breadcrumb" 
+                            hook    = 'breadcrumbs'
+                            classes = "bg-light"
+                            items   = $aBreadcrumbs}
+                    {/if}
+                {/block}
+                {*
+                    Блоки вверху страницы
+                *}
+                {show_blocks group='up'}
+            </div>
+
+            <div class="row no-gutters">
+                {**
+                * Сайдбар
+                * Показываем сайдбар слева
+                *}
+                {if !!$sidebarLeftBlocks}
+                    <div class="col-12 col-{$breakpoint}-3 layout-sidebar pr-{$breakpoint}-0">
+                        <div class="mx-2">
+                            {$sidebarLeftBlocks|trim}
+                        </div>
+                    </div>
+                {/if}
+
+                <div class="{if $layoutShowSidebar}col-12 col-{$breakpoint}-9 p-2{else}col-xl-12{/if} ">
+                    <div class="px-2">
+                        {hook run='layout_content_header_begin' action=$sAction}
+
+                        {block 'layout_page_title' hide}
+                            <h2 class="page-header">
+                                {$smarty.block.child}
+                            </h2>
+                        {/block}
+
+                        {block 'layout_content_header'}
+                            
+                            {* Навигация *}
+                            {if $layoutNav}
+                                {$_layoutNavContent = ""}
+
+                                {if is_array($layoutNav)}
+                                    {foreach $layoutNav as $layoutNavItem}
+                                        {if is_array($layoutNavItem)}
+                                            {component 'nav' 
+                                                mods    = 'pills' 
+                                                params  = $layoutNavItem 
+                                                assign  ="_layoutNavItemContent"}
+                                            {$_layoutNavContent = "$_layoutNavContent $_layoutNavItemContent"}
+                                        {else}
+                                            {$_layoutNavContent = "$_layoutNavContent $layoutNavItem"}
+                                        {/if}
+                                    {/foreach}
+                                {else}
+                                    {$_layoutNavContent = $layoutNav}
+                                {/if}
+
+                                {* Проверяем наличие вывода на случай если меню с одним пунктом автоматом скрывается *}
+                                {if $_layoutNavContent|strip:''}
+                                    {$_layoutNavContent}
+                                {/if}
+                            {/if}
+
+
+                            {* Системные сообщения *}
+                            {if $layoutShowSystemMessages}
+                                {if $aMsgError}
+                                    {foreach $aMsgError as $sMsgError}
+                                        {component 'alert' 
+                                            text        = $sMsgError.msg 
+                                            title       = $sMsgError.title 
+                                            mods        = 'danger' 
+                                            dismissible = true}
+                                    {/foreach}
+                                {/if}
+
+                                {if $aMsgNotice}
+                                    {foreach $aMsgNotice as $sMsgNotice}
+                                        {component 'alert' 
+                                            text        = $sMsgNotice.msg 
+                                            title       = $sMsgNotice.title 
+                                            mods        = 'primary' 
+                                            dismissible = true}
+                                    {/foreach}
+                                {/if}
+                            {/if}
+                        {/block}
+                        
+                        {hook run='layout_content_begin' action=$sAction}
+
+                        {block 'layout_content'}{/block}
+
+                        {hook run='layout_content_end' action=$sAction}
                     </div>
                 </div>
-            {/if}
-            
-            <div class="{if $layoutShowSidebar}col-12 col-{$breakpoint}-9 col-xl-8 mt-2 px-2 mt-{$breakpoint}-0
-                 {else}col-12 col-xl-10{/if} ">
-                <div class="px-2">
-                    {hook run='layout_content_header_begin' action=$sAction}
+                    
+                {**
+                 * Сайдбар
+                 * Показываем сайдбар справа
+                 *}
+                {if !!$sidebarRightBlocks}
+                    <div class="col-12 col-{$breakpoint}-3 layout-sidebar pr-{$breakpoint}-0">
+                        <div class="mx-2">
+                            {$sidebarRightBlocks|trim}
+                        </div>
+                    </div>
+                {/if}
 
-                    {block 'layout_page_title' hide}
-                        <h2 class="page-header">
-                            {$smarty.block.child}
-                        </h2>
-                    {/block}
-
-                    {block 'layout_content_header'}
-                        {* Навигация *}
-                        {if $layoutNav}
-                            {$_layoutNavContent = ""}
-
-                            {if is_array($layoutNav)}
-                                {foreach $layoutNav as $layoutNavItem}
-                                    {if is_array($layoutNavItem)}
-                                        {component 'nav' 
-                                            itemsClasses="m-1" 
-                                            mods    ='pills' 
-                                            params  =$layoutNavItem 
-                                            assign  =_layoutNavItemContent}
-                                        {$_layoutNavContent = "$_layoutNavContent $_layoutNavItemContent"}
-                                    {else}
-                                        {$_layoutNavContent = "$_layoutNavContent $layoutNavItem"}
-                                    {/if}
-                                {/foreach}
-                            {else}
-                                {$_layoutNavContent = $layoutNav}
-                            {/if}
-
-                            {* Проверяем наличие вывода на случай если меню с одним пунктом автоматом скрывается *}
-                            {if $_layoutNavContent|strip:''}
-                                <div class="ls-nav-group">
-                                    {$_layoutNavContent}
-                                </div>
-                            {/if}
-                        {/if}
-                        
-
-                        {* Системные сообщения *}
-                        {if $layoutShowSystemMessages}
-                            {if $aMsgError}
-                                {foreach $aMsgError as $sMsgError}
-                                    {component 'alert' text=$sMsgError.msg title=$sMsgError.title bmods='danger' dismissible=true}
-                                {/foreach}
-                            {/if}
-
-                            {if $aMsgNotice}
-                                {foreach $aMsgNotice as $sMsgNotice}
-                                    {component 'alert' text=$sMsgNotice.msg title=$sMsgNotice.title bmods='primary' dismissible=true}
-                                {/foreach}
-                            {/if}
-                        {/if}
-                    {/block}
-
-                    {hook run='layout_content_begin' action=$sAction}
-
-                    {block 'layout_content'}{/block}
-
-                    {hook run='layout_content_end' action=$sAction}
-                </div>
             </div>
-            
-
-            <div class="col-xl-1"></div>
         </div>
-                
-        {block 'layout_content_after'}{/block}
-        
-        {* Подвал *}
-        <footer class="w-100 footer">
-            {hook run='layout_footer_begin'}
-                {block 'layout_footer'}
-                    <div class="d-flex justify-content-center px-3">
-                        {capture name="img_logo"}
-                            <div class="mt-1" >
-                                <img class="mt-2" width="24" height="27" src="{$LS->Asset_GetWebPath('logo')}">
-                            </div>
-                        {/capture}
-                        
+
+        <div class="col-xl-1"></div>
+    </div>
+
+    {block 'layout_content_after'}{/block}
+
+    {* Подвал *}
+    <footer class="w-100 footer">
+        {hook run='layout_footer_begin'}
+            {block 'layout_footer'}
+                <div class="d-flex justify-content-center px-3">
+                    
+                    {if !$oUserCurrent}
                         {$items = [
-                            $smarty.capture.img_logo,
-                            [
-                                text    => $aLang.footer.nav.about.text,
-                                classes => "p-3"
+                            [   
+                                text        => {lang 'auth.login.title'},        
+                                attr        => [ "data-toggle"=>"tab", role=>"tab"], 
+                                url         => "#tab_login",
+                                role        => "tab"
                             ],
-                            [
-                                text    => $aLang.footer.nav.contacts.text,
-                                classes => "p-3"
+                            [ 
+                                text        => {lang 'auth.registration.title'}, 
+                                attr        => [ "data-toggle"=>"tab", role=>"tab"], 
+                                url         => "#tab_register" 
                             ]
                         ]}
-
-                        {if !$oUserCurrent}
-                            {$items[] = [   
-                                icon        => [ icon => "sign-in-alt", display => "s", classes => "d-md-none d-inline"],
-                                text        => "<span class='d-none d-md-block'>{lang 'auth.login.title'}</span>",        
-                                attributes  => [ "data-toggle"=>"modal-tab", "data-target"=>"#nav-tab-authlogin"], 
-                                url         => "{router page='auth/login'}",
-                                classes => "p-3",
-                                liAttributes => [ "data-toggle"=>"modal", "data-target"=>"#modalAuth"]
-                            ]}
-                            {$items[] =[ 
-                                icon        => [ icon => "user-plus", display => "s", classes => "d-md-none d-inline"],
-                                text        => "<span class='d-none d-md-block'>{lang 'auth.registration.title'}</span>", 
-                                attributes  => [ "data-toggle"=>"modal-tab", "data-target"=>"#nav-tab-authregister"], 
-                                url         => "{router page='auth/register'}" ,
-                                classes     => "p-3",
-                                liAttributes => [ "data-toggle"=>"modal", "data-target"=>"#modalAuth"]
-                            ]}
-                        {/if}
+                    {/if}
 
 
-                        {component "nav" 
-                            classes = "footer-nav"
-                            items = $items}
-                    </div>
-                {/block}
-            {hook run='copyright'}
-            {hook run='layout_footer_end'}
-        </footer>
+                    {component "nav" 
+                        hook    = "footer_nav"
+                        classes = "footer-nav"
+                        items   = $items}
+                </div>
+            {/block}
+        {hook run='layout_footer_end'}
+    </footer>
         
     {block "layout_modals"}
         {* Подключение модальных окон *}
@@ -216,8 +234,6 @@
         {else}
             {component "auth.modal"}
         {/if}
-        
-
         
     {/block}
     

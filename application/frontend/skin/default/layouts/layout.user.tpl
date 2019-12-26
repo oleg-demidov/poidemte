@@ -4,14 +4,7 @@
 {extends './layout.base.tpl'}
 
 {block 'layout_content'}
-    <u>{$oUserProfile->getLogin()}</u><br>
-    <h2>{$oUserProfile->getName()}</h2>
-    
-    {hook run='profile_about_before'}  
-    
-    {if $oUserProfile->getAbout()}
-        {component 'text' text=$oUserProfile->getAbout()}
-    {/if}
+    {component "user.header" user=$oUserProfile}
     
     {show_blocks group='profile'}
 

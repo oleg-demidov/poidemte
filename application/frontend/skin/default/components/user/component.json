@@ -3,17 +3,18 @@
     "version": "1.0.0",
     
     "templates": {
-        "user": "user.tpl",
-        "nav":"nav.tpl",
-        "photo":"photo.tpl",
-        "item":"user-item.tpl",
-        "inline":"user-inline.tpl",
-        "list":"user-list.tpl",
+        "user"      : "user.tpl",
+        "nav"       : "nav.tpl",
+        "photo"     : "photo.tpl",
+        "item"      : "user-item.tpl",
+        "inline"    : "user-inline.tpl",
+        "list"      : "user-list.tpl",
+        "header"    : "header.tpl",
         
-        "block-nav":"blocks/block-nav.tpl",
-        "block-actions":"blocks/block-actions.tpl",
-        "block-photo":"blocks/block-photo.tpl",
-        "block-settings-nav":"blocks/block-settings-nav.tpl"
+        "block-nav"     : "blocks/block-nav.tpl",
+        "block-actions" : "blocks/block-actions.tpl",
+        "block-photo"   : "blocks/block-photo.tpl",
+        "block-settings-nav": "blocks/block-settings-nav.tpl"
     },
     "styles": {
     }

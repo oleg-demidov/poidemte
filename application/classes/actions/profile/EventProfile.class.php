@@ -16,6 +16,11 @@ class ActionProfile_EventProfile extends Event {
     {
         $this->sMenuHeadItemSelect = 'index';
         $this->SetTemplateAction('index');
+        
+        $this->assign('aBreadcrumbs', [
+            ['text' => 'Главная', 'url' => Router::GetPath('/')],
+            ['text' => 'Профиль', 'url' => $this->oUserProfile->getProfileUrl()],
+        ]);
     }
     
     
