@@ -358,12 +358,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/olezhikz/ls-module-asset.git",
-                "reference": "922222aff8b3d8b796308ef0c03be6852663a64a"
+                "reference": "8e1bf19ef4a77f6fb3ebb635974b16f5733bd971"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/olezhikz/ls-module-asset/zipball/922222aff8b3d8b796308ef0c03be6852663a64a",
-                "reference": "922222aff8b3d8b796308ef0c03be6852663a64a",
+                "url": "https://api.github.com/repos/olezhikz/ls-module-asset/zipball/8e1bf19ef4a77f6fb3ebb635974b16f5733bd971",
+                "reference": "8e1bf19ef4a77f6fb3ebb635974b16f5733bd971",
                 "shasum": ""
             },
             "require": {
@@ -386,7 +386,7 @@
                 }
             ],
             "description": "Модуль ресурсов для Livetreet",
-            "time": "2019-09-13T11:46:30+00:00"
+            "time": "2019-12-26T17:26:46+00:00"
         },
         {
             "name": "livestreet/dbsimple",
@@ -1126,16 +1126,16 @@
         },
         {
             "name": "phpmailer/phpmailer",
-            "version": "v6.1.4",
+            "version": "v6.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPMailer/PHPMailer.git",
-                "reference": "c5e61d0729507049cec9673aa1a679f9adefd683"
+                "reference": "c2796cb1cb99d7717290b48c4e6f32cb6c60b7b3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/c5e61d0729507049cec9673aa1a679f9adefd683",
-                "reference": "c5e61d0729507049cec9673aa1a679f9adefd683",
+                "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/c2796cb1cb99d7717290b48c4e6f32cb6c60b7b3",
+                "reference": "c2796cb1cb99d7717290b48c4e6f32cb6c60b7b3",
                 "shasum": ""
             },
             "require": {
@@ -1184,7 +1184,7 @@
                 }
             ],
             "description": "PHPMailer is a full-featured email creation and transfer class for PHP",
-            "time": "2019-12-10T11:17:38+00:00"
+            "time": "2020-05-27T12:24:03+00:00"
         },
         {
             "name": "psr/http-message",
@@ -1405,9 +1405,9 @@
             "authors": [
                 {
                     "name": "Ma Bingyao",
-                    "role": "Developer",
                     "email": "mabingyao@gmail.com",
-                    "homepage": "https://github.com/xxtea/xxtea-php"
+                    "homepage": "https://github.com/xxtea/xxtea-php",
+                    "role": "Developer"
                 }
             ],
             "description": "XXTEA is a fast and secure encryption algorithm. This is a XXTEA library for PHP.",
